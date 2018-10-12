@@ -404,10 +404,6 @@
 					console.log(request.getResponseHeader('isLast'));
 					parent.fadeOut();
 					$(data).appendTo(parent.fadeIn());
-					// item=Object.values(data.items);
-					// for($i=0;$i<item.length;$i++){
-					// 	$('<tr data-item="works"><th scope="row">'+item[$i].title+'</th><td><span><a href="knowledge.php?Cell+biology">'+item[$i].branch_id+'</a></span></td><td class="mob_off description_work"><p>'+item[$i].text+'</p></td><td class="vote_list"><a href="'+item[$i].link+'" class="" target="blank"><span>view project</span> <i class="fa fa-external-link"></i></a></td></tr>').appendTo(parent);						
-					// }
 				});
 			});
 		</script>
