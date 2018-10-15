@@ -123,8 +123,8 @@
 							<!-- Login Form -->
 							<form method="POST" action="{{route('logIn')}}">
 								{{csrf_field()}}
-								<input type="text" id="login" class="fadeIn first" name="login" placeholder="login">
-								<input type="password" id="password" class="fadeIn first" name="password" placeholder="password">
+								<input type="text" id="login" class="" name="login" placeholder="login">
+								<input type="password" id="password" class=" " name="password" placeholder="password">
 								<!--input type="submit" class="fadeIn fourth" value="Log In" -->
 								<br>
 								<button class="login_button" type="submit">Log In</button>
@@ -136,7 +136,7 @@
 							<form>
 								<p class="youare">In order to vote 
 			login in your account</p>
-								<a href="#" class="btn btn-default facebook"> <i class="fa fa-facebook modal-icons"></i> Sign In with Facebook </a>
+								<a href="#" data-dismiss="modal" class="btn btn-default facebook" data-toggle="modal" data-target="#register_user_step_2"> <i class="fa fa-facebook modal-icons"></i> Sign In with Facebook </a>
 							</form>
 							
 						</div>
@@ -397,6 +397,71 @@
 			</button>
 			
 		</div>
+		<div class="">
+			
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+<!-- BEGIN # MODAL register step 2 user -->
+<div class="modal fade" id="register_user_step_2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div id="formContent" class="formContent">
+		<!--button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+		</button-->
+		<div class="fadeIn first">
+			<div class="popap_user_img_hi">
+				<img src="img/scientists/1.png" alt="">
+			</div>
+		</div>
+		
+		<div class="paragraph_reg fadeIn first">
+
+			<p class="youare">Hi User Name</p>
+
+			<div class="block_1_reg">
+				<p>Choose from the list which is closest to you</p>
+				   <div class="funkyradio">
+			        <div class="funkyradio-info">
+			            <input type="radio" name="radio" id="radio1" />
+			            <label for="radio1">Nutrition</label>
+			        </div>
+			        <div class="funkyradio-info">
+			            <input type="radio" name="radio" id="radio2" />
+			            <label for="radio2">Fitness & Sport</label>
+			        </div>
+			        <div class="funkyradio-info">
+			            <input type="radio" name="radio" id="radio3" />
+			            <label for="radio3">Wellnes & SPA</label>
+			        </div>
+			        <div class="funkyradio-info">
+			            <input type="radio" name="radio" id="radio4" />
+			            <label for="radio4">Mental Health</label>
+			        </div>
+			        <div class="funkyradio-info">
+			            <input type="radio" name="radio" id="radio5" />
+			            <label for="radio5">Phisioterapy</label>
+			        </div>
+			    </div>
+			</div>
+
+			<div class="block_2_reg">
+				<div class="checkbox">
+		          <label>
+		            <input type="checkbox" value="">
+		            <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
+		            Option one is this and that — be sure to include why it
+
+		          </label>
+		        </div>
+			</div>
+
+			<button type="button" class="btn add_form_field"" data-dismiss="modal" aria-label="Close">
+			<span>Finish register</span>
+			</button>
+			
+		</div> 
 		<div class="">
 			
 		</div>
