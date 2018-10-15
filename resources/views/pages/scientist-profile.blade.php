@@ -393,17 +393,20 @@
 		<script type="text/javascript">
 			$('.getMore').click(function(e){
 				e.preventDefault();
-				toCount=$(this).data('tocount');
+				$this=$(this);
+				toCount=$this.data('tocount');
 				parent=$('[data-item='+toCount+']').parent();
 				count=$('[data-item='+toCount+']').length;
 				$.get("{{route('getScItems')}}",{
 					_token:"{{csrf_token()}}",
 					item:toCount,
-					number:count
+					number:count,
+					scientist:"{{$user->id}}",
 				},function(data,status,request){
-					console.log(request.getResponseHeader('isLast'));
-					parent.fadeOut();
-					$(data).appendTo(parent.fadeIn());
+					if(parseInt(request.getResponseHeader('isLast'))){
+						$this.hide();
+					}
+					$(data).appendTo(parent);
 				});
 			});
 		</script>

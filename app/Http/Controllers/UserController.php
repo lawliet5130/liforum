@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\ScientistApplied;
 use App\Branch;
 use App\Country;
+use App\ScientistAccount;
 
 class UserController extends Controller
 {
@@ -52,7 +53,7 @@ class UserController extends Controller
     }
 
     public function getScItems(Request $request){
-		$user=Auth::guard('profiles')->user();
+		(Auth::guard('profiles')->check())? $user=Auth::guard('profiles')->user() : $user=ScientistAccount::find($request->scientist);
 		$items=$user->{$request->item}->sortByDesc('created_at')->slice($request->number)->take(5)->transform(function ($item, $key) {
 	    	$item->branch_id=$item->branch->name;
 	    	return $item;
