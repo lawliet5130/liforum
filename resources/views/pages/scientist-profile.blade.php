@@ -199,9 +199,7 @@
 						      <a data-fancybox href="https://www.youtube.com/watch?v=_sI_Ps7JSEk">
 						        <img class="card-img-top img-fluid" src="http://img.youtube.com/vi/_sI_Ps7JSEk/mqdefault.jpg" />
 						      </a>
-						      <div class="card-body">
-						        <p class="card-text">Direct link to YouTube</p>
-						      </div>
+						     
 						    </div>
 							<h4>{{$video->title}}</h4>
 							<h5>{{$video->branch->name}}</h5>

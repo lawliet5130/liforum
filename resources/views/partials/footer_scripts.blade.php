@@ -6,6 +6,8 @@
 <script src="/js/wow.js"></script>
 <script src="/js/index.js"></script>
 
+
+<!--fancybox js-->
 <script src="/js/jquery.fancybox.min.js"></script>
 
 <script type="text/javascript">
