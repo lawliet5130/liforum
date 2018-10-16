@@ -187,37 +187,23 @@
 						</tbody>
 					</table>
 					@endif
-					@if($user->works->count()>5)<div class="button_center_more_def"><a href="" data-tocount="works" class="btn btn-secondary getMore">More Works</a></div>@endif
+					@if($user->works->count()>5)<div class="button_center_more_def"><a href="" data-tocount="works" data-quantity="5" class="btn btn-secondary getMore">More Works</a></div>@endif
 				</div>
 				<div class="video_personal">
-					<h2>Video <span>(10)</span></h2>
+					<h2>Video <span>({{$user->videos->count()}})</span></h2>
 					<div class="line_title_left"></div>
 					<div class="row">
-						<div class="col-md-3">
+						@foreach($user->videos->sortByDesc('created_at')->take(4) as $video)
+						<div class="col-md-3" data-item="videos">
 							<iframe src="https://www.youtube.com/embed/c_OmbkaM4qE?rel=0&amp;showinfo=0" allow="autoplay; encrypted-media" allowfullscreen="" width="" height="180" frameborder="0"></iframe>
-							<p class="description_video_title">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-							</p>
-						</div><div class="col-md-3">
-							<iframe src="https://www.youtube.com/embed/yROROK-AmBI?rel=0&amp;showinfo=0" allow="autoplay; encrypted-media" allowfullscreen="" width="" height="180" frameborder="0"></iframe>
-
-							<p class="description_video_title">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-							</p>
-						</div><div class="col-md-3">
-							<iframe src="https://www.youtube.com/embed/c7PbBG1B_IE?rel=0&amp;showinfo=0" allow="autoplay; encrypted-media" allowfullscreen="" width="" height="180" frameborder="0"></iframe>
-							<p class="description_video_title">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-							</p>
-						</div><div class="col-md-3">
-							<iframe src="https://www.youtube.com/embed/j-Eb7k87gO0?rel=0&amp;showinfo=0" allow="autoplay; encrypted-media" allowfullscreen="" width="" height="180" frameborder="0"></iframe>
-							<p class="description_video_title">
-								Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-							</p>
+							<h4>{{$video->title}}</h4>
+							<h5>{{$video->branch->name}}</h5>
+							<p class="description_video_title">{{$video->description}}</p>
 						</div>
+						@endforeach
 					</div>
 					<div class="clearfix"></div>
-					<div class="button_center_more_def"><a href="" class="btn btn-secondary">More Videos</a></div>
+					@if($user->videos->count()>4)<div class="button_center_more_def"><a href="" data-tocount="videos" data-quantity="4" class="btn btn-secondary getMore">More Videos</a></div>@endif
 				</div>        
 				<div class="news_personal">
 					<h2>News about David Sinclair <span>(10)</span></h2>
@@ -395,12 +381,14 @@
 				e.preventDefault();
 				$this=$(this);
 				toCount=$this.data('tocount');
+				quantity=$this.data('quantity');
 				parent=$('[data-item='+toCount+']').parent();
 				count=$('[data-item='+toCount+']').length;
 				$.get("{{route('getScItems')}}",{
 					_token:"{{csrf_token()}}",
 					item:toCount,
 					number:count,
+					quantity:quantity,
 					scientist:"{{$user->id}}",
 				},function(data,status,request){
 					if(parseInt(request.getResponseHeader('isLast'))){
