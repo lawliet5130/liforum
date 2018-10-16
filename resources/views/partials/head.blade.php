@@ -7,3 +7,6 @@
 	<link href="/css/bootsnav.css" rel="stylesheet">
 	<link href="/css/style.css" rel="stylesheet">
 	<link href="/css/responsive.css" rel="stylesheet">
+
+	<!--Fancybox style-->
+	<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.min.css">

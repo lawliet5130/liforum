@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\ScientistApplied;
 use App\Branch;
 use App\Country;
+use App\ScientistAccount;
 
 class UserController extends Controller
 {
@@ -52,12 +53,12 @@ class UserController extends Controller
     }
 
     public function getScItems(Request $request){
-		$user=Auth::guard('profiles')->user();
-		$items=$user->{$request->item}->sortByDesc('created_at')->slice($request->number)->take(5)->transform(function ($item, $key) {
+		(Auth::guard('profiles')->check())? $user=Auth::guard('profiles')->user() : $user=ScientistAccount::find($request->scientist);
+		$items=$user->{$request->item}->sortByDesc('created_at')->slice($request->number)->take($request->quantity)->transform(function ($item, $key) {
 	    	$item->branch_id=$item->branch->name;
 	    	return $item;
 		})->values();
-		($request->number+5 > $user->{$request->item}->count())? $isLast=1 : $isLast=0;
-		return response()->view('partials.add-work',compact('items'))->header('isLast',$isLast);
+		($request->number+$request->quantity >= $user->{$request->item}->count())? $isLast=1 : $isLast=0;
+		return response()->view('partials.add-'.str_singular($request->item),compact('items'))->header('isLast',$isLast);
 	}
 }
