@@ -195,7 +195,14 @@
 					<div class="row">
 						@foreach($user->videos->sortByDesc('created_at')->take(4) as $video)
 						<div class="col-md-3" data-item="videos">
-							<iframe src="https://www.youtube.com/embed/c_OmbkaM4qE?rel=0&amp;showinfo=0" allow="autoplay; encrypted-media" allowfullscreen="" width="" height="180" frameborder="0"></iframe>
+							 <div class="card">
+						      <a data-fancybox href="https://www.youtube.com/watch?v=_sI_Ps7JSEk">
+						        <img class="card-img-top img-fluid" src="http://img.youtube.com/vi/_sI_Ps7JSEk/mqdefault.jpg" />
+						      </a>
+						      <div class="card-body">
+						        <p class="card-text">Direct link to YouTube</p>
+						      </div>
+						    </div>
 							<h4>{{$video->title}}</h4>
 							<h5>{{$video->branch->name}}</h5>
 							<p class="description_video_title">{{$video->description}}</p>
