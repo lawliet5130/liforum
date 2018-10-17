@@ -387,8 +387,9 @@
 				$this=$(this);
 				toCount=$this.data('tocount');
 				quantity=$this.data('quantity');
-				parent=$('[data-item='+toCount+']').parent();
+				parent=$('[data-item='+toCount+']').parents('table');
 				count=$('[data-item='+toCount+']').length;
+				parent.css({'transition':'.5s','opacity':'0'});
 				$.get("{{route('getScItems')}}",{
 					_token:"{{csrf_token()}}",
 					item:toCount,
@@ -399,7 +400,7 @@
 					if(parseInt(request.getResponseHeader('isLast'))){
 						$this.hide();
 					}
-					$(data).appendTo(parent);
+					$(data).appendTo(parent.css('opacity','1'));
 				});
 			});
 		</script>

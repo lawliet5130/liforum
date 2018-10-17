@@ -280,6 +280,15 @@ img{
     background: #2ecaf7;
     color:#fff;
 }
+.btn-group-lg > .btn, .btn-lg {
+padding: 5px 50px;
+font-size: 18px;
+line-height: 2;
+font-weight: bold;
+border: 0;
+margin-top: 20px;
+}
+
 
 
 /*Animate*/
@@ -3512,6 +3521,264 @@ border-radius: 4px;
 
 .more {
   display: none;
+}
+
+
+.page_header_title {
+    padding-top: 72px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 36px;
+    margin: 0;
+}
+
+.event_page {
+    background: url(../img/concurs.png);
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+.z-1{
+    z-index: -1;
+    opacity: 0;
+    width: 100%;
+}
+
+.event_text_header {
+position: absolute;
+color: #fff;
+width: 360px;
+margin-right: 0;
+right: 10%;
+top: 230px;
+}
+.event_text_header p{
+font-size: 14px;
+font-weight: bold;
+}
+.event_text_header p.first{
+font-size: 18px;
+font-weight: bold;
+}
+.relative {
+  position: relative;;
+}
+/*
+.event_text_header2 {
+    position: absolute;
+top: 200px;
+color: #fff;
+width: 40%;
+}*/
+
+.cruise_text_1 {
+  margin-bottom: 15px;
+}
+
+.list_participanti_top li  {
+border-bottom: 1px dashed #ccc;
+padding-bottom: 20px;
+margin-bottom: 20px;
+ /*display: table;*/
+}
+.list_participanti_top li .avatar_home {
+  width: 150px;
+  display: table-cell;
+  vertical-align: top;
+  text-align: center;
+  position: relative;
+}
+.list_participanti_top li .scients_home_date {
+  display: table-cell;
+    vertical-align: top;
+}
+.list_participanti_top li .info_likes_event {
+  display: table-cell;
+    vertical-align: top;
+width: 150px;
+text-align: right;
+}
+
+.icon_container {
+  color: #999;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.icon_container span{
+  
+  margin-right: 10px;
+
+}
+
+.list_participanti_top li .avatar_home img{
+  width: 100px;
+}
+.list_participanti_top li .rating_home {
+    position: absolute;
+    height: 30px;
+    line-height: 28px;
+    width: 30px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 0 0 20px -10px #000;
+    font-size: 18px;
+    border-radius: 100%;
+    font-weight: bold;
+    left: 20px;
+}
+.event_page_bottom h1{
+  font-size: 44px;
+  margin: 50px 0 30px;
+}
+.event_page_bottom h1 span{
+  font-size: 24px;
+}
+
+.event_page_bottom {
+  margin-top: -40px;
+}
+
+.event_bottom_block {
+  margin-top: 30px;
+}
+
+.event_bottom_block_iner  {
+display: table-cell;
+padding-right: 30px;
+}
+.event_bottom_block_iner span {
+font-size: 24px;
+font-weight: bold;
+padding-top: 5px;
+}
+.event_bottom_block_up span{
+  color: #67942d;
+}
+.event_bottom_block_down span{
+  color: #b03206;
+}
+.event_bottom_block_iner  img {
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  margin-right: 10px;
+  margin-top: -10px;
+}
+.avatar_popap img {
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  margin-right: 10px;
+ 
+}
+
+.btn-like {
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+  background: #67942d;
+  color: #fff;
+  padding: 0;
+line-height: 0;
+font-size: 18px;
+margin-top: -10px;
+}
+.btn-like:hover {
+
+  background: #4d7b12;
+  color: #fff;
+
+}
+.btn-dislike {
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+  background: #b03206;
+  color: #fff;
+  padding: 0;
+line-height: 0;
+font-size: 18px;
+margin-top: -10px;
+}
+.btn-dislike:hover {
+  background:#a40202;
+  color: #fff;
+}
+.links_event{
+display: table-cell;
+float: right;
+margin-top: -30px;}
+
+.btn-facebook {
+  background: #3b579d;
+  color: #fff;
+  border-radius: 100px;
+text-transform: uppercase;
+padding: 7px 20px;
+}
+.btn-facebook:hover {
+
+  color: #fff;
+
+}
+
+.default_points {
+  height: 30px;
+  width: 30px;
+  background: #ddd;
+  color: #555 !important;
+  border-radius: 30px;
+  display: contents;
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+
+.bloc_height_scrol {
+  max-height: 500px;
+  overflow: auto;
+}
+
+.like_butons {
+  margin-top: 15px;
+}
+
+.bloc_height_scrol li {
+ text-align: left;
+padding: 20px 30px;
+border-top: 1px dashed #ddd;
+}
+.bloc_height_scrol li div{
+  display: inline-block;
+}
+
+.actionn_popap {
+  float: right;
+font-size: 18px;
+color: #ccc;
+}
+
+.padding-0 {
+  padding:0; 
+}
+
+.blog-posts a {
+  display: none;
+}
+
+.blog-post {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px dashed #ccc;
+}
+
+.top_icon {
+  position: absolute;
+  top: -10px;
+}
+
+.checked {
+    color: orange;
 }
 
 .popap_user_img_hi {
