@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ScientistAccount;
+use App\Startup;
 
 class MainController extends Controller
 {
@@ -15,5 +16,11 @@ class MainController extends Controller
 		$scs=ScientistAccount::get(['name','surname','id','image','branch_id','country_code']);
 
 		return view('pages.scientists',compact('scs'));
+	}
+
+	public function getStartups(){
+		$startups=Startup::withCount('scientists')->get();
+
+		return view('pages.startups',compact('startups'));
 	}
 }

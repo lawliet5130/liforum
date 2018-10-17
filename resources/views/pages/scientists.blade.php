@@ -54,7 +54,7 @@
 										<img src="/storage/{{$sc->image}}" alt="">
 										<span>
 											<div class="name_specialy_blok">
-												<a href="{{route('scientistProfile',$sc->id)}}">David Sinclair</a> <br> 
+												<a href="{{route('scientistProfile',$sc->id)}}">{{$sc->name}} {{$sc->surname}}</a> <br> 
 												<span><a href="knowledge.php?Genomics">{{$sc->branch->name}}</a></span>
 											</div>
 										</span>
@@ -63,7 +63,7 @@
 									<td>789</td>
 									<td class="mob_off">58</td>
 									<td class="mob_off">{{$sc->country->code}}</td>
-									<td class="mob_off">10</td>
+									<td class="mob_off">{{$sc->works->count()}}</td>
 									<td class="vote_list"><a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#log-u-modal">
 										<i class="fa fa-thumbs-up"> </i> <span>VOTE</span>
 									</a></td>

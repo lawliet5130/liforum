@@ -38,11 +38,11 @@
 				</div>
 				<div class="clearfix"></div>
 				@if(Route::currentRouteName()=="logedProfile")
-					<a href="scientist_login_settings.php" class="btn btn-secondary"><i class="fa fa-edit"></i> Edit profile</a>
+					<a href="{{route('editProfile')}}" class="btn btn-secondary"><i class="fa fa-edit"></i> Edit profile</a>
 					<br>
 					<br>
 				@endif
-				<div class="sharethis-inline-share-buttons "></div>
+				<div class="sharethis-inline-share-buttons"></div>
 
 			</div>
 			<div class="col-md-4 links_soc_prof">
@@ -195,12 +195,11 @@
 					<div class="row">
 						@foreach($user->videos->sortByDesc('created_at')->take(4) as $video)
 						<div class="col-md-3" data-item="videos">
-							 <div class="card">
-						      <a data-fancybox href="https://www.youtube.com/watch?v=_sI_Ps7JSEk">
-						        <img class="card-img-top img-fluid" src="http://img.youtube.com/vi/_sI_Ps7JSEk/mqdefault.jpg" />
-						      </a>
-						     
-						    </div>
+							<div class="card">
+								<a data-fancybox href="{{$video->link}}">
+									<img class="card-img-top img-fluid" src="https://img.youtube.com/vi/{{str_limit(str_after($video->link,'watch?v='),11,'')}}/mqdefault.jpg"/>
+								</a>
+							</div>
 							<h4>{{$video->title}}</h4>
 							<h5>{{$video->branch->name}}</h5>
 							<p class="description_video_title">{{$video->description}}</p>

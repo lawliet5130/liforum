@@ -7,7 +7,7 @@
 						<li><a href="{{route('getHome')}}">Home</a></li>
 						<li><a href="{{route('getScList')}}">Scientists</a></li>
 						<li><a href="knowledge.php">Knowledge </a></li>
-						<li><a href="startups.php">Startups</a></li>
+						<li><a href="{{route('getStartups')}}">Startups</a></li>
 						<li><a href="about.php">About</a></li>
 					</ul>
 				</div>

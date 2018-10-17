@@ -31,6 +31,10 @@ class ScientistAccount extends Authenticatable
 		return $this->hasMany('App\Video','scientist_id');
 	}
 
+	public function startups(){
+		return $this->belongsToMany('App\Startup','scientist_startup','scientist_id');
+	}
+
 	public function getGender(){
 		switch ($this->gender) {
 			case '0':

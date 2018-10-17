@@ -30,6 +30,7 @@ class UserController extends Controller
     	}
 
     	$user->gender=$user->getGender();
+        dd($user->startups);
 
     	return view('pages.scientist-profile',compact('user','regCheck','code'));
     }
