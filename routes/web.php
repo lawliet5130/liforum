@@ -30,6 +30,10 @@ Route::post('/scientist-apply','UserController@scientistApply')->name('scientist
 Route::get('/scientist/{scientist}','UserController@scientistProfile')->name('scientistProfile');
 Route::get('/sc-profile','UserController@logedProfile')->middleware('scLoged')->name('logedProfile');
 Route::get('/sc-profile/edit','UserController@editProfile')->name('editProfile');
+Route::post('/vote-startup','UserController@voteStartup')->name('voteStartup');
+
+// --------------Scientist edit routes--------------
+Route::post('/gendata-edit','UserController@genDataEdit')->name('genDataEdit');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

@@ -49,6 +49,8 @@
 						<p class="name_home_startup">
 							<a href="startup.php">{{$sup->title}}</a>
 							<a href="http://retrotope.com" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
+							@if(\Auth::guard('profiles')->check())<button data-tovote="{{$sup->id}}" data-toggle="modal" data-target="#checkVote">vote!</button>@endif
+							<span class="supVoted" style="color:brown;">voted</span>
 						</p>
 						<p class="domeniu_home_startup"><a href="knowledge.php?Biotech">{{$sup->branch->name}}</a></p>
 					</div>
@@ -66,4 +68,53 @@
 
 		</div>
 	</div>
+
+	<div class="modal fade" id="checkVote" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div id="formContent" class="formContent">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+		</button>
+
+			accept rules:<input type="checkbox" name="voteRulesCheck">
+			<button type="button" data-startup="0" class="btn add_form_field" data-dismiss="modal" aria-label="Close" disabled>
+			<span>I am sure!</span>
+			</button>
+			
+		</div>
+		<div class="">
+			
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+	@endsection
+	@section('add_scripts')
+		<script type="text/javascript">
+			$('button[data-tovote]').click(function(){
+				$('button[data-startup]').data('startup',$(this).data('tovote'));
+			});
+
+			$('input[name=voteRulesCheck]').click(function(){
+				if($(this).is(':checked')){
+					$('button[data-startup]').prop('disabled',false);
+				}else{
+					$('button[data-startup]').prop('disabled',true);
+				}
+			});
+
+			$('button[data-startup]').click(function(){
+				$this=$(this);
+				$startup=$this.data('startup');
+				$.post("{{route('voteStartup')}}",{
+					_token:"{{csrf_token()}}",
+					startup:$startup
+				},function(data,status){
+					if(data){
+						parent=$('button[data-tovote='+$startup+']').parents('li');
+						$('button[data-tovote='+$startup+']').fadeOut();
+						parent.find('.supVoted').fadeIn();
+					}
+				});
+			});
+		</script>
 	@endsection

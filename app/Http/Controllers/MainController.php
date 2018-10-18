@@ -19,7 +19,9 @@ class MainController extends Controller
 	}
 
 	public function getStartups(){
-		$startups=Startup::withCount('scientists')->get();
+		$startups=Startup::withCount('scientists')->orderBy('scientists_count','desc')->get();
+		// dd($startups->first()->scientists->find(\Auth::guard('profiles')));
+		dd(\Auth::guard('profiles')->user()->startups->find(1));
 
 		return view('pages.startups',compact('startups'));
 	}

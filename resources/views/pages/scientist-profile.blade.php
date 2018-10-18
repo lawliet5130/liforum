@@ -58,18 +58,18 @@
 					<div class="ranting_individual_left">
 						<i class="fa fa-star"></i>
 						<p class="name_date">Ranking</p>
-						<p class="number_date">589</p>
-						<a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#log-u-modal">
+						<p class="number_date">Under development</p>
+						<!-- <a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#log-u-modal">
 							<i class="fa fa-thumbs-up"> </i> <span>VOTE</span>
-						</a>
+						</a> -->
 					</div>
 					<div class="ranting_individual_right">
 						<i class="fa fa-bar-chart"></i>
 						<p class="name_date">Voted startups</p>
-						<p class="number_date">58</p>
-						<a  class="btn btn-secondary scrollto" href="#voted_personal">
+						<p class="number_date">Under development</p>
+						<!-- <a  class="btn btn-secondary scrollto" href="#voted_personal">
 							<span>View projects</span>
-						</a>
+						</a> -->
 
 
 					</div>
@@ -85,9 +85,10 @@
 				</div>
 			</div>
 			<div class="voted_personal" id="voted_personal">
-				<h2>Voted <span>(10)</span></h2>
+				<h2>Voted <span>(0)</span></h2>
 				<div class="line_title_left"></div>
-				<ul class="list_startups_individual">
+				<span>Under development</span>
+				<ul class="list_startups_individual hidden">
 					<li class="wow fadeInRight" data-wow-duration="1s">
 						<div class="ratingposition_home_startup">
 							<p class="pe_cine_votat"><img src="/img/scientists/6.png" alt="" class="avatar_big"></p>
@@ -152,7 +153,7 @@
 							<div class="clearfix"></div>
 						</li>
 					</ul>
-					<div class="button_center_more_def"><a href="" class="btn btn-secondary">More Voted</a></div>
+					<div class="button_center_more_def hidden"><a href="" class="btn btn-secondary">More Voted</a></div>
 				</div>        
 				<div class="works_personal">
 					<h2>Works <span>({{$user->works->count()}})</span></h2>
