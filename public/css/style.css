@@ -1233,7 +1233,7 @@ input[type=text] {
   background-color: #f6f6f6;
   border: none;
   color: #0d0d0d;
-  padding: 10px 25px;
+  padding: 10px 19px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -3002,7 +3002,7 @@ padding: 7px 20px;
 background-color: #f6f6f6;
 border: none;
 color: #0d0d0d;
-padding: 0px  0 0 28px; 
+padding: 0px  0 0 15px; 
 
 text-decoration: none;
 display: inline-block;
@@ -4003,4 +4003,20 @@ padding: 0;
 
      content: '\2714';
 
+}
+
+.video_personal h4 {
+  font-size: 18px;
+  /*font-weight: normal;*/
+  margin: 0;
+}
+.video_personal h5 {
+  font-size: 12px;
+ /* font-weight: normal;*/
+  margin: 0;
+}
+.video_personal p {
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0;
 }
