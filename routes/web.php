@@ -47,7 +47,7 @@ Route::prefix('sc-profile')->middleware(['scLoged'])->group(function(){
 
 	// --------------Scientist edit routes--------------
 	Route::post('/gendata-edit','UserController@genDataEdit')->name('genDataEdit');
-	Route::post('/add-work','UserController@addWork')->name('addWork');
+	Route::post('/add-item','UserController@addItem')->name('addItem');
 	Route::post('/edit-item','UserController@editItem')->name('editItem');
 	Route::post('/delete-item','UserController@deleteItem')->name('deleteItem');
 });

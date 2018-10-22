@@ -12,6 +12,7 @@ use App\Branch;
 use App\Country;
 use App\ScientistAccount;
 use App\Work;
+use App\Video;
 
 use TCG\Voyager\Http\Controllers\ContentTypes\Image as StoreImage;
 use TCG\Voyager\Facades\Voyager;
@@ -89,7 +90,7 @@ class UserController extends Controller
         return redirect()->back()->withErrors($validator);
     }
 
-    public function addWork(Request $request){
+    public function addItem(Request $request){
         foreach ($request->data as $key => $value) {
             $data[$value['name']]=$value['value'];
         }
@@ -100,16 +101,30 @@ class UserController extends Controller
             'link'=>'url',
         ]);
 
+        $blade='prof-add-'.str_singular($data['item']);
+
         if($validator->fails()){
             return response()->json(['errors'=>$validator->errors()->getMessages()]);
         }
 
-        $work=new Work;
-        $work->scientist_id=Auth::guard('profiles')->user()->id;
-        $work->fill($data);
-        $work->save();
+        switch ($data['item']) {
+            case 'works':
+                $item=new Work;
+                break;
+            
+            case 'videos':
+                $item=new Video;
+                break;
+        }
 
-        return response()->view('partials.prof-add-work',compact('work'))->header('wid',$work->id);
+        $itemType=$data['item'];
+        unset($data['item']);
+
+        $item->scientist_id=Auth::guard('profiles')->user()->id;
+        $item->fill($data);
+        $item->save();
+
+        return response()->view('partials.'.$blade,compact('item'))->withHeaders(['iid'=>$item->id,'item'=>$itemType]);
     }
 
     public function editItem(Request $request){
@@ -117,6 +132,8 @@ class UserController extends Controller
             $data[$value['name']]=$value['value'];
         }
 
+        $blade='prof-add-'.str_singular($data['item']);
+
         $validator=Validator::make($data,[
             'title'=>'required',
             'text'=>'min:150',
@@ -126,18 +143,18 @@ class UserController extends Controller
         if($validator->fails()){
             return response()->json(['errors'=>$validator->errors()->getMessages()]);
         }
-
-        $item=Auth::guard('profiles')->user()->works->find($data['id']);
-        unset($data['id']);
+        $item=Auth::guard('profiles')->user()->{$data['item']}->find($data['id']);
+        $itemType=$data['item'];
+        unset($data['id'],$data['item']);
         $item->update($data);
 
-        return response()->view('partials.prof-add-work',compact('item'))->header('wid',$item->id);
+        return response()->view('partials.'.$blade,compact('item'))->withHeaders(['iid'=>$item->id,'item'=>$itemType]);
     }
 
     public function deleteItem(Request $request){
         $item=Auth::guard('profiles')->user()->{$request->item}->find($request->id)->delete();
         
-        return response()->json(1);
+        return response()->json(['iid'=>$request->id,'item'=>$request->item]);
     }
 
     public function getScItems(Request $request){
@@ -147,7 +164,7 @@ class UserController extends Controller
 	    	return $item;
 		})->values();
 		($request->number+$request->quantity >= $user->{$request->item}->count())? $isLast=1 : $isLast=0;
-		return response()->view('partials.add-'.str_singular($request->item),compact('items'))->header('wid',$work->id);
+		return response()->view('partials.add-'.str_singular($request->item),compact('items'))->header('isLast',$isLast);
 	}
 
     public function voteStartup(Request $request){
