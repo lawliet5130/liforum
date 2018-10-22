@@ -11,6 +11,7 @@ use App\Mail\ScientistApplied;
 use App\Branch;
 use App\Country;
 use App\ScientistAccount;
+use App\Work;
 
 use TCG\Voyager\Http\Controllers\ContentTypes\Image as StoreImage;
 use TCG\Voyager\Facades\Voyager;
@@ -88,14 +89,65 @@ class UserController extends Controller
         return redirect()->back()->withErrors($validator);
     }
 
+    public function addWork(Request $request){
+        foreach ($request->data as $key => $value) {
+            $data[$value['name']]=$value['value'];
+        }
+
+        $validator=Validator::make($data,[
+            'title'=>'required',
+            'text'=>'min:150',
+            'link'=>'url',
+        ]);
+
+        if($validator->fails()){
+            return response()->json(['errors'=>$validator->errors()->getMessages()]);
+        }
+
+        $work=new Work;
+        $work->scientist_id=Auth::guard('profiles')->user()->id;
+        $work->fill($data);
+        $work->save();
+
+        return response()->view('partials.prof-add-work',compact('work'))->header('wid',$work->id);
+    }
+
+    public function editItem(Request $request){
+        foreach ($request->data as $key => $value) {
+            $data[$value['name']]=$value['value'];
+        }
+
+        $validator=Validator::make($data,[
+            'title'=>'required',
+            'text'=>'min:150',
+            'link'=>'url',
+        ]);
+
+        if($validator->fails()){
+            return response()->json(['errors'=>$validator->errors()->getMessages()]);
+        }
+
+        $item=Auth::guard('profiles')->user()->works->find($data['id']);
+        unset($data['id']);
+        $item->update($data);
+
+        return response()->view('partials.prof-add-work',compact('item'))->header('wid',$item->id);
+    }
+
+    public function deleteItem(Request $request){
+        $item=Auth::guard('profiles')->user()->{$request->item}->find($request->id)->delete();
+        
+        return response()->json(1);
+    }
+
     public function getScItems(Request $request){
-		(Auth::guard('profiles')->check())? $user=Auth::guard('profiles')->user() : $user=ScientistAccount::find($request->scientist);
+        $user=ScientistAccount::find($request->scientist);
 		$items=$user->{$request->item}->sortByDesc('created_at')->slice($request->number)->take($request->quantity)->transform(function ($item, $key) {
 	    	$item->branch_id=$item->branch->name;
 	    	return $item;
 		})->values();
 		($request->number+$request->quantity >= $user->{$request->item}->count())? $isLast=1 : $isLast=0;
-		return response()->view('partials.add-'.str_singular($request->item),compact('items'))->header('isLast',$isLast);
+		return response()->view('partials.add-'.str_singular($request->item),compact('items'))->header('wid',$work->id);
 	}
 
     public function voteStartup(Request $request){
