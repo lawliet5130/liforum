@@ -21,6 +21,9 @@ Route::get('/scientists','MainController@getScList')->name('getScList');
 Route::get('/startups','MainController@getStartups')->name('getStartups');
 
 
+// --------------News routes--------------
+Route::get('/news','MainController@getNews')->name('getNews');
+
 
 // --------------Get items routes--------------
 Route::get('/getscitem','UserController@getScItems')->name('getScItems');

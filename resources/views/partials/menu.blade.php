@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div class="col-md-5 login_head_container">
-            <span><a href="">News</a></span>
+            <span><a href="{{route('getNews')}}">News</a></span>
 			<a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#doc-modal">Documents</a>
 			<a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#reg-modal">Apply now</a>
             @if(\Auth::guard('profiles')->check())
