@@ -10,4 +10,6 @@ class Video extends Model
     public function branch(){
     	return $this->belongsTo('App\Branch');
     }
+
+    protected $guarded=['scientist_id'];
 }

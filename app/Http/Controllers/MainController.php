@@ -25,7 +25,13 @@ class MainController extends Controller
 
 		return view('pages.startups',compact('startups'));
 	}
+
 	public function startup(){
 		return view('pages.startup');
+	}
+
+	public function getNews(){
+		return view('pages.news');
+
 	}
 }

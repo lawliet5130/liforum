@@ -122,7 +122,7 @@
 				</div>
 				<div id="menu1" class="tab-pane fade">
 					<div class="works_personal">
-						<h2>My Works <span id="workCount">({{$user->works->count()}})</span></h2>
+						<h2>My Works <span id="worksCount">({{$user->works->count()}})</span></h2>
 						<div class="line_title_left"></div>
 						<table class="table table_work">
 							<thead>
@@ -134,9 +134,9 @@
 									<th scope="col">Action</th>
 								</tr>
 							</thead>
-							<tbody>
+							<tbody class="worksParent itemParent">
 								@foreach($user->works->sortByDesc('created_at') as $work)
-									<tr>
+									<tr class=" itemHimself">
 										<th scope="row">{{$work->title}}</th>
 
 										<td>{{$work->branch->name}}</td>
@@ -148,7 +148,7 @@
 											<span>{{$work->link}}</span> <i class="fa fa-external-link"></i>
 										</a></td>
 										<td class="action_delete">
-											<a href="" data-itemid="{{$work->id}}" data-itemtitle="{{$work->title}}" data-itemtext="{{$work->text}}" data-itembranch="{{$work->branch_id}}" data-itemlink="{{$work->link}}" class="editOpen action_buttons edit_button" data-toggle="modal" data-target="#edit-modal" >
+											<a href="" data-item="works" data-itemid="{{$work->id}}" data-itemtitle="{{$work->title}}" data-itemtext="{{$work->text}}" data-itembranch="{{$work->branch_id}}" data-itemlink="{{$work->link}}" class="editOpen action_buttons edit_button" data-toggle="modal" data-target="#edit-modal" >
 												<i class="fa fa-pencil-square-o"></i> Edit
 											</a>
 											<a href="#" data-todelete="{{$work->id}}" data-item="works" class="deleteOpen action_buttons remove_button" data-toggle="modal" data-target="#delete-modal">
@@ -159,58 +159,31 @@
 								@endforeach
 							</tbody>
 						</table>
-						<div class="button_center_more_def"><a href="" class="btn btn-secondary" data-toggle="modal" data-target="#add-work-modal" >Add Work</a></div>
+						<div class="button_center_more_def"><a href="" class="btn btn-secondary addOpen" data-item="works" data-toggle="modal" data-target="#add-modal" >Add Work</a></div>
 					</div>
 				</div>
 				<div id="menu2" class="tab-pane fade">
 					<div class="video_personal">
-						<h2>My Video <span>({{$user->videos->count()}})</span></h2>
+						<h2>My Video <span id="videosCount">({{$user->videos->count()}})</span></h2>
 						<div class="line_title_left"></div>
-						<div class="row">
+						<div class="row itemParent videosParent">
 							@foreach($user->videos->sortByDesc('created_at') as $video)
-							<div class="col-md-3">
+							<div class="col-md-3 itemHimself">
 								<div class="">
-									<a href="" class="edit_video" data-toggle="modal" data-target="#edit-modal"></a>
-									<a href="" class="remove_video" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-remove"></i></a>
+									<a href="" data-item="videos" data-itemid="{{$video->id}}" data-itemtitle="{{$video->title}}" data-itemtext="{{$video->text}}" data-itembranch="{{$video->branch_id}}" data-itemlink="{{$video->link}}" class="editOpen edit_video" data-toggle="modal" data-target="#edit-modal"><i class="fa fa-pencil-square-o"></i></a>
+									<a href="" data-todelete="{{$video->id}}" data-item="videos" class="deleteOpen remove_video" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-remove"></i></a>
 									<a data-fancybox href="{{$video->link}}">
 										<img class="card-img-top img-fluid" src="https://img.youtube.com/vi/{{str_limit(str_after($video->link,'watch?v='),11,'')}}/mqdefault.jpg"/>
 									</a>
 									<h4>{{$video->title}}</h4>
 									<h5>{{$video->branch->name}}</h5>
-									<p class="description_video_title">{{$video->description}}</p>
+									<p class="description_video_title">{{$video->text}}</p>
 								</div>
 							</div>
 							@endforeach
-							<div class="col-md-3">
-								<div class="">
-									<a href="" class="remove_video" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-remove"></i></a>
-									<iframe width="" height="180" src="https://www.youtube.com/embed/yROROK-AmBI?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-									<p class="description_video_title">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-									</p>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="">
-									<a href="" class="remove_video" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-remove"></i></a>
-									<iframe width="" height="180" src="https://www.youtube.com/embed/c7PbBG1B_IE?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-									<p class="description_video_title">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-									</p>
-								</div>
-							</div>
-							<div class="col-md-3">
-								<div class="">
-									<a href="" class="remove_video" data-toggle="modal" data-target="#delete-modal"><i class="fa fa-remove"></i></a>
-									<iframe width="" height="180" src="https://www.youtube.com/embed/j-Eb7k87gO0?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-									<p class="description_video_title">
-										Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-									</p>
-								</div>
-							</div>
 						</div>
 						<div class="clearfix"></div>
-						<div class="button_center_more_def"><a href="" class="btn btn-secondary" data-toggle="modal" data-target="#add-video-modal">Add Video</a></div> 
+						<div class="button_center_more_def"><a href="" class="addOpen btn btn-secondary" data-item="videos" data-toggle="modal" data-target="#add-modal">Add Video</a></div> 
 					</div>
 				</div>
 				<div id="menu3" class="tab-pane fade">
@@ -263,7 +236,7 @@
 	</div>
 </div>
 <!-- BEGIN # MODAL add work profile -->
-<div class="modal fade" id="add-work-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+<div class="modal fade" id="add-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 	<div id="formContent" class="formContent">
 		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 		<span aria-hidden="true">&times;</span>
@@ -271,11 +244,12 @@
 		<div class="fadeIn first">
 			<i class="fa fa-plus-circle icon_big_popap"></i>
 		</div>
-		<form class="addWorkForm">
+		<form class="addForm">
+			<input type="hidden" name="item">
 		<div class="paragraph_reg fadeIn first">
-			<p class="youare">Add work</p>
+			<p class="youare">Add item</p>
 			<div class="text_area_modal">
-				<div><input type="text" name="title" placeholder="Work's Name" required></div>
+				<div><input type="text" name="title" placeholder="Item's Name" required></div>
 			</div>
 			<div class="text_area_modal ">
 				<select class="form-control form-control-lg select_profile" name="branch_id">
@@ -291,7 +265,7 @@
 				<div><input type="text" name="link" placeholder="web link" required></div>
 			</div>
 			
-			<button type="button" class="add_form_field" id="addWorkBtn">
+			<button type="button" class="add_form_field" id="addBtn">
 			<span>Add</span>
 			</button>
 		</div>
@@ -303,7 +277,7 @@
 	</div>
 </div>
 
-<!-- BEGIN # MODAL edit work profile -->
+<!-- BEGIN # MODAL edit profile -->
 <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
 	<div id="formContent" class="formContent">
 		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -314,6 +288,7 @@
 		</div>
 		<form class="editForm">
 			<input type="hidden" name="id">
+			<input type="hidden" name="item">
 		<div class="paragraph_reg fadeIn first">
 			<p class="youare">Edit item</p>
 			<div class="text_area_modal">
@@ -355,10 +330,10 @@
 		</div>
 		<div class="paragraph_reg fadeIn first">
 			<p class="youare">Are you sure?</p>
-			<form class="deleteItemForm">
+			<form class="deleteForm">
 				<input type="hidden" name="id">
 				<input type="hidden" name="item">
-				<button type="button" class="btn btn-danger add_form_field" id="deleteItemBtn" data-dismiss="modal" aria-label="Close">
+				<button type="button" class="btn btn-danger add_form_field" id="deleteBtn" data-dismiss="modal" aria-label="Close">
 					<span>Delete</span>
 				</button>
 			</form>
@@ -385,21 +360,21 @@
 			$('.genDataEdit').submit();
 		});
 
-		$('#addWorkBtn').click(function(e){
+		$('#addBtn').click(function(e){
 			e.preventDefault();
-			form=$('.addWorkForm');
-			$.post("{{route('addWork')}}",{
+			form=$('.addForm');
+			$.post("{{route('addItem')}}",{
 				_token:'{{csrf_token()}}',
 				data:form.serializeArray(),
 			},function(data,status,request){
 				if(data.errors){
 					showErrors(form,data);
 				}else{
-					$(data).prependTo($('.table_work tbody'));
-					$('#add-work-modal').modal('hide');
-					setCount('work',1);
+					$(data).prependTo($('.itemParent.'+request.getResponseHeader('item')+'Parent'));
+					$('#add-modal').modal('hide');
+					setCount(request.getResponseHeader('item'),1);
 					form[0].reset();
-					worksEventBind(request);
+					eventsBind(request);
 				}
 			});
 		});
@@ -413,39 +388,40 @@
 				if(data.errors){
 					showErrors(form,data);
 				}else{
-					parent=$('[data-itemid='+form.find('[name=id]').val()+']').parents('tr');
-					$prev=parent.prev('tr');
-					$('[data-itemid='+form.find('[name=id]').val()+']').parents('tr').remove();
+					parent=$('[data-itemid='+request.getResponseHeader('iid')+'][data-item='+request.getResponseHeader('item')+']').parents('.itemHimself');
+					gParent=parent.parents('.itemParent');
+					$prev=parent.prev('.itemHimself');
+					$('[data-itemid='+request.getResponseHeader('iid')+'][data-item='+request.getResponseHeader('item')+']').parents('.itemHimself').remove();
 					if($prev.length){
 						$prev.after(data);
 					}else{
-						$(data).prependTo($('.table_work tbody'));
+						$(data).prependTo(gParent);
 					}
 					$('#edit-modal').modal('hide');
 					form[0].reset();
-					worksEventBind(request);
+					eventsBind(request);
 				}
 			});
 		});
 
 		$('#deleteBtn').click(function(e){
 			e.preventDefault();
-			form=$('.deleteItemForm');
+			form=$('.deleteForm');
 			$.post("{{route('deleteItem')}}",{
 				_token:"{{csrf_token()}}",
 				id:form.find('[name=id]').val(),
 				item:form.find('[name=item]').val()
 			},function(data,status){
-				if(data==1){
-					setCount('work',-1);
-					$('[data-workid='+form.find('[name=id]').val()+']').parents('tr').remove();
+				if(data){
+					setCount(form.find('[name=item]').val(),-1);
+					$('[data-todelete='+data.iid+'][data-item='+data.item+']').parents('.itemHimself').remove();
 				}
 			});
 		});
 
 		$(document).ready(function(){
-			$('.editWorkOpen').on('click',editWorkOpen);
-			$('.deleteItemOpen').on('click',deleteItemOpen);
+			$('.editOpen').on('click',editOpen);
+			$('.deleteOpen').on('click',deleteOpen);
 		});
 
 		function editOpen(){
@@ -455,16 +431,21 @@
 			form.find('[name=text]').val($this.data("itemtext"));
 			form.find('[name=link]').val($this.data("itemlink"));
 			form.find('[name=id]').val($this.data("itemid"));
+			form.find('[name=item]').val($this.data("item"));
 			
 			form.find('option[value='+$this.data("itembranch")+']').prop('selected','selected');
 		};
 
-		function deleteItemOpen(){
-			form=$('.deleteItemForm');
+		function deleteOpen(){
+			form=$('.deleteForm');
 			$this=$(this);
 			form.find('[name=id]').val($this.data('todelete'));
 			form.find('[name=item]').val($this.data('item'));
 		};
+
+		$('.addOpen').click(function(){
+			$('.addForm').find('[name=item]').val($(this).data('item'));
+		});
 
 
 
@@ -484,9 +465,9 @@
 			});
 		}
 
-		function worksEventBind(request){
-			$('.editWorkOpen[data-workid='+request.getResponseHeader('wid')+']').on('click',editWorkOpen);
-			$('.deleteItemOpen[data-todelete='+request.getResponseHeader('wid')+']').on('click',deleteItemOpen);
+		function eventsBind(request){
+			$('.editOpen[data-itemid='+request.getResponseHeader('iid')+'][data-item='+request.getResponseHeader('item')+']').on('click',editOpen);
+			$('.deleteOpen[data-todelete='+request.getResponseHeader('iid')+'][data-item='+request.getResponseHeader('item')+']').on('click',deleteOpen);
 		}
 	</script>
 @endsection

@@ -22,6 +22,9 @@ Route::get('/startups','MainController@getStartups')->name('getStartups');
 Route::get('/startup','MainController@startup')->name('getstartup');
 
 
+// --------------News routes--------------
+Route::get('/news','MainController@getNews')->name('getNews');
+
 
 // --------------Get items routes--------------
 Route::get('/getscitem','UserController@getScItems')->name('getScItems');
@@ -48,7 +51,7 @@ Route::prefix('sc-profile')->middleware(['scLoged'])->group(function(){
 
 	// --------------Scientist edit routes--------------
 	Route::post('/gendata-edit','UserController@genDataEdit')->name('genDataEdit');
-	Route::post('/add-work','UserController@addWork')->name('addWork');
+	Route::post('/add-item','UserController@addItem')->name('addItem');
 	Route::post('/edit-item','UserController@editItem')->name('editItem');
 	Route::post('/delete-item','UserController@deleteItem')->name('deleteItem');
 });

@@ -203,7 +203,7 @@
 							</div>
 							<h4>{{$video->title}}</h4>
 							<h5>{{$video->branch->name}}</h5>
-							<p class="description_video_title">{{$video->description}}</p>
+							<p class="description_video_title">{{$video->text}}</p>
 						</div>
 						@endforeach
 					</div>
