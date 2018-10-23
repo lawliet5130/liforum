@@ -4303,16 +4303,27 @@ padding: 0;
  * Responsive
  ========================*/
 @media only screen and (max-width: 766px) {
+
+.rating_home_startup_page {
+
+    text-align: center;
+    float: none;
+    width: 100px;
+    margin: auto;
+
+}
+
+  
   .comments-container {
-    width: 480px;
+    width: auto;
   }
 
   .comments-list .comment-box {
-    width: 390px;
+    width: auto;
   }
 
   .reply-list .comment-box {
-    width: 320px;
+    width: auto;
   }
 }
 
