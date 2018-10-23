@@ -19,6 +19,7 @@ Route::bind('scientist', function ($value) {
 Route::get('/','MainController@getHome')->name('getHome');
 Route::get('/scientists','MainController@getScList')->name('getScList');
 Route::get('/startups','MainController@getStartups')->name('getStartups');
+Route::get('/startup','MainController@startup')->name('getstartup');
 
 
 
