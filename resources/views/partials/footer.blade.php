@@ -97,6 +97,10 @@
 		</div>
 	</div>
 </footer>
+<a href="https://web.telegram.org/#/im?p=@days_group" target="_blank" class="telegram_link">
+<img src="https://3mgj4y44nc15fnv8d303d8zb-wpengine.netdna-ssl.com/wp-content/uploads/2018/09/Telegram_logo.png">
+<span class="telegram-join">Join our Telegram Channel!</span>
+</a>
 <a href="" class="scrollup" style="display: none;">Scroll</a>
 <!--Modals-->
 <!-- BEGIN # MODAL LOGIN -->

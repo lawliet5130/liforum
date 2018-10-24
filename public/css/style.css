@@ -4313,7 +4313,7 @@ padding: 0;
 
 }
 
-  
+
   .comments-container {
     width: auto;
   }
@@ -4467,4 +4467,28 @@ margin-right: 7px;
 
 .button_comment span {
   line-height: 16px;
+}
+
+.telegram_link {
+    display: block;
+    padding: 10px;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    box-shadow: 1px -1px 3px rgba(0,0,0,.25);
+}
+
+.telegram_link img {
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.telegram_link span {
+    font: 16px/20px;
+    color: #666;
+    vertical-align: middle;
 }
