@@ -32,6 +32,5 @@ class MainController extends Controller
 
 	public function getNews(){
 		return view('pages.news');
-
 	}
 }

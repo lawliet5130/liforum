@@ -211,7 +211,7 @@ return [
     ],
 
     'additional_js' => [
-        //'js/custom.js',
+        'js/vendor/tinymce_config.js'
     ],
 
     'googlemaps' => [
