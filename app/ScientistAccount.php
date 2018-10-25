@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class ScientistAccount extends Authenticatable
 {
-	protected $fillable=['password','acc_status','login_link'];
+	protected $guarded=['password','acc_status','login_link','login','deleted_at'];
 
 	protected $events=[
 		'created'=>ScientistCreated::class,
@@ -29,6 +29,10 @@ class ScientistAccount extends Authenticatable
 
 	public function videos(){
 		return $this->hasMany('App\Video','scientist_id');
+	}
+
+	public function startups(){
+		return $this->belongsToMany('App\Startup','scientist_startup','scientist_id')->withTimestamps();
 	}
 
 	public function getGender(){

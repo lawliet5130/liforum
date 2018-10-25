@@ -97,6 +97,10 @@
 		</div>
 	</div>
 </footer>
+<a href="https://web.telegram.org/#/im?p=@days_group" target="_blank" class="telegram_link">
+<img src="https://3mgj4y44nc15fnv8d303d8zb-wpengine.netdna-ssl.com/wp-content/uploads/2018/09/Telegram_logo.png">
+<span class="telegram-join">Join our Telegram Channel!</span>
+</a>
 <a href="" class="scrollup" style="display: none;">Scroll</a>
 <!--Modals-->
 <!-- BEGIN # MODAL LOGIN -->
@@ -290,79 +294,6 @@
 			<button class="add_form_field">Add friends E-mail &nbsp; <span style="font-size:16px; font-weight:bold;">+ </span></button>
 			<button type="button" class="add_form_field"" data-dismiss="modal" aria-label="Close">
 			<span>Subscribe</span>
-			</button>
-			
-		</div>
-		<div class="">
-			
-		</div>
-		<div class="clearfix"></div>
-	</div>
-</div>
-<!-- BEGIN # MODAL add work profile -->
-<div class="modal fade" id="add-work-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-	<div id="formContent" class="formContent">
-		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		<span aria-hidden="true">&times;</span>
-		</button>
-		<div class="fadeIn first">
-			<i class="fa fa-plus-circle icon_big_popap"></i>
-		</div>
-		
-		<div class="paragraph_reg fadeIn first">
-			<p class="youare">Add work</p>
-			<div class="text_area_modal">
-				<div><input type="text" name="mytext[]" placeholder="Name Work"></div>
-			</div>
-			<div class="text_area_modal ">
-				<select class="form-control form-control-lg select_profile" name="category"required>
-					<option value="">Domain</option>
-					<option value="Classroom Instruction and Assessment">Classroom Instruction and Assessment</option>
-					<option value="Curriculum Development and Alignment">Curriculum Development and Alignment</option>
-					<option value="District Committee">District Committee</option>
-					<option value="Meeting">Meeting</option>
-					<option value="Other Category">Other Category</option>
-					<option value="Professional Conference">Professional Conference</option>
-					<option value="Professional Workshop / Training">Professional Workshop / Training</option>
-					<option value="Pupil Services">Pupil Services</option>
-				</select>
-			</div>
-			<div class=" text_area_modal">
-			<textarea name="" id="" class="textarea_settings " placeholder="Description">
-			</textarea>
-			</div>
-			<div class="text_area_modal">
-				<div><input type="text" name="mytext[]" placeholder="link web"></div>
-			</div>
-			
-			<button type="button" class="add_form_field"" data-dismiss="modal" aria-label="Close">
-			<span>Add</span>
-			</button>
-			
-		</div>
-		<div class="">
-			
-		</div>
-		<div class="clearfix"></div>
-	</div>
-</div>
-<!-- BEGIN # MODAL delete -->
-<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-	<div id="formContent" class="formContent">
-		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		<span aria-hidden="true">&times;</span>
-		</button>
-		<div class="fadeIn first">
-			<i class="fa fa-trash icon_big_popap_remove"></i>
-		</div>
-		
-		<div class="paragraph_reg fadeIn first">
-			<p class="youare">Delete?</p>
-			
-			
-			
-			<button type="button" class="btn btn-danger add_form_field"" data-dismiss="modal" aria-label="Close">
-			<span>Delete</span>
 			</button>
 			
 		</div>

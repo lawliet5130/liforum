@@ -8,5 +8,7 @@
 	<link href="/css/style.css" rel="stylesheet">
 	<link href="/css/responsive.css" rel="stylesheet">
 
+	<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.min.css">
+
 	<!--Fancybox style-->
 	<link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.min.css">

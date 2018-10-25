@@ -18,17 +18,45 @@ Route::bind('scientist', function ($value) {
 // --------------Main routes--------------
 Route::get('/','MainController@getHome')->name('getHome');
 Route::get('/scientists','MainController@getScList')->name('getScList');
+Route::get('/startups','MainController@getStartups')->name('getStartups');
+Route::get('/startup','MainController@startup')->name('getstartup');
+
+
+// --------------News routes--------------
+Route::get('/news','MainController@getNews')->name('getNews');
 
 
 // --------------Get items routes--------------
 Route::get('/getscitem','UserController@getScItems')->name('getScItems');
 
 
+
 // --------------Scientist routes--------------
 Route::post('/scientist-apply','UserController@scientistApply')->name('scientistApply');
 Route::get('/scientist/{scientist}','UserController@scientistProfile')->name('scientistProfile');
-Route::get('/sc-profile','UserController@logedProfile')->middleware('scLoged')->name('logedProfile');
-Route::get('/sc-profile/edit','UserController@editProfile')->name('editProfile');
+
+
+
+// --------------Scientist profile routes--------------
+Route::prefix('sc-profile')->middleware(['scLoged'])->group(function(){
+
+
+
+	// --------------Basic profile routes--------------
+	Route::get('/','UserController@logedProfile')->name('logedProfile');
+	Route::get('/edit','UserController@editProfile')->name('editProfile');
+	Route::post('/vote-startup','UserController@voteStartup')->name('voteStartup');
+
+
+
+	// --------------Scientist edit routes--------------
+	Route::post('/gendata-edit','UserController@genDataEdit')->name('genDataEdit');
+	Route::post('/add-item','UserController@addItem')->name('addItem');
+	Route::post('/edit-item','UserController@editItem')->name('editItem');
+	Route::post('/delete-item','UserController@deleteItem')->name('deleteItem');
+});
+
+
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
