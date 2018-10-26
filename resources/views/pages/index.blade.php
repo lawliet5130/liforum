@@ -39,7 +39,7 @@
 	</div>
 	<div class="monic wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
 		
-		<iframe width="640" height="360" src="https://www.youtube.com/embed/4ez4xA3uq6Q?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+		<iframe width="640" height="360" src="https://www.youtube.com/embed/im4OVjv7AjM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 		<img src="img/part1.png" alt="" class="part_left wow fadeInRight" data-wow-duration="1s" data-wow-delay="1.5s">
 		<img src="img/part2.png" alt="" class="part_right wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.5s">
 	</div>
@@ -445,7 +445,7 @@
 							<p class="name_home_startup">Nuritas.com
 								<a href="http://nuritas.com" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
 							</p>
-							<p class="domeniu_home_startup"><a href="knowledge.php?Drug+discovery">Drug discovery</p>
+							<p class="domeniu_home_startup"><a href="knowledge.php?Drug+discovery">Drug discovery</a></p>
 							</div>
 							<div class="rating_home_startup">
 								<i class="fa fa-star"></i>
