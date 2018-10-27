@@ -6,9 +6,9 @@
 					<ul>
 						<li><a href="{{route('getHome')}}">Home</a></li>
 						<li><a href="{{route('getScList')}}">Scientists</a></li>
-						<li><a href="knowledge.php">Knowledge </a></li>
+						<li><a href="{{route('getKnowledge')}}">Knowledge </a></li>
 						<li><a href="{{route('getStartups')}}">Startups</a></li>
-						<li><a href="about.php">About</a></li>
+						<li><a href="{{route('getAbout')}}">About</a></li>
 					</ul>
 				</div>
 				<div class="nav-bg-xbootstrap">
