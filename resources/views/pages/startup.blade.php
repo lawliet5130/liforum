@@ -68,7 +68,7 @@ border-bottom: 3px solid #2ecaf7;
 				<li>
 					<div class="comment-main-level">
 						<!-- Avatar -->
-						<div class="comment-avatar"><img src="come1.jpg" alt=""></div>
+						<div class="comment-avatar"><img src="/img/come1.jpg" alt=""></div>
 						<!-- Contenedor del Comentario -->
 						<div class="comment-box">
 							<div class="comment-head">
@@ -93,7 +93,7 @@ border-bottom: 3px solid #2ecaf7;
 					<ul class="comments-list reply-list">
 						<li>
 							<!-- Avatar -->
-							<div class="comment-avatar"><img src="come2.png" alt=""></div>
+							<div class="comment-avatar"><img src="/img/come2.png" alt=""></div>
 							<!-- Contenedor del Comentario -->
 							<div class="comment-box">
 								<div class="comment-head">
@@ -114,7 +114,7 @@ border-bottom: 3px solid #2ecaf7;
 						</li>
 						<li>
 							<!-- Avatar -->
-							<div class="comment-avatar"><img src="come1.jpg" alt=""></div>
+							<div class="comment-avatar"><img src="/img/come1.jpg" alt=""></div>
 							<!-- Contenedor del Comentario -->
 							<div class="comment-box">
 								<div class="comment-head">
@@ -138,7 +138,7 @@ border-bottom: 3px solid #2ecaf7;
 				<li>
 					<div class="comment-main-level">
 						<!-- Avatar -->
-						<div class="comment-avatar"><img src="come2.png" alt=""></div>
+						<div class="comment-avatar"><img src="/img/come2.png" alt=""></div>
 						<!-- Contenedor del Comentario -->
 						<div class="comment-box">
 							<div class="comment-head">
