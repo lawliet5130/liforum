@@ -14,7 +14,7 @@
 <header>
 	<div class="container">
 		<div class="col-md-4 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0s">
-			<p class="left1">zurich, January 20</p>
+			<p class="left1">zurich, February 20</p>
 			<p class="left2">LIFORUM</p>
 			<p class="left3">Longevity  Impact  Forum</p>
 		</div>
