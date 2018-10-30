@@ -38,7 +38,7 @@
 									<a rel="noopener" target="_blank" aria-label="Partners" href=""> Partners </a>
 								</li>
 								<li>
-									<a rel="noopener" target="_blank" aria-label="Advertise" href=""> Advertise </a>
+									<a rel="noopener" target="_blank" aria-label="Advertise" href="{{route('getHome',['#advr'])}}"> Advertise </a>
 								</li>
 								<li>
 									<a rel="noopener" target="_blank" aria-label="Blog" href=""> Blog </a>

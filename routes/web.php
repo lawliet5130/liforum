@@ -11,7 +11,11 @@ use Illuminate\Http\Request;
 |
 */
 Route::bind('scientist', function ($value) {
-    return App\ScientistAccount::where('id', $value)->first();
+    return App\ScientistAccount::find($value);
+});
+
+Route::bind('post',function($value){
+	return App\Article::find($value);
 });
 
 
@@ -20,10 +24,16 @@ Route::get('/','MainController@getHome')->name('getHome');
 Route::get('/scientists','MainController@getScList')->name('getScList');
 Route::get('/startups','MainController@getStartups')->name('getStartups');
 Route::get('/startup','MainController@startup')->name('getstartup');
+Route::get('/about','MainController@getAbout')->name('getAbout');
 
 
 // --------------News routes--------------
 Route::get('/news','MainController@getNews')->name('getNews');
+Route::get('/news/{post}','MainController@getArticle')->name('getArticle');
+
+
+// --------------Knowledge routes--------------
+Route::get('/knowledge','MainController@getKnowledge')->name('getKnowledge');
 
 
 // --------------Get items routes--------------

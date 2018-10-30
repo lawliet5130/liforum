@@ -47,10 +47,10 @@
 					</div>
 					<div class="name_home_startup_center">
 						<p class="name_home_startup">
-							<a href="startup.php">{{$sup->title}}</a>
-							<a href="http://retrotope.com" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
+							<a href="/startup">{{$sup->title}}</a>
+							<a href="{{$sup->link}}" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
 							@if(\Auth::guard('profiles')->check())<button data-tovote="{{$sup->id}}" data-toggle="modal" data-target="#checkVote">vote!</button>@endif
-							<span class="supVoted" style="color:brown;">voted</span>
+							<!-- <span class="supVoted" style="color:brown;">voted</span> -->
 						</p>
 						<p class="domeniu_home_startup"><a href="knowledge.php?Biotech">{{$sup->branch->name}}</a></p>
 					</div>

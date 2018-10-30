@@ -480,13 +480,16 @@
 				</div>
 			</div>
 		</section>
-		<section class="parteners">
+		<section class="parteners" id="advr">
 			<div class="container">
-				<h1>OUR PARTNERS</h1>
+				<h1>SLOTS FOR ADVERTISING</h1>
 				<div class="line_title"></div>
 				<br>
 				<div class="col-md-6">
-					<a href="http://vandrevalafoundation.com/" target="blank"><img src="http://vandrevalafoundation.com/images/smj_ak.jpg" alt=""></a>
+					<div class="banner-default">
+						<p class="bann1">LIF Platinum Partner</p>
+						<p class="bann2">580 x 322</p>
+					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="banner-default">
@@ -552,21 +555,19 @@
 			<div class="container">
 				<h1>OUR NEWS</h1>
 				<div class="line_title"></div>
+				@foreach($articles as $article)
 				<div class="single_new_block col-md-4 wow fadeInUp " data-wow-delay="0s">
 					<div class="single_new_block_inter">
 						<div class="img_new_block">
-							<img src="img/news/new1.png">
-							<div class="detail_new"><a href="single_article.php">DETALII</a></div>
+							<img src="/storage/{{$article->image}}">
+							<div class="detail_new"><a href="{{route('getArticle',['post'=>$article->id])}}">DETALII</a></div>
 						</div>
 						<div class="date_new">
-							<p class="moon_new">NOV</p>
-							<p class="number_new">09</p>
+							<p class="moon_new">{{$article->created_at->format('M')}}</p>
+							<p class="number_new">{{$article->created_at->format('d')}}</p>
 						</div>
-						<h2><a href="single_article.php">Special care on Pets by physician</a></h2>
-						<p>The weather started getting rough the tiny ship
-							was tossed if not for the courage of the fearless
-							crew the Minnow would be lost the minnow lost.
-						</p>
+						<h2><a href="{{route('getArticle',['post'=>$article->id])}}" title="{{$article->title}}">{{str_limit($article->title,40)}}</a></h2>
+						<p>{{str_limit(strip_tags($article->text),120)}}</p>
 						<div class="sub_new_block">
 							<div class="user_name_new">
 								<i class="fa fa-user"></i>
@@ -576,54 +577,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="single_new_block col-md-4 wow fadeInUp " data-wow-delay="0s">
-					<div class="single_new_block_inter">
-						<div class="img_new_block">
-							<img src="img/news/new2.png">
-							<div class="detail_new"><a href="single_article.php">DETALII</a></div>
-						</div>
-						<div class="date_new">
-							<p class="moon_new">NOV</p>
-							<p class="number_new">09</p>
-						</div>
-						<h2><a href="single_article.php">Special care on Pets by physician</a></h2>
-						<p>The weather started getting rough the tiny ship
-							was tossed if not for the courage of the fearless
-							crew the Minnow would be lost the minnow lost.
-						</p>
-						<div class="sub_new_block">
-							<div class="user_name_new">
-								<i class="fa fa-user"></i>
-								<p><a href="#">Posted By Admin</a></p>
-							</div>
-							
-						</div>
-					</div>
-				</div>
-				<div class="single_new_block col-md-4 wow fadeInUp " data-wow-delay="0s">
-					<div class="single_new_block_inter">
-						<div class="img_new_block">
-							<img src="img/news/new3.png">
-							<div class="detail_new"><a href="single_article.php">DETALII</a></div>
-						</div>
-						<div class="date_new">
-							<p class="moon_new">NOV</p>
-							<p class="number_new">09</p>
-						</div>
-						<h2><a href="single_article.php">Special care on Pets by physician</a></h2>
-						<p>The weather started getting rough the tiny ship
-							was tossed if not for the courage of the fearless
-							crew the Minnow would be lost the minnow lost.
-						</p>
-						<div class="sub_new_block">
-							<div class="user_name_new">
-								<i class="fa fa-user"></i>
-								<p><a href="#">Posted By Admin</a></p>
-							</div>
-							
-						</div>
-					</div>
-				</div>
+				@endforeach
 				<div class="clearfix"></div>
 				<div class="more_mews_butt">
 					
