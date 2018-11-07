@@ -5,7 +5,8 @@ namespace App\Listeners;
 use App\Events\ScientistCreated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
-
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\RegisterScientist;
 use App\ScientistAccount;
 
 class CreateLoginLink
@@ -32,6 +33,8 @@ class CreateLoginLink
         $rand=$this->checkRand($rand);
         $event->scientist->login_link=$rand;
         $event->scientist->save();
+
+        Notification::send($event->scientist,new RegisterScientist($event->scientist));
     }
 
     protected function checkRand($rand){

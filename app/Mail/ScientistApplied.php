@@ -36,6 +36,6 @@ class ScientistApplied extends Mailable
      */
     public function build()
     {
-        return $this->from('scientist-application@liforum.org','Scientist Application')->view('emails.scientist_application');
+        return $this->from('info@liforum.org','Scientist Application')->view('emails.scientist_application');
     }
 }

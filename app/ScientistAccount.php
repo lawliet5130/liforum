@@ -4,10 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Events\ScientistCreated;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class ScientistAccount extends Authenticatable
 {
+	use Notifiable;
+
 	protected $guarded=['password','acc_status','login_link','login','deleted_at'];
 
 	protected $events=[
@@ -51,4 +54,9 @@ class ScientistAccount extends Authenticatable
 		}
 		return $gender;
 	}
+
+	public function routeNotificationForMail()
+    {
+        return $this->login;
+    }
 }

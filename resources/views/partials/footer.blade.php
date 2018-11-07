@@ -212,27 +212,27 @@
 			
 		</div>
 		<div class="col-md-6 fadeIn second">
-			<a class="external--link" href="http://liforum.org/pdf/LIF_Conference_Announcement.pdf" target="_blank">
+			<a class="external--link" href="/documents/lif_conference_announcement.pdf" target="_blank">
 				<i class="fa fa-file-pdf-o"></i>
 				<p>LIF Announcement</p>
 			</a>
 		</div>
 		<div class="col-md-6 fadeIn third">
-			<a class="external--link" href="http://liforum.org/pdf/LIF_Call_for_Presentations.pdf" target="_blank">
+			<a class="external--link" href="/documents/lif_call_for_papers.pdf" target="_blank">
 				<i class="fa fa-file-pdf-o"></i>
 				<p>Call for Presentations</p>
 			</a>
 		</div>
 		<div class="col-md-6 fadeIn fourth">
-			<a class="external--link" href="http://liforum.org/pdf/LIF_Program_Themes.pdf" target="_blank">
+			<a class="external--link" href="/documents/lif_program.pdf" target="_blank">
 				<i class="fa fa-file-pdf-o"></i>
 				<p>Program Themes</p>
 			</a>
 		</div>
 		<div class="col-md-6 fadeIn fourth">
-			<a class="external--link" href="http://liforum.org/pdf/Longevity_Impact_Foundation_-_Statement.pdf" target="_blank">
+			<a class="external--link" href="/documents/concepts_longevity_ranking_codex.pdf" target="_blank">
 				<i class="fa fa-file-pdf-o"></i>
-				<p>Statement</p>
+				<p>Ranking Codex</p>
 			</a>
 		</div>
 		<div class="clearfix"></div>
