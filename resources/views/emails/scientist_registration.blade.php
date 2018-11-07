@@ -35,15 +35,15 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <div style="background: url({{url('/')}}/img/orig.jpg); background-size: cover; background-position: 0px -80px; padding:55px 50px; position: relative;">
-                                            <div style="position: absolute;width: 70px;padding: 10px;background: #fff;border-radius: 100%;">
+                                        <div style="background: url({{url('/')}}/img/orig.jpg); background-size: cover; background-position: 0px -30px; padding:15px 50px; position: relative;">
+                                            <div style="position: absolute;width: 70px;padding: 10px;background: #fff;border-radius: 100%;float:left;">
                                              <img src="{{url('/')}}/img/logo.png" alt="" style="max-width: 100%;">
                                              </div> 
-                                             <div style="position: absolute;width: 70px;padding: 10px;background: #fff;border-radius: 100%; right:50px;">
+                                             <div style="position: absolute;width: 70px; height:70px;padding: 10px;background: #fff;border-radius: 100%; right:50px;float:right;">
                                              <img src="{{url('/')}}/img/days.png" alt="" style="max-width: 100%;">
                                              </div>
                                              
-                                             <img style="position: absolute;width: 150px;left: 0;right: 0;margin: auto;border-radius: 100px;border: 3px solid #fff;"
+                                             <img style="position: absolute;width: 150px;left: 0;right: 0;margin: auto;border-radius: 100px;border: 3px solid #fff; display:block;"
                                              src="{{url('/')}}/storage/{{$scientist->image}}" alt="">
 
                                         </div>
@@ -60,7 +60,7 @@
                                         <tbody>
                                             <tr>
                                                 <td align="center">
-                                                <h2 style="margin:0!important;font-family:'Open Sans',Helvetica,Arial,sans-serif!important;font-size:28px!important;line-height:38px!important;font-weight:200!important;color:#252b33!important; margin-top: 65px !important;">Dear {{$scientist->name}} {{$scientist->surname}}</h2>
+                                                <h2 style="margin:0!important;font-family:'Open Sans',Helvetica,Arial,sans-serif!important;font-size:28px!important;line-height:38px!important;font-weight:200!important;color:#252b33!important; margin-top: 0px !important;">Dear {{$scientist->name}} {{$scientist->surname}}</h2>
                                                 </td>
                                             </tr>
                                         </tbody>
