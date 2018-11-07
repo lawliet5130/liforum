@@ -36,7 +36,7 @@
                                 <tr>
                                     <td>
                                         <div style="background: url({{url('/')}}/img/orig.jpg); background-size: cover; background-position: 0px -30px; padding:15px 50px; position: relative;">
-                                            <div style="position: absolute;width: 70px;padding: 10px;background: #fff;border-radius: 100%;float:left;">
+                                            <div style="position: absolute;width: 70px; height:70px;padding: 10px;background: #fff;border-radius: 100%;float:left;">
                                              <img src="{{url('/')}}/img/logo.png" alt="" style="max-width: 100%;">
                                              </div> 
                                              <div style="position: absolute;width: 70px; height:70px;padding: 10px;background: #fff;border-radius: 100%; right:50px;float:right;">
