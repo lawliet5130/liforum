@@ -5,11 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Events\ScientistCreated;
 use Illuminate\Notifications\Notifiable;
+use TCG\Voyager\Traits\Resizable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class ScientistAccount extends Authenticatable
 {
-	use Notifiable;
+	use Notifiable,Resizable;
 
 	protected $guarded=['password','acc_status','login_link','login','deleted_at'];
 

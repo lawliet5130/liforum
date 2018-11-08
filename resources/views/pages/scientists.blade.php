@@ -51,7 +51,7 @@
 								<tr>
 									<th scope="row">
 										<span>{{$loop->iteration}}</span>
-										<img src="/storage/{{$sc->image}}" alt="">
+										<img src="{{Voyager::image($sc->thumbnail('square','image'))}}" alt="">
 										<span>
 											<div class="name_specialy_blok">
 												<a href="{{route('scientistProfile',$sc->id)}}">{{$sc->name}} {{$sc->surname}}</a> <br> 
