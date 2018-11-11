@@ -47,8 +47,8 @@
 					</div>
 					<div class="name_home_startup_center">
 						<p class="name_home_startup">
-							<a href="/startup">{{$sup->title}}</a>
-							<a href="{{$sup->link}}" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
+							<a href="{{route('getStartup',['stup'=>$sup->id])}}">{{$sup->title}}</a>
+							<a href="{{route('getStartup',['stup'=>$sup->id])}}" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
 							@if(\Auth::guard('profiles')->check())
 								@if(\Auth::guard('profiles')->user()->startups->contains('id',$sup->id))
 									<span class="supVoted" style="color:brown;">voted</span>

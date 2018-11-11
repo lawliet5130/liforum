@@ -12,7 +12,7 @@ class ScientistAccount extends Authenticatable
 {
 	use Notifiable,Resizable;
 
-	protected $guarded=['password','acc_status','login_link','login','deleted_at'];
+	protected $guarded=['login','deleted_at'];
 
 	protected $events=[
 		'created'=>ScientistCreated::class,

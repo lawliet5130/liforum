@@ -173,12 +173,12 @@
 								<div class="table_date_sc rating_h">
 									<i class="fa fa-star"></i>
 									<p class="name_date">Ranking</p>
-									<p class="number_date">u-dev.</p>
+									<p class="number_date">0</p>
 								</div>
 								<div class="table_date_sc rating_h">
 									<i class="fa fa-bar-chart"></i>
 									<p class="name_date">Voted startups</p>
-									<p class="number_date">u-dev.</p>
+									<p class="number_date">{{$sc->startups_count}}</p>
 								</div>
 								<div class="table_date_sc rating_h">
 									<i class="fa fa-map-marker"></i>

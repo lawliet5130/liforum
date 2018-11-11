@@ -60,8 +60,8 @@
 										</span>
 									</th>
 									
-									<td>789</td>
-									<td class="mob_off">58</td>
+									<td>0</td>
+									<td class="mob_off">{{$sc->startups_count}}</td>
 									<td class="mob_off">{{$sc->country->code}}</td>
 									<td class="mob_off">{{$sc->works->count()}}</td>
 									<td class="vote_list"><a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#log-u-modal">
