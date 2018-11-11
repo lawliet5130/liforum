@@ -154,332 +154,78 @@
 	<div class="list_top_home">
 		<div class="container">
 			<div class="col-md-6 li_hom_scient_top">
-				<h2>Rating of scientists: top 5</h2>
+				<h2>Top 5 scientists:</h2>
 				<div class="line_title_left"></div>
 				<ul class="li_hom_scient">
+					@foreach($scientists as $sc)
 					<li class="wow fadeInLeft" data-wow-duration="1s">
 						<div class="col-md-4 avatar_home">
 							<div class="rating_home">
-								<p>1</p>
+								<p>{{$loop->iteration}}</p>
 							</div>
-							<img src="img/scientists/6.png" alt="">
+							<img src="{{Voyager::image($sc->thumbnail('square','image'))}}" alt="">
 						</div>
 						<div class="col-md-8 scients_home_date row">
-							<a href="scientist.php" class="view_profile_button">View profile</a>
-							<p class="name_sc">David Sinclair</p>
-							<p class="prof_sc"><a href="knowledge.php?Genomics">Genomics</a></p>
+							<a href="{{route('scientistProfile',['scientist'=>$sc->id])}}" class="view_profile_button">View profile</a>
+							<p class="name_sc">{{$sc->name}} {{$sc->surname}}</p>
+							<p class="prof_sc"><a href="knowledge.php?Genomics">{{$sc->branch->name}}</a></p>
 							<div class="date_sc_home ">
 								<div class="table_date_sc rating_h">
 									<i class="fa fa-star"></i>
 									<p class="name_date">Ranking</p>
-									<p class="number_date">689</p>
+									<p class="number_date">u-dev.</p>
 								</div>
 								<div class="table_date_sc rating_h">
 									<i class="fa fa-bar-chart"></i>
 									<p class="name_date">Voted startups</p>
-									<p class="number_date">75</p>
+									<p class="number_date">u-dev.</p>
 								</div>
 								<div class="table_date_sc rating_h">
 									<i class="fa fa-map-marker"></i>
 									<p class="name_date">Country</p>
-									<p class="number_date">USA</p>
+									<p class="number_date">{{$sc->country->code}}</p>
 								</div>
 							</div>
 						</div>
 						<div class="clearfix"></div>
 					</li>
-					<li class="wow fadeInLeft" data-wow-duration="1s">
-						<div class="col-md-4 avatar_home">
-							<div class="rating_home">
-								<p>2</p>
-							</div>
-							<img src="img/scientists/1.png" alt="">
-						</div>
-						<div class="col-md-8 scients_home_date row">
-							<a href="scientist.php" class="view_profile_button">View profile</a>
-							<p class="name_sc">Richard Dawkins</p>
-							<p class="prof_sc"><a href="knowledge.php?Biology">Biology</a></p>
-							<div class="date_sc_home ">
-								<div class="table_date_sc rating_h">
-									<i class="fa fa-star"></i>
-									<p class="name_date">Ranking</p>
-									<p class="number_date">589</p>
-								</div>
-								<div class="table_date_sc rating_h">
-									<i class="fa fa-bar-chart"></i>
-									<p class="name_date">Voted startups</p>
-									<p class="number_date">58</p>
-								</div>
-								<div class="table_date_sc rating_h">
-									<i class="fa fa-map-marker"></i>
-									<p class="name_date">Country</p>
-									<p class="number_date">UK</p>
-								</div>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</li>
-					<li class="wow fadeInLeft" data-wow-duration="1s">
-						<div class="col-md-4 avatar_home">
-							<div class="rating_home">
-								<p>3</p>
-							</div>
-							<img src="img/scientists/2.png" alt="">
-						</div>
-						<div class="col-md-8 scients_home_date row">
-							<a href="scientist.php" class="view_profile_button">View profile</a>
-							<p class="name_sc">J.Craig Venter</p>
-							<p class="prof_sc"><a href="knowledge.php?Genomics">Genomics</a></p>
-							<div class="date_sc_home ">
-								<div class="table_date_sc rating_h">
-									<i class="fa fa-star"></i>
-									<p class="name_date">Ranking</p>
-									<p class="number_date">589</p>
-								</div>
-								<div class="table_date_sc rating_h">
-									<i class="fa fa-bar-chart"></i>
-									<p class="name_date">Voted startups</p>
-									<p class="number_date">58</p>
-								</div>
-								<div class="table_date_sc rating_h">
-									<i class="fa fa-map-marker"></i>
-									<p class="name_date">Country</p>
-									<p class="number_date">USA</p>
-								</div>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</li>
-					
-					<li class="wow fadeInLeft" data-wow-duration="1s">
-						<div class="col-md-4 avatar_home">
-							<div class="rating_home">
-								<p>4</p>
-							</div>
-							<img src="img/scientists/4.png" alt="">
-						</div>
-						<div class="col-md-8 scients_home_date row">
-							<a href="scientist.php" class="view_profile_button">View profile</a>
-							<p class="name_sc">William C. Campbell</p>
-							<p class="prof_sc"><a href="knowledge.php?Biology">Biology</a></p>
-							<div class="date_sc_home ">
-								<div class="table_date_sc rating_h">
-									<i class="fa fa-star"></i>
-									<p class="name_date">Ranking</p>
-									<p class="number_date">589</p>
-								</div>
-								<div class="table_date_sc rating_h">
-									<i class="fa fa-bar-chart"></i>
-									<p class="name_date">Voted startups</p>
-									<p class="number_date">58</p>
-								</div>
-								<div class="table_date_sc rating_h">
-									<i class="fa fa-map-marker"></i>
-									<p class="name_date">Country</p>
-									<p class="number_date">USA</p>
-								</div>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</li>
-					<li class="wow fadeInLeft" data-wow-duration="1s">
-						<div class="col-md-4 avatar_home">
-							<div class="rating_home">
-								<p>5</p>
-							</div>
-							<img src="img/scientists/5.png" alt="">
-						</div>
-						<div class="col-md-8 scients_home_date row">
-							<a href="scientist.php" class="view_profile_button">View profile</a>
-							<p class="name_sc">Yoshinori Ohsumi</p>
-							<p class="prof_sc"><a href="knowledge.php?Biology">Biology</a></p>
-							<div class="date_sc_home ">
-								<div class="table_date_sc rating_h">
-									<i class="fa fa-star"></i>
-									<p class="name_date">Ranking</p>
-									<p class="number_date">589</p>
-								</div>
-								<div class="table_date_sc rating_h">
-									<i class="fa fa-bar-chart"></i>
-									<p class="name_date">Voted startups</p>
-									<p class="number_date">58</p>
-								</div>
-								<div class="table_date_sc rating_h">
-									<i class="fa fa-map-marker"></i>
-									<p class="name_date">Country</p>
-									<p class="number_date">JP</p>
-								</div>
-							</div>
-						</div>
-						<div class="clearfix"></div>
-					</li>
+					@endforeach
 				</ul>
 				<div class="butons_home_list">
-					<a href="scientist_list.php" class="btn btn-secondary" >SEE MORE</a>
+					<a href="{{route('getScList')}}" class="btn btn-secondary">CHECK FULL LIST</a>
 					<a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#reg-modal">Registration for scientists</a>
 				</div>
 			</div>
 			<div class="col-md-6">
-				<h2>Rating of Startups: top 10</h2>
+				<h2>Top 10 Startups:</h2>
 				<div class="line_title_left"></div>
 				<ul class="list_startups">
+					@foreach($startups as $stup)
 					<li class="wow fadeInRight" data-wow-duration="1s">
-						<div class="ratingposition_home_startup"><p>1</p></div>
+						<div class="ratingposition_home_startup"><p>{{$loop->iteration}}</p></div>
 						<div class="name_home_startup_center">
-							<p class="name_home_startup">Retrotope.com <a href="http://retrotope.com" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a></p>
-							<p class="domeniu_home_startup"><a href="knowledge.php?Biotech">Biotech</a></p>
+							<p class="name_home_startup"><a href="{{route('getStartup',['stup'=>$stup->id])}}">{{$stup->title}}</a><a href="{{$stup->cb_link}}" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a></p>
+							<p class="domeniu_home_startup"><a href="knowledge.php?Biotech">{{$stup->branch->name}}</a></p>
 						</div>
 						<div class="rating_home_startup">
 							<i class="fa fa-star"></i>
 							<p class="name_date">Rating</p>
-							<p class="number_date">589</p>
+							<p class="number_date">{{$stup->scientists_count}}</p>
 						</div>
 						<div class="clearfix"></div>
 					</li>
-					<li class="wow fadeInRight" data-wow-duration="1s">
-						<div class="ratingposition_home_startup"><p>2</p></div>
-						<div class="name_home_startup_center">
-							<p class="name_home_startup">Bioviva-Sciences.com <a href="http://bioviva-Sciences.com" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a></p>
-							<p class="domeniu_home_startup"><a href="knowledge.php?Gene+therapy">Gene therapy</a></p>
-						</div>
-						<div class="rating_home_startup">
-							<i class="fa fa-star"></i>
-							<p class="name_date">Rating</p>
-							<p class="number_date">577</p>
-						</div>
-						<div class="clearfix"></div>
-					</li>
-					<li class="wow fadeInRight" data-wow-duration="1s">
-						<div class="ratingposition_home_startup"><p>3</p></div>
-						<div class="name_home_startup_center">
-							<p class="name_home_startup">Nebula.org
-								<a href="http://nebula.org" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
-							</p>
-							<p class="domeniu_home_startup"><a href="knowledge.php?Gene+therapy">Gene therapy</a></p>
-						</div>
-						<div class="rating_home_startup">
-							<i class="fa fa-star"></i>
-							<p class="name_date">Rating</p>
-							<p class="number_date">550</p>
-						</div>
-						<div class="clearfix"></div>
-					</li>
-					<li class="wow fadeInRight" data-wow-duration="1s">
-						<div class="ratingposition_home_startup"><p>4</p></div>
-						<div class="name_home_startup_center">
-							<p class="name_home_startup">Insilico.com
-								<a href="http://insilico.com" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
-							</p>
-							<p class="domeniu_home_startup"><a href="knowledge.php?Drug+discovery">Drug discovery</a></p>
-						</div>
-						<div class="rating_home_startup">
-							<i class="fa fa-star"></i>
-							<p class="name_date">Rating</p>
-							<p class="number_date">520</p>
-						</div>
-						<div class="clearfix"></div>
-					</li>
-					<li class="wow fadeInRight" data-wow-duration="1s">
-						<div class="ratingposition_home_startup"><p>5</p></div>
-						<div class="name_home_startup_center">
-							<p class="name_home_startup">Advancells.com
-								<a href="http://advancells.com" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
-							</p>
-							<p class="domeniu_home_startup"><a href="knowledge.php?Stem+cell+therapy">Stem cell therapy</a></p>
-						</div>
-						<div class="rating_home_startup">
-							<i class="fa fa-star"></i>
-							<p class="name_date">Rating</p>
-							<p class="number_date">502</p>
-						</div>
-						<div class="clearfix"></div>
-					</li>
-					<li class="wow fadeInRight" data-wow-duration="1s">
-						<div class="ratingposition_home_startup"><p>6</p></div>
-						<div class="name_home_startup_center">
-							<p class="name_home_startup">Bioquark.com
-								<a href="http://bioquark.com" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
-							</p>
-							<p class="domeniu_home_startup"><a href="knowledge.php?Combinatorial+biologics">Combinatorial biologics</a></p>
-						</div>
-						<div class="rating_home_startup">
-							<i class="fa fa-star"></i>
-							<p class="name_date">Rating</p>
-							<p class="number_date">456</p>
-						</div>
-						<div class="clearfix"></div>
-					</li>
-					<li class="wow fadeInRight" data-wow-duration="1s">
-						<div class="ratingposition_home_startup"><p>7</p></div>
-						<div class="name_home_startup_center">
-							<p class="name_home_startup">Doc.ai
-								<a href="http://doc.ai" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
-							</p>
-							<p class="domeniu_home_startup"><a href="knowledge.php?AI">AI</a></p>
-						</div>
-						<div class="rating_home_startup">
-							<i class="fa fa-star"></i>
-							<p class="name_date">Rating</p>
-							<p class="number_date">410</p>
-						</div>
-						<div class="clearfix"></div>
-					</li>
-					<li class="wow fadeInRight" data-wow-duration="1s">
-						<div class="ratingposition_home_startup"><p>8</p></div>
-						<div class="name_home_startup_center">
-							<p class="name_home_startup">Elysiumhealth.com
-								<a href="http://elysiumhealth.com" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
-							</p>
-							<p class="domeniu_home_startup"><a href="knowledge.php?Biotechnology">Biotechnology</a></p>
-						</div>
-						<div class="rating_home_startup">
-							<i class="fa fa-star"></i>
-							<p class="name_date">Rating</p>
-							<p class="number_date">369</p>
-						</div>
-						<div class="clearfix"></div>
-					</li>
-					<li class="wow fadeInRight" data-wow-duration="1s">
-						<div class="ratingposition_home_startup"><p>9</p></div>
-						<div class="name_home_startup_center">
-							<p class="name_home_startup">Nuritas.com
-								<a href="http://nuritas.com" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
-							</p>
-							<p class="domeniu_home_startup"><a href="knowledge.php?Drug+discovery">Drug discovery</a></p>
-							</div>
-							<div class="rating_home_startup">
-								<i class="fa fa-star"></i>
-								<p class="name_date">Rating</p>
-								<p class="number_date">120</p>
-							</div>
-							<div class="clearfix"></div>
-						</li>
-						<li class="wow fadeInRight" data-wow-duration="1s">
-							<div class="ratingposition_home_startup"><p>10</p></div>
-							<div class="name_home_startup_center">
-								<p class="name_home_startup">Rejuvenatebiomed.com
-									<a href="http://rejuvenatebiomed.com" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
-								</p>
-								<p class="domeniu_home_startup"><a href="knowledge.php?Drug+discovery">Drug discovery</a></p>
-							</div>
-							<div class="rating_home_startup">
-								<i class="fa fa-star"></i>
-								<p class="name_date">Rating</p>
-								<p class="number_date">77</p>
-							</div>
-							<div class="clearfix"></div>
-						</li> 
-					</ul>
-					<div class="butons_home_list">
-						<a href="startups.php" class="btn btn-secondary" >SEE MORE</a>
-						<form class="example" action="/action_page.php" style="margin:auto;max-width:300px; display: inline-flex;">
-							<input type="text" placeholder="Search.." name="search2">
-							<button type="submit"><i class="fa fa-search"></i></button>
-						</form>
-					</div>
+					@endforeach
+				</ul>
+				<div class="butons_home_list">
+					<a href="{{route('getStartups')}}" class="btn btn-secondary">CHEKC FULL LIST</a>
+<!-- 					<form class="example" action="/action_page.php" style="margin:auto;max-width:300px; display: inline-flex;">
+						<input type="text" placeholder="Search.." name="search2">
+						<button type="submit"><i class="fa fa-search"></i></button>
+					</form> -->
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 		<section class="parteners" id="advr">
 			<div class="container">
 				<h1>SLOTS FOR ADVERTISING</h1>
@@ -582,7 +328,7 @@
 				<div class="more_mews_butt">
 					
 					<br>
-					<a href="news.php" class="btn btn-secondary center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" >All NEWS</a>
+					<a href="{{route('getNews')}}" class="btn btn-secondary center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" >All NEWS</a>
 				</div>
 			</div>
 			

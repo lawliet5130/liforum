@@ -10,24 +10,26 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::bind('scientist', function ($value) {
-    return App\ScientistAccount::find($value);
-});
-
-Route::bind('post',function($value){
-	return App\Article::find($value);
-});
 
 
 // --------------Main routes--------------
 Route::get('/','MainController@getHome')->name('getHome');
 Route::get('/scientists','MainController@getScList')->name('getScList');
-Route::get('/startups','MainController@getStartups')->name('getStartups');
-Route::get('/startup','MainController@startup')->name('getstartup');
 Route::get('/about','MainController@getAbout')->name('getAbout');
 
+// --------------Startups routes--------------
+Route::bind('stup',function($value){
+	return App\Startup::find($value);
+});
+
+Route::get('/startups','MainController@getStartups')->name('getStartups');
+Route::get('/startup/{stup}','MainController@getStartup')->name('getStartup');
 
 // --------------News routes--------------
+Route::bind('post',function($value){
+	return App\Article::find($value);
+});
+
 Route::get('/news','MainController@getNews')->name('getNews');
 Route::get('/news/{post}','MainController@getArticle')->name('getArticle');
 
@@ -42,6 +44,10 @@ Route::get('/getscitem','UserController@getScItems')->name('getScItems');
 
 
 // --------------Scientist routes--------------
+Route::bind('scientist', function ($value) {
+    return App\ScientistAccount::find($value);
+});
+
 Route::post('/scientist-apply','UserController@scientistApply')->name('scientistApply');
 Route::get('/scientist/{scientist}','UserController@scientistProfile')->name('scientistProfile');
 

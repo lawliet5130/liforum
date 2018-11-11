@@ -33,9 +33,9 @@
 
 						<br>
 						<div class="col-md-3">
-							<img src="/storage/{{$user->image}}" alt="" class="avatar_big">
+							<img src="{{Voyager::image($user->thumbnail('square','image'))}}" alt="" class="avatar_big">
 							<div class="upload-box">
-								<div class="hold"><a href="#">Maximum file size 100 KB</a> <span class="btn-file"> Browse File
+								<div class="hold"><a href="#">Maximum file size 1 MB</a> <span class="btn-file"> Browse File
 									<input type="file" name="image">
 								</span> </div>
 							</div>
