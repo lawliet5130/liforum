@@ -5,13 +5,14 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Events\ScientistCreated;
 use Illuminate\Notifications\Notifiable;
+use TCG\Voyager\Traits\Resizable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class ScientistAccount extends Authenticatable
 {
-	use Notifiable;
+	use Notifiable,Resizable;
 
-	protected $guarded=['password','acc_status','login_link','login','deleted_at'];
+	protected $guarded=['login','deleted_at'];
 
 	protected $events=[
 		'created'=>ScientistCreated::class,
@@ -29,7 +30,7 @@ class ScientistAccount extends Authenticatable
 	public function works(){
 		return $this->hasMany('App\Work','scientist_id');
 	}
-
+	
 	public function videos(){
 		return $this->hasMany('App\Video','scientist_id');
 	}

@@ -11,12 +11,14 @@ class MainController extends Controller
 {
 	public function getHome(){
 		$articles=Article::where('onhome','1')->take(3)->get();
+		$scientists=ScientistAccount::take(5)->select(['name','surname','id','image','branch_id','country_code'])->withCount('startups')->get();
+		$startups=Startup::withCount('scientists')->orderBy('scientists_count','desc')->take(10)->get();
 
-		return view('pages.index',compact('articles'));
+		return view('pages.index',compact('articles','scientists','startups'));
 	}
 
 	public function getScList(){
-		$scs=ScientistAccount::get(['name','surname','id','image','branch_id','country_code']);
+		$scs=ScientistAccount::select(['name','surname','id','image','branch_id','country_code'])->withCount('startups')->get();
 
 		return view('pages.scientists',compact('scs'));
 	}
@@ -27,14 +29,12 @@ class MainController extends Controller
 
 	public function getStartups(){
 		$startups=Startup::withCount('scientists')->orderBy('scientists_count','desc')->get();
-		// dd($startups->first()->scientists->find(\Auth::guard('profiles')));
-		// dd(\Auth::guard('profiles')->user()->startups->find(1));
 
 		return view('pages.startups',compact('startups'));
 	}
 
-	public function startup(){
-		return view('pages.startup');
+	public function getStartup($startup){
+		return view('pages.startup',compact('startup'));
 	}
 
 	public function getNews(){

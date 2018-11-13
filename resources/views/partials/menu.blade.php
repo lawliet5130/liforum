@@ -38,7 +38,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle img_header_avatar_a" data-toggle="dropdown">
                         <span class="alert_messages hidden">3</span>
-                        <img src="/storage/{{$profile_data->image}}" alt="" class="img_header_avatar">
+                        <img src="{{Voyager::image($profile_data->thumbnail('square','image'))}}" alt="" class="img_header_avatar">
                     </a>
                     <ul class="dropdown-menu card_user">
                         <li>
@@ -46,7 +46,7 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <p class="text-center">
-                                            <img src="/storage/{{$profile_data->image}}" alt="" class="img_header_avatar_card">
+                                            <img src="{{Voyager::image($profile_data->thumbnail('square','image'))}}" alt="" class="img_header_avatar_card">
                                         </p>
                                     </div>
                                     <div class="col-lg-8">

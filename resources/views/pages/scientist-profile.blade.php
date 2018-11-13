@@ -22,7 +22,7 @@
 		<div class="clearfix"></div>
 		<div class="page_personal">
 			<div class="col-md-3">
-				<img src="/storage/{{$user->image}}" alt="" class="avatar_big">
+				<img src="{{Voyager::image($user->thumbnail('square','image'))}}" alt="" class="avatar_big">
 			</div>
 			<div class="col-md-5 date_person_1">
 				<p class="name_personal">{{$user->name}} {{$user->surname}}</p>
@@ -66,7 +66,7 @@
 					<div class="ranting_individual_right">
 						<i class="fa fa-bar-chart"></i>
 						<p class="name_date">Voted startups</p>
-						<p class="number_date">Under development</p>
+						<p class="number_date">{{$user->startups->count()}}</p>
 						<!-- <a  class="btn btn-secondary scrollto" href="#voted_personal">
 							<span>View projects</span>
 						</a> -->

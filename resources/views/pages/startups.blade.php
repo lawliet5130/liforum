@@ -47,10 +47,15 @@
 					</div>
 					<div class="name_home_startup_center">
 						<p class="name_home_startup">
-							<a href="/startup">{{$sup->title}}</a>
-							<a href="{{$sup->link}}" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
-							@if(\Auth::guard('profiles')->check())<button data-tovote="{{$sup->id}}" data-toggle="modal" data-target="#checkVote">vote!</button>@endif
-							<!-- <span class="supVoted" style="color:brown;">voted</span> -->
+							<a href="{{route('getStartup',['stup'=>$sup->id])}}">{{$sup->title}}</a>
+							<a href="{{route('getStartup',['stup'=>$sup->id])}}" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
+							@if(\Auth::guard('profiles')->check())
+								@if(\Auth::guard('profiles')->user()->startups->contains('id',$sup->id))
+									<span class="supVoted" style="color:brown;">voted</span>
+								@else
+									<button data-tovote="{{$sup->id}}" data-toggle="modal" data-target="#checkVote">vote!</button>
+								@endif
+							@endif
 						</p>
 						<p class="domeniu_home_startup"><a href="knowledge.php?Biotech">{{$sup->branch->name}}</a></p>
 					</div>
