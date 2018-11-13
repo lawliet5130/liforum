@@ -13,7 +13,7 @@
 			<section class="title_page search_title">
 				<div class="container">
 					<div class="col-md-3 partener_logo_head wow fadeInUp">
-						<img src="img/part1.png" alt="" class=" " >
+						<!-- <img src="img/part1.png" alt="" class=" " > -->
 					</div>
 					<div class="col-md-6">
 					<h1><span>Search by tiping name or technology<br>

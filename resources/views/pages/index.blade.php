@@ -40,7 +40,7 @@
 	<div class="monic wow fadeInUp" data-wow-duration="1s" data-wow-delay="1s">
 		
 		<iframe width="640" height="360" src="https://www.youtube.com/embed/im4OVjv7AjM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-		<img src="img/part1.png" alt="" class="part_left wow fadeInRight" data-wow-duration="1s" data-wow-delay="1.5s">
+		<!-- <img src="img/part1.png" alt="" class="part_left wow fadeInRight" data-wow-duration="1s" data-wow-delay="1.5s"> -->
 		<img src="img/part2.png" alt="" class="part_right wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.5s">
 	</div>
 	<img src="img/home_bg.png" alt="">
