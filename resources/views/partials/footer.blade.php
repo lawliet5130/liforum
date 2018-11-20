@@ -52,11 +52,8 @@
 						<div class="col-md-4">
 							<h5>Popular Links</h5>
 							<ul class="cb-margin-medium-right">
-								<li><a  aria-label="Featured Lists and Searches" href=""> Featured Lists and Searches </a></li>
-								<li><a rel="noopener" target="_blank" aria-label="Difference" href="">Difference </a></li>
-								<li><a rel="noopener" target="_blank" aria-label="Knowledge Center" href=""> Knowledge Center </a></li>
-								<li><a rel="noopener" target="_blank" aria-label="Privacy" href=""> Privacy </a></li>
-								<li><a routerlink="" aria-label="Create a Profile" href=""> Create a Profile </a></li>
+								<li><a aria-label="Top Scientists" href="{{route('getScList')}}">Top Scientists</a></li>
+								<li><a aria-label="Best longevity companies" href="{{route('getStartups')}}">Best longevity companies</a></li>
 							</ul>
 						</div>
 						<div class="col-md-4">

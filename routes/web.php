@@ -14,7 +14,6 @@ use Illuminate\Http\Request;
 
 // --------------Main routes--------------
 Route::get('/','MainController@getHome')->name('getHome');
-Route::get('/scientists','MainController@getScList')->name('getScList');
 Route::get('/about','MainController@getAbout')->name('getAbout');
 
 // --------------Startups routes--------------
@@ -43,11 +42,12 @@ Route::get('/getscitem','UserController@getScItems')->name('getScItems');
 
 
 
-// --------------Scientist routes--------------
+// --------------Scientists routes--------------
 Route::bind('scientist', function ($value) {
     return App\ScientistAccount::find($value);
 });
 
+Route::get('/scientists','MainController@getScList')->name('getScList');
 Route::post('/scientist-apply','UserController@scientistApply')->name('scientistApply');
 Route::get('/scientist/{scientist}','UserController@scientistProfile')->name('scientistProfile');
 

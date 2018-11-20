@@ -24,7 +24,7 @@
 
 		<div class="col-md-12 list_page">
 			<div class="col-md-6  title_page_left">
-				<h2>Rating of Startups: top 30</h2>
+				<h2>Rating of Startups:</h2>
 				<div class="line_title_left"></div>
 			</div>
 			<div class="col-md-6  search_page_right">

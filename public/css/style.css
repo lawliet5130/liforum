@@ -1458,7 +1458,7 @@ text-transform: uppercase;
  .list_top_home {
   min-height:500px;
  
-  background:transparent url("http://www.days.exchange/img/-howit-bg.jpg") no-repeat scroll center -50px;
+  background:transparent url("/img/howitbg.jpg") no-repeat scroll center -50px;
 padding:50px 0;
 outline: none;
 -webkit-transition: all 0.2s ease-in-out;

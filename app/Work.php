@@ -11,5 +11,9 @@ class Work extends Model
     	return $this->belongsTo('App\Branch');
     }
 
+    public function scientist(){
+    	return $this->belongsTo('App\ScientistAccount','scientist_id');
+    }
+
     protected $guarded=['scientist_id'];
 }

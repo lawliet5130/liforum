@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\ScientistAccount;
 use App\Startup;
 use App\Article;
+use App\Work;
+use App\Video;
 
 class MainController extends Controller
 {
@@ -48,6 +50,18 @@ class MainController extends Controller
 	}
 
 	public function getKnowledge(){
-		return view('pages.knowledge');
+		$scientists=ScientistAccount::take(5)->select(['name','surname','id','image','branch_id','country_code'])->withCount('startups','works')->get();
+		$scCount=ScientistAccount::count();
+
+		$works=Work::take(4)->orderBy('created_at','desc')->get();
+		$wrkCount=Work::count();
+
+		$startups=Startup::take(5)->withCount('scientists')->get();
+		$supCount=Startup::count();
+
+		$videos=Video::take(4)->orderBy('created_at','desc')->get();
+		$viCount=Video::count();
+
+		return view('pages.knowledge',compact('scientists','scCount','works','wrkCount','startups','supCount','videos','viCount'));
 	}
 }

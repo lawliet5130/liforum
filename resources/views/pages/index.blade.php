@@ -167,7 +167,7 @@
 						</div>
 						<div class="col-md-8 scients_home_date row">
 							<a href="{{route('scientistProfile',['scientist'=>$sc->id])}}" class="view_profile_button">View profile</a>
-							<p class="name_sc">{{$sc->name}} {{$sc->surname}}</p>
+							<p class="name_sc">{{$sc->getFullName()}}</p>
 							<p class="prof_sc"><a href="knowledge.php?Genomics">{{$sc->branch->name}}</a></p>
 							<div class="date_sc_home ">
 								<div class="table_date_sc rating_h">
@@ -306,7 +306,7 @@
 					<div class="single_new_block_inter">
 						<div class="img_new_block">
 							<img src="/storage/{{$article->image}}">
-							<div class="detail_new"><a href="{{route('getArticle',['post'=>$article->id])}}">DETALII</a></div>
+							<div class="detail_new"><a href="{{route('getArticle',['post'=>$article->id])}}">DETAILS	</a></div>
 						</div>
 						<div class="date_new">
 							<p class="moon_new">{{$article->created_at->format('M')}}</p>

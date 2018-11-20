@@ -25,7 +25,7 @@
 				<img src="{{Voyager::image($user->thumbnail('square','image'))}}" alt="" class="avatar_big">
 			</div>
 			<div class="col-md-5 date_person_1">
-				<p class="name_personal">{{$user->name}} {{$user->surname}}</p>
+				<p class="name_personal">{{$user->getFullName()}}</p>
 				<p class="special_personal"><span><a href="knowledge.php?Genomics">{{$user->branch->name}}</a></span></p>
 				<br>
 				<div class="date_person_loc">
@@ -211,23 +211,21 @@
 					@if($user->videos->count()>4)<div class="button_center_more_def"><a href="" data-tocount="videos" data-quantity="4" class="btn btn-secondary getMore">More Videos</a></div>@endif
 				</div>        
 				<div class="news_personal">
-					<h2>News about David Sinclair <span>(10)</span></h2>
+					<h2>News about {{$user->getFullName()}}<span>({{$user->news->count()}})</span></h2>
 					<div class="line_title_left"></div>
+					@foreach($user->news->sortByDesc('created_at')->take(3) as $article)
 					<div class="single_new_block col-md-4 wow fadeInUp " data-wow-delay="0s">
 						<div class="single_new_block_inter">
 							<div class="img_new_block">
-								<img src="/img/news/new1.png">
-								<div class="detail_new"><a href="single_article.php">Detals</a></div>
+								<img src="/storage/{{$article->image}}">
+								<div class="detail_new"><a href="{{route('getArticle',['post'=>$article->id])}}">DETAILS</a></div>
 							</div>
 							<div class="date_new">
-								<p class="moon_new">NOV</p>
-								<p class="number_new">09</p>
+								<p class="moon_new">{{$article->created_at->format('M')}}</p>
+								<p class="number_new">{{$article->created_at->format('d')}}</p>
 							</div>
-							<h2><a href="single_article.php">Special care on Pets by physician</a></h2>
-							<p>The weather started getting rough the tiny ship
-								was tossed if not for the courage of the fearless
-								crew the Minnow would be lost the minnow lost.
-							</p>
+							<h2><a href="{{route('getArticle',['post'=>$article->id])}}" title="{{$article->title}}">{{str_limit($article->title,40)}}</a></h2>
+							<p>{{str_limit(strip_tags($article->text),120)}}</p>
 							<div class="sub_new_block">
 								<div class="user_name_new">
 									<i class="fa fa-user"></i>
@@ -237,58 +235,9 @@
 							</div>
 						</div>
 					</div>
-					<div class="single_new_block col-md-4 wow fadeInUp " data-wow-delay="0s">
-						<div class="single_new_block_inter">
-							<div class="img_new_block">
-								<img src="/img/news/new2.png">
-								<div class="detail_new"><a href="single_article.php">Detals</a></div>
-							</div>
-							<div class="date_new">
-								<p class="moon_new">NOV</p>
-								<p class="number_new">09</p>
-							</div>
-							<h2><a href="single_article.php">Special care on Pets by physician</a></h2>
-							<p>The weather started getting rough the tiny ship
-								was tossed if not for the courage of the fearless
-								crew the Minnow would be lost the minnow lost.
-							</p>
-							<div class="sub_new_block">
-								<div class="user_name_new">
-									<i class="fa fa-user"></i>
-									<p><a href="#">Posted By Admin</a></p>
-								</div>
-								
-							</div>
-						</div>
-					</div>
-					<div class="single_new_block col-md-4 wow fadeInUp " data-wow-delay="0s">
-						<div class="single_new_block_inter">
-							<div class="img_new_block">
-								<img src="/img/news/new3.png">
-								<div class="detail_new"><a href="single_article.php">Detals</a></div>
-							</div>
-							<div class="date_new">
-								<p class="moon_new">NOV</p>
-								<p class="number_new">09</p>
-							</div>
-							<h2><a href="single_article.php">Special care on Pets by physician</a></h2>
-							<p>The weather started getting rough the tiny ship
-								was tossed if not for the courage of the fearless
-								crew the Minnow would be lost the minnow lost.
-							</p>
-							<div class="sub_new_block">
-								<div class="user_name_new">
-									<i class="fa fa-user"></i>
-									<p><a href="#">Posted By Admin</a></p>
-								</div>
-								
-							</div>
-						</div>
-
-					</div>
+					@endforeach
 					<div class="clearfix"></div> 
 					<div class="more_mews_butt">
-						
 						<br>
 						<a href="news.php" class="btn btn-secondary center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" >All NEWS</a>
 					</div>

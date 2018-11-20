@@ -39,6 +39,10 @@ class ScientistAccount extends Authenticatable
 		return $this->belongsToMany('App\Startup','scientist_startup','scientist_id')->withTimestamps();
 	}
 
+	public function news(){
+		return $this->hasMany('App\Article','scientist_id');
+	}
+
 	public function getGender(){
 		switch ($this->gender) {
 			case '0':
@@ -54,6 +58,10 @@ class ScientistAccount extends Authenticatable
 				break;
 		}
 		return $gender;
+	}
+
+	public function getFullName(){
+		return $this->name.' '.$this->surname;
 	}
 
 	public function routeNotificationForMail()

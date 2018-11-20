@@ -50,7 +50,7 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-8">
-                                        <p class="text-left"><strong>{{$profile_data->name}} {{$profile_data->surname}}</strong></p>
+                                        <p class="text-left"><strong>{{$profile_data->getFullName()}}</strong></p>
                                         <p class="text-left small">{{$profile_data->login}}</p>
                                         <form method="POST" action="{{route('logout')}}">
                                             {{csrf_field()}}
