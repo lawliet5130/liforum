@@ -41,9 +41,21 @@ class MainController extends Controller
 
 	public function getNews(Request $request){
 		if($request->tag){
-			$articles=Article::all()->filter(function($val,$key) use ($request){
+			$articles=Article::orderBy('created_at','desc')->get()->filter(function($val,$key) use ($request){
 				return in_array($request->tag, explode(',',$val->tags));
 			});
+
+			$lastPage=floor($articles->count()/6)+1;
+			$currentPage=($request->page)?$request->page:1;
+
+			if($articles->count()>6){
+				$elements=$this->getElements($articles,$lastPage,$currentPage);
+			}else{
+				$elements=null;
+			}
+
+			$articles=$articles->forPage($currentPage,6);
+
 		}else{
 			$articles=Article::orderBy('promoted','desc')->orderBy('created_at','desc')->paginate(6);				
 		}
@@ -63,7 +75,7 @@ class MainController extends Controller
 		arsort($tags);
 		$tags=array_slice($tags, -20);
 
-		return view('pages.news',compact('articles','tags'));
+		return view('pages.news',compact('articles','tags','elements','lastPage'));
 	}
 
 	public function getArticle($article){
@@ -84,5 +96,49 @@ class MainController extends Controller
 		$viCount=Video::count();
 
 		return view('pages.knowledge',compact('scientists','scCount','works','wrkCount','startups','supCount','videos','viCount'));
+	}
+
+	protected function getElements($articles,$lastPage,$currentPage){
+		if(floor($lastPage < 12)){
+			$pages=[
+				'first'=>range(1,$lastPage),
+				'slider'=>null,
+				'last'=>null
+			];
+		}else{
+			switch ($currentPage) {
+				case $currentPage<=6:
+					$pages=[
+						'first'=>range(1,8),
+						'slider'=>null,
+						'last'=>range($lastPage-1,$lastPage)
+					];
+					break;
+				
+				case $currentPage > $lastPage-6:
+					$pages=[
+						'first'=>range(1,2),
+						'slider'=>null,
+						'last'=>range($lastPage-8,$lastPage)
+					];
+					break;
+
+				default:
+					$pages=[
+						'first'=>range(1,2),
+						'slider'=>range($currentPage-3,$currentPage+3),
+						'last'=>range($lastPage-1,$lastPage)
+					];
+					break;
+			}
+		}
+
+		return array_filter([
+            $pages['first'],
+            is_array($pages['slider']) ? '...' : null,
+            $pages['slider'],
+            is_array($pages['last']) ? '...' : null,
+            $pages['last'],
+        ]);
 	}
 }
