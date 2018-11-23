@@ -46,44 +46,37 @@
 					<div class="clearfix"></div>
 					<div aria-label="Page navigation example">
 						@if(request()->tag)
-							@if ($articles->count()>6)
-								@php 
-									$pages=$articles->count()/6+1; 
+							@if ($elements)
+								@php
 									$cPage=(request()->page)?request()->page:1;
-									dd($cPage);
 								@endphp
 								<ul class="pagination">
-									{{-- Previous Page Link --}}
-									@if (request()->page && request()->page=1)
-										<li class="disabled"><span>&laquo;</span></li>
+									@if ($cPage>1)
+										<li><a href="{{route('getNews',['tag'=>request()->tag,'page'=>$cPage-1])}}" rel="prev">&laquo;</a></li>
 									@else
-										<li><a href="{{route('getNews',['tag'=>request()->tag,'page'=>request()->page-1])}}" rel="prev">&laquo;</a></li>
+										<li class="disabled"><span>&laquo;</span></li>
 									@endif
 
-									{{-- Pagination Elements --}}
-									@for($i=1;$i<=$pages;$i++)
-										{{-- "Three Dots" Separator --}}
-										@if ($pages>11 && $i>)
-										<li class="disabled"><span>{{ $element }}</span></li>
+									@foreach ($elements as $element)
+										@if (is_string($element))
+											<li class="disabled"><span>{{ $element }}</span></li>
 										@endif
 
-										{{-- Array Of Links --}}
 										@if (is_array($element))
-										@foreach ($element as $page => $url)
-										@if ($page == $paginator->currentPage())
-										<li class="active"><span>{{ $page }}</span></li>
-										@else
-										<li><a href="{{ $url }}">{{ $page }}</a></li>
+											@foreach ($element as $page)
+												@if ($page == $cPage)
+													<li class="active"><span>{{ $page }}</span></li>
+												@else
+													<li><a href="{{route('getNews',['tag'=>request()->tag,'page'=>$page])}}">{{ $page }}</a></li>
+												@endif
+											@endforeach
 										@endif
-										@endforeach
-										@endif
-									@endfor
+									@endforeach
 
-									{{-- Next Page Link --}}
-									@if ($paginator->hasMorePages())
-									<li><a href="{{ $paginator->nextPageUrl() }}" rel="next">&raquo;</a></li>
+									@if ($cPage < $lastPage)
+										<li><a href="{{route('getNews',['tag'=>request()->tag,'page'=>$cPage+1])}}" rel="next">&raquo;</a></li>
 									@else
-									<li class="disabled"><span>&raquo;</span></li>
+										<li class="disabled"><span>&raquo;</span></li>
 									@endif
 								</ul>
 							@endif

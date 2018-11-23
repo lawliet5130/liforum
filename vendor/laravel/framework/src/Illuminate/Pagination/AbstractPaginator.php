@@ -154,7 +154,6 @@ abstract class AbstractPaginator implements Htmlable
         if (count($this->query) > 0) {
             $parameters = array_merge($this->query, $parameters);
         }
-
         return $this->path
                         .(Str::contains($this->path, '?') ? '&' : '?')
                         .http_build_query($parameters, '', '&')
