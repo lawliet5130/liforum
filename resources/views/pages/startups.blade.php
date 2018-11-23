@@ -53,6 +53,7 @@
 								@if(\Auth::guard('profiles')->user()->startups->contains('id',$sup->id))
 									<span class="supVoted" style="color:brown;">voted</span>
 								@else
+									<span class="supVoted" style="color:brown; display: none;">voted</span>
 									<button data-tovote="{{$sup->id}}" data-toggle="modal" data-target="#checkVote">vote!</button>
 								@endif
 							@endif
@@ -62,7 +63,7 @@
 					<div class="rating_home_startup">
 						<i class="fa fa-star"></i>
 						<p class="name_date">Rating</p>
-						<p class="number_date">{{$sup->scientists_count}}</p>
+						<p class="number_date voteCounter" data-vcount="{{$sup->scientists_count}}">{{$sup->scientists_count}}</p>
 					</div>
 					<div class="clearfix"></div>
 				</li>
@@ -80,7 +81,7 @@
 		<span aria-hidden="true">&times;</span>
 		</button>
 
-			accept rules:<input type="checkbox" name="voteRulesCheck">
+			accept <a href="/documents/concepts_longevity_ranking_codex.pdf" target="_blank">methodology</a> <input type="checkbox" name="voteRulesCheck" required>
 			<button type="button" data-startup="0" class="btn add_form_field" data-dismiss="modal" aria-label="Close" disabled>
 			<span>I am sure!</span>
 			</button>
@@ -114,10 +115,13 @@
 					_token:"{{csrf_token()}}",
 					startup:$startup
 				},function(data,status){
-					if(data){
+					if(data=="success"){
 						parent=$('button[data-tovote='+$startup+']').parents('li');
 						$('button[data-tovote='+$startup+']').fadeOut();
-						parent.find('.supVoted').fadeIn();
+						parent.find('.supVoted').delay(400).fadeIn();
+						parent.find('.voteCounter').text(parent.find('.voteCounter').data('vcount')+1);
+					}else if(data[0]=="fraud"){
+						window.location.href=data[1];
 					}
 				});
 			});

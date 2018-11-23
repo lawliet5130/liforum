@@ -36,7 +36,7 @@ class ScientistAccount extends Authenticatable
 	}
 
 	public function startups(){
-		return $this->belongsToMany('App\Startup','scientist_startup','scientist_id')->withTimestamps();
+		return $this->belongsToMany('App\Startup','scientist_startup','scientist_id')->withCount('scientists')->withTimestamps();
 	}
 
 	public function news(){

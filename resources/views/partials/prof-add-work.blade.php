@@ -3,7 +3,7 @@
 
 	<td>{{$item->branch->name}}</td>
 	<td class="mob_off description_work">
-		<p>{{$item->text}}</p>
+		<p>{{str_limit($item->text,200)}}</p>
 	</td>
 
 	<td class="vote_list"><a href="#" class="" >

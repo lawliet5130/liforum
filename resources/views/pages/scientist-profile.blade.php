@@ -83,75 +83,38 @@
 				</div>
 			</div>
 			<div class="voted_personal" id="voted_personal">
-				<h2>Voted <span>(0)</span></h2>
+				<h2>Voted <span>({{$user->startups->count()}})</span></h2>
 				<div class="line_title_left"></div>
-				<span>Under development</span>
-				<ul class="list_startups_individual hidden">
-					<li class="wow fadeInRight" data-wow-duration="1s">
+				<ul class="list_startups_individual dParent">
+					@foreach($user->startups->sortByDesc('scientists_count')->take(5) as $sup)
+					<li class="wow fadeInRight" data-item="startups" data-wow-duration="1s">
 						<div class="ratingposition_home_startup">
-							<p class="pe_cine_votat"><img src="/img/scientists/6.png" alt="" class="avatar_big"></p>
+							<p class="pe_cine_votat"><img src="{{Voyager::image($user->thumbnail('square','image'))}}" alt="" class="avatar_big"></p>
 							<p class="arrow_pecine">
 								<i class="fa fa-thumbs-up"></i>
 							</p>
-							<a href="https://www.crunchbase.com/organization/retrotope" target="blank">
+							<a href="{{$sup->cb_link}}" target="blank">
 								<svg viewBox="0 0 24 24"><path d="M21.6,0H2.4A2.41,2.41,0,0,0,0,2.4V21.6A2.41,2.41,0,0,0,2.4,24H21.6A2.41,2.41,0,0,0,24,21.6V2.4A2.41,2.41,0,0,0,21.6,0Z"></path><path fill="white" d="M9.84,13.42a2.11,2.11,0,1,1,0-1.75H11.5a3.69,3.69,0,1,0,0,1.75Z"></path><path fill="white" d="M16,8.85h-.27a3.74,3.74,0,0,0-1.8.63V5.37h-1.5V15.94h1.51v-.38a3.68,3.68,0,0,0,3.39.38,3.55,3.55,0,0,0,1.06-.63A3.67,3.67,0,0,0,16,8.85Zm2.1,4a.17.17,0,0,1,0,.07,1.22,1.22,0,0,1-.06.26h0a2,2,0,0,1-.1.26l0,0a2.07,2.07,0,0,1-1,1,2,2,0,0,1-.41.15h0l-.2,0H16l-.28,0h-.07a2,2,0,0,1-.54-.17l0,0a1.86,1.86,0,0,1-.47-.32h0a2,2,0,0,1-.37-.45h0c0-.09-.1-.17-.14-.26h0a2.19,2.19,0,0,1-.17-.85,2.08,2.08,0,0,1,.2-.9h0a2.13,2.13,0,0,1,1.7-1.2l.21,0h0a2.12,2.12,0,0,1,2.12,2.12h0A2.46,2.46,0,0,1,18.1,12.8Z"></path>
 								</svg>
 							</a>
 						</div>
 						<div class="name_home_startup_center">
-							<p class="name_home_startup">Retrotope.com <a href="http://retrotope.com" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a></p>
-							<p class="domeniu_home_startup"><a href="knowledge.php?Biotech">Biotech</a></p>
+							<p class="name_home_startup">
+								<a href="{{$sup->link}}">{{$sup->title}}</a>
+								<a href="{{$sup->link}}" class="view_startup_button">View startup<i class="fa fa-external-link"></i></a>
+							</p>
+							<p class="domeniu_home_startup"><a href="knowledge.php?Biotech">{{$sup->branch->name}}</a></p>
 						</div>
 						<div class="rating_home_startup">
 							<i class="fa fa-star"></i>
 							<p class="name_date">Rating</p>
-							<p class="number_date">589</p>
+							<p class="number_date">{{$sup->scientists_count}}</p>
 						</div>
 						<div class="clearfix"></div>
 					</li>
-					<li class="wow fadeInRight" data-wow-duration="1s">
-						<div class="ratingposition_home_startup">
-							<p class="pe_cine_votat"><img src="/img/scientists/6.png" alt="" class="avatar_big"></p>
-							<p class="arrow_pecine">
-								<i class="fa fa-thumbs-up"></i>
-							</p>
-							<a href="https://www.crunchbase.com/organization/retrotope" target="blank">
-								<svg viewBox="0 0 24 24"><path d="M21.6,0H2.4A2.41,2.41,0,0,0,0,2.4V21.6A2.41,2.41,0,0,0,2.4,24H21.6A2.41,2.41,0,0,0,24,21.6V2.4A2.41,2.41,0,0,0,21.6,0Z"></path><path fill="white" d="M9.84,13.42a2.11,2.11,0,1,1,0-1.75H11.5a3.69,3.69,0,1,0,0,1.75Z"></path><path fill="white" d="M16,8.85h-.27a3.74,3.74,0,0,0-1.8.63V5.37h-1.5V15.94h1.51v-.38a3.68,3.68,0,0,0,3.39.38,3.55,3.55,0,0,0,1.06-.63A3.67,3.67,0,0,0,16,8.85Zm2.1,4a.17.17,0,0,1,0,.07,1.22,1.22,0,0,1-.06.26h0a2,2,0,0,1-.1.26l0,0a2.07,2.07,0,0,1-1,1,2,2,0,0,1-.41.15h0l-.2,0H16l-.28,0h-.07a2,2,0,0,1-.54-.17l0,0a1.86,1.86,0,0,1-.47-.32h0a2,2,0,0,1-.37-.45h0c0-.09-.1-.17-.14-.26h0a2.19,2.19,0,0,1-.17-.85,2.08,2.08,0,0,1,.2-.9h0a2.13,2.13,0,0,1,1.7-1.2l.21,0h0a2.12,2.12,0,0,1,2.12,2.12h0A2.46,2.46,0,0,1,18.1,12.8Z"></path>
-								</svg>
-							</div>
-							<div class="name_home_startup_center">
-								<p class="name_home_startup">Bioviva-Sciences.com <a href="http://bioviva-Sciences.com" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a></p>
-								<p class="domeniu_home_startup"><a href="knowledge.php?Gene+therapy">Gene therapy</a></p>
-							</div>
-							<div class="rating_home_startup">
-								<i class="fa fa-star"></i>
-								<p class="name_date">Rating</p>
-								<p class="number_date">577</p>
-							</div>
-							<div class="clearfix"></div>
-						</li>
-						<li class="wow fadeInRight" data-wow-duration="1s">
-							<div class="ratingposition_home_startup">
-								<p class="pe_cine_votat"><img src="/img/scientists/6.png" alt="" class="avatar_big"></p>
-								<p class="arrow_pecine">
-									<i class="fa fa-thumbs-up"></i>
-								</p>
-							</div>
-							<div class="name_home_startup_center">
-								<p class="name_home_startup">Nebula.org
-									<a href="http://nebula.org" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
-								</p>
-								<p class="domeniu_home_startup"><a href="knowledge.php?Gene+therapy">Gene therapy</a></p>
-							</div>
-							<div class="rating_home_startup">
-								<i class="fa fa-star"></i>
-								<p class="name_date">Rating</p>
-								<p class="number_date">550</p>
-							</div>
-							<div class="clearfix"></div>
-						</li>
-					</ul>
-					<div class="button_center_more_def hidden"><a href="" class="btn btn-secondary">More Voted</a></div>
+					@endforeach
+				</ul>
+					<div class="button_center_more_def"><a href="" data-tocount="startups" data-quantity="5" class="btn btn-secondary getMore">More Startups</a></div>
 				</div>        
 				<div class="works_personal">
 					<h2>Works <span>({{$user->works->count()}})</span></h2>
@@ -166,7 +129,7 @@
 								<th scope="col">Source</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody class="dParent">
 							@foreach($user->works->sortByDesc('created_at')->take(5) as $work)
 							<tr data-item="works">
 								<th scope="row">
@@ -175,7 +138,7 @@
 								
 								<td><span><a href="knowledge.php?Cell+biology">{{$work->branch->name}}</a></span></td>
 								<td class="mob_off description_work">
-									<p>{{$work->text}}</p>
+									<p>{{str_limit($work->text,200)}}</p>
 								</td>
 								
 								<td class="vote_list"><a href="{{$work->link}}" class="" target="blank">
@@ -191,7 +154,7 @@
 				<div class="video_personal">
 					<h2>Video <span>({{$user->videos->count()}})</span></h2>
 					<div class="line_title_left"></div>
-					<div class="row">
+					<div class="row dParent">
 						@foreach($user->videos->sortByDesc('created_at')->take(4) as $video)
 						<div class="col-md-3" data-item="videos">
 							<div class="card">
@@ -289,8 +252,7 @@
 
 						<div class="accept_modal">
 							<p class="accept_left">
-								Accept Terms&Conditions
-								See and accept Contract for the work in <a href="terms.php" target="_blank">Scientific Panel</a>
+								Accept Terms&Conditions See and accept <a href="/documents/concepts_longevity_ranking_codex.pdf" target="_blank">methodology</a> for the work in Scientific Panel
 							</p>
 							<p class="accept_right">
 								<span>Accept</span>
@@ -334,9 +296,8 @@
 				$this=$(this);
 				toCount=$this.data('tocount');
 				quantity=$this.data('quantity');
-				parent=$('[data-item='+toCount+']').parents('table');
+				parent=$('[data-item='+toCount+']').parents('.dParent');
 				count=$('[data-item='+toCount+']').length;
-				parent.css({'transition':'.5s','opacity':'0'});
 				$.get("{{route('getScItems')}}",{
 					_token:"{{csrf_token()}}",
 					item:toCount,
@@ -347,7 +308,7 @@
 					if(parseInt(request.getResponseHeader('isLast'))){
 						$this.hide();
 					}
-					$(data).appendTo(parent.css('opacity','1'));
+					$(data).appendTo(parent);
 				});
 			});
 		</script>

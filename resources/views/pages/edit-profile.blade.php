@@ -141,7 +141,7 @@
 
 										<td>{{$work->branch->name}}</td>
 										<td class="mob_off description_work">
-											<p>{{$work->text}}</p>
+											<p>{{str_limit($work->text,200)}}</p>
 										</td>
 
 										<td class="vote_list"><a href="#" class="" >

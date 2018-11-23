@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use Validator;
 
 use App\Mail\ScientistApplied;
+use App\Mail\FraudAttempt;
 use App\Branch;
 use App\Country;
 use App\ScientistAccount;
@@ -132,11 +133,21 @@ class UserController extends Controller
             $data[$value['name']]=$value['value'];
         }
 
+        switch ($data['item']) {
+            case 'videos':
+                $textRule='max:150';
+                break;
+            
+            case 'works':
+                $textRule='min:150';
+                break;
+        }
+
         $blade='prof-add-'.str_singular($data['item']);
 
         $validator=Validator::make($data,[
             'title'=>'required',
-            'text'=>'min:150',
+            'text'=>$textRule,
             'link'=>'url',
         ]);
 
@@ -164,11 +175,22 @@ class UserController extends Controller
 	    	return $item;
 		})->values();
 		($request->number+$request->quantity >= $user->{$request->item}->count())? $isLast=1 : $isLast=0;
-		return response()->view('partials.add-'.str_singular($request->item),compact('items'))->header('isLast',$isLast);
+		return response()->view('partials.items.add-'.str_singular($request->item),compact('items','user'))->header('isLast',$isLast);
 	}
 
     public function voteStartup(Request $request){
-        Auth::guard('profiles')->user()->startups()->attach($request->startup);
-        return response()->json(1);
+        if(Auth::guard('profiles')->user()->startups()->get()->contains('id',$request->startup)){
+            
+            $myLog=fopen(public_path().'/vendor/application/fraud.txt','a');
+            fwrite($myLog, "\nDate=".\Carbon\Carbon::now().";\nScientist=".Auth::guard('profiles')->user()->id.";\nStartup=".$request->startup.";\n");
+            fclose($myLog);
+
+            Mail::to('lawliet5130@gmail.com')->send(new FraudAttempt());
+
+            return response()->json(['fraud',route('getFraud')]);
+        }else{
+            Auth::guard('profiles')->user()->startups()->attach($request->startup);          
+        }
+        return response()->json('success');
     }
 }

@@ -19,9 +19,7 @@
 		<div class="row">
 			<div class="col-md-9">
 				<div class="list_news row">
-
-					
-
+					@if(request()->tag)<h3 class="center" style="padding: 40px;">Articles with tag: "{{request()->tag}}"</h3>@endif
 
 					@foreach($articles as $article)
 					<div class="single_new_block col-md-12  padding-0" data-wow-delay="0s">
@@ -62,7 +60,51 @@
 					@endforeach
 					<div class="clearfix"></div>
 					<div aria-label="Page navigation example">
-						{{$articles->links()}}
+						@if(request()->tag)
+							@if ($articles->count()>6)
+								@php 
+									$pages=$articles->count()/6+1; 
+									$cPage=(request()->page)?request()->page:1;
+									dd($cPage);
+								@endphp
+								<ul class="pagination">
+									{{-- Previous Page Link --}}
+									@if (request()->page && request()->page=1)
+										<li class="disabled"><span>&laquo;</span></li>
+									@else
+										<li><a href="{{route('getNews',['tag'=>request()->tag,'page'=>request()->page-1])}}" rel="prev">&laquo;</a></li>
+									@endif
+
+									{{-- Pagination Elements --}}
+									@for($i=1;$i<=$pages;$i++)
+										{{-- "Three Dots" Separator --}}
+										@if ($pages>11 && $i>)
+										<li class="disabled"><span>{{ $element }}</span></li>
+										@endif
+
+										{{-- Array Of Links --}}
+										@if (is_array($element))
+										@foreach ($element as $page => $url)
+										@if ($page == $paginator->currentPage())
+										<li class="active"><span>{{ $page }}</span></li>
+										@else
+										<li><a href="{{ $url }}">{{ $page }}</a></li>
+										@endif
+										@endforeach
+										@endif
+									@endfor
+
+									{{-- Next Page Link --}}
+									@if ($paginator->hasMorePages())
+									<li><a href="{{ $paginator->nextPageUrl() }}" rel="next">&raquo;</a></li>
+									@else
+									<li class="disabled"><span>&raquo;</span></li>
+									@endif
+								</ul>
+							@endif
+						@else
+							{{$articles->links()}}
+						@endif
 					</div>
 				</div>
 

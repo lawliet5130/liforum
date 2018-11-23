@@ -8,26 +8,9 @@
 					<p style="font-weight: bold; color:red">UNDER DEVELOPMENT</p>
 					<br>
 					<ul>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">Lorem ipsum dolor sit amet</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">tag</a><span>20</span></li>
-						<li><a href="#">consectetur adipisicing elit</a><span>20</span></li>
+						@foreach($tags as $tag=>$count)
+							<li><a href="{{route('getNews',['tag'=>$tag])}}" title="{{$tag}}">{{$tag}}</a><span>{{$count}}</span></li>
+						@endforeach
 					</ul>
 				</div>
 			</div>
