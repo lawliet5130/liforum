@@ -1597,7 +1597,8 @@ float: left;
   float: left;
   width: 80%;
   padding-left: 10px;
-  padding-top: 14px;
+  padding-top: 10px;
+  position: relative;
 }
 
 .rating_home_startup {
@@ -1615,11 +1616,22 @@ width: 100px;
   font-size: 14px !important;
 font-weight: bold !important;
 }
+
+.tit_list_startup {
+  font-size: 18px;
+}
 .domeniu_home_startup{
-  font-size: 12px !important;
+  font-size: 13px !important;
     font-weight: bold !important;
     color: #a8a8a9;
 
+}
+.domeniu_home_startup a{
+    color: #a8a8a9;
+
+}
+.accept_confirm_vote {
+  padding: 50px 0 0 0;
 }
 
 .list_startups li {
@@ -1993,11 +2005,11 @@ background: #0eb1e0;
 opacity: 1;
 }
 .view_startup_button {
-background: #2ecaf7;
+background: #fff;
 border-radius: 100px;
-font-size: 12px;
-padding: 2px 15px;
-color: #fff;
+font-size: 13px;
+padding: 1px 15px;
+color: #1c2426;
 opacity: 0;
     -webkit-transition: all 0.2s ease-in-out;
     -moz-transition: all 0.2s ease-in-out;
@@ -2006,14 +2018,24 @@ opacity: 0;
     transition: all 0.2s ease-in-out;
     float: right;
 
-margin-top: 10px;
+/*margin-top: 40px;*/
 
-margin-right: 35px;
+margin-right: 0px;
+border: 1px solid #d4d4d4;
+height: 26px;
+
+line-height: 21px;
+position: absolute;
+
+right: 0;
+
+top: 54px;
 }
 
 .view_startup_button:hover {
-background: #0eb1e0;
+background: #249fda;
 color: #fff;
+border: 1px solid #249fda;
 }
 
 .domain_works_list a{
@@ -2171,8 +2193,9 @@ text-transform: uppercase;
 
 .description_page {
 text-align: center;
-padding: 30px;
-font-size: 18px;
+padding: 15px;
+
+font-size: 14px;
 border: 1px solid #ddd;
 
 }
@@ -4556,4 +4579,43 @@ border:0;
 }
 .list_news h2 {
 margin-top: 0 !important;
+}
+
+.voted_button_startap {
+background: #249fda;
+color: #fff;
+padding: 0px 15px;
+border-radius: 50px;
+height: 25px;
+line-height: 20px;
+font-weight: bold;
+font-size: 14px;
+border: 1px solid #249fda;
+margin-top: 7px;
+display: inline-block;
+}
+.vote_button_startap {
+background: #fff;
+color: #adadad;
+padding: 0px 15px;
+border-radius: 50px;
+border: 1px solid #d4d4d4;
+height: 25px;
+line-height: 5px;
+font-weight: bold;
+font-size: 14px;
+margin-top: 7px;
+}
+.vote_button_startap:hover {
+background: #249fda;
+color: #fff;
+border: 1px solid #249fda;
+
+}
+.numb_date_bl_ratt{
+  color: #000;
+font-size: 22px;
+font-weight: bold;
+vertical-align: top;
+margin-left: 3px;
 }

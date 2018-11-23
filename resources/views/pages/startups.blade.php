@@ -37,7 +37,7 @@
 
 			<ul class="list_startups">
 				@foreach($startups as $sup)
-				<li class="wow fadeInRight" data-wow-duration="1s">
+				<li class="">
 					<div class="ratingposition_home_startup">
 						<p>{{$loop->iteration}}</p>
 						<a href="{{$sup->cb_link}}" target="blank">
@@ -47,23 +47,31 @@
 					</div>
 					<div class="name_home_startup_center">
 						<p class="name_home_startup">
-							<a href="{{route('getStartup',['stup'=>$sup->id])}}">{{$sup->title}}</a>
-							<a href="{{route('getStartup',['stup'=>$sup->id])}}" class="view_startup_button" target="blank">View startup<i class="fa fa-external-link"></i></a>
-							@if(\Auth::guard('profiles')->check())
-								@if(\Auth::guard('profiles')->user()->startups->contains('id',$sup->id))
-									<span class="supVoted" style="color:brown;">voted</span>
-								@else
-									<span class="supVoted" style="color:brown; display: none;">voted</span>
-									<button data-tovote="{{$sup->id}}" data-toggle="modal" data-target="#checkVote">vote!</button>
-								@endif
-							@endif
+							<a class="tit_list_startup" href="{{route('getStartup',['stup'=>$sup->id])}}">{{$sup->title}}</a>
+							
+							
 						</p>
 						<p class="domeniu_home_startup"><a href="knowledge.php?Biotech">{{$sup->branch->name}}</a></p>
+						<a href="{{route('getStartup',['stup'=>$sup->id])}}" class="view_startup_button" target="blank">View startup</a>
 					</div>
 					<div class="rating_home_startup">
-						<i class="fa fa-star"></i>
-						<p class="name_date">Rating</p>
-						<p class="number_date voteCounter" data-vcount="{{$sup->scientists_count}}">{{$sup->scientists_count}}</p>
+						<div class="rate_startuplist_top">	
+						
+						<p class="name_date ">Rating</p>
+						<span>	<img src="img/cupa.png" alt=""></span>
+						<span class="number_date voteCounter numb_date_bl_ratt" data-vcount="{{$sup->scientists_count}}">{{$sup->scientists_count}}</span>
+						</div>
+						<div class="rate_startuplist_bottom">	
+
+						@if(\Auth::guard('profiles')->check())
+								@if(\Auth::guard('profiles')->user()->startups->contains('id',$sup->id))
+									<span class="supVoted voted_button_startap" >voted</span>
+								@else
+									<span class="supVoted voted_button_startap" style="display: none;">voted</span>
+									<button class="vote_button_startap" data-tovote="{{$sup->id}}" data-toggle="modal" data-target="#checkVote">vote!</button>
+								@endif
+							@endif
+						</div>
 					</div>
 					<div class="clearfix"></div>
 				</li>
@@ -81,7 +89,13 @@
 		<span aria-hidden="true">&times;</span>
 		</button>
 
-			accept <a href="/documents/concepts_longevity_ranking_codex.pdf" target="_blank">methodology</a> <input type="checkbox" name="voteRulesCheck" required>
+		<div class="accept_confirm_vote">	
+
+		<p>Accept <a href="/documents/concepts_longevity_ranking_codex.pdf" target="_blank">methodology</a> </p>
+		<input type="checkbox" name="voteRulesCheck" required>
+		</div>
+
+			
 			<button type="button" data-startup="0" class="btn add_form_field" data-dismiss="modal" aria-label="Close" disabled>
 			<span>I am sure!</span>
 			</button>

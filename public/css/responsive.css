@@ -324,6 +324,15 @@ box-shadow: 0 0 20px -15px #000;
 
 }
 
+.rating_home_startup {
+    width: 15%;
+}
+
+.list_startups .name_home_startup_center {
+    width: 75%;
+
+}
+
 }
 
 
@@ -535,6 +544,22 @@ float: left;
 
 }
 
+.rating_home_startup {
+    width: 15%;
+}
+
+.list_startups .name_home_startup_center {
+    width: 70%;
+
+}
+
+.list_startups .ratingposition_home_startup {
+    width: 15%;
+
+}
+
+
+
 
 
 }
@@ -550,6 +575,20 @@ float: left;
 /*Mobile orizontal*/
 
 @media (max-width: 768px) {
+
+  .rating_home_startup {
+    width: 20%;
+}
+
+.list_startups .name_home_startup_center {
+    width: 60%;
+
+}
+
+.list_startups .ratingposition_home_startup {
+    width: 20%;
+
+}
 
 .breadcrumb {
   font-size: 11px;
@@ -601,6 +640,13 @@ right: -158px;
   margin: 20px 0 ;
 }
 
+.description_page {
+
+    padding: 15px;
+    font-size: 12px;
+
+}
+
 
 
 }
@@ -609,6 +655,77 @@ right: -158px;
 /*Mobile vertical*/
 
 @media (max-width:580px) {
+
+  .domeniu_home_startup {
+
+    font-size: 11px !important;
+    line-height: 10px;
+
+}
+
+  .list_page .ratingposition_home_startup p {
+
+    height: 30px;
+    line-height: 27px;
+    width: 30px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #d1c9c9;
+    font-size: 14px;
+    border-radius: 100%;
+    font-weight: bold;
+    display: inline-table;
+    top: 0;
+    vertical-align: top;
+
+}
+
+.ratingposition_home_startup a svg {
+
+    width: 30px;
+    color: #ccc !important;
+
+}
+
+  .view_startup_button {
+    display: none;
+  }
+
+  .tit_list_startup {
+    font-size: 12px;
+  }
+
+
+.list_startups .ratingposition_home_startup {
+width: 75px;
+/*float: none;
+margin: auto;*/
+}
+
+.list_startups .name_home_startup_center {
+width: 135px;
+
+text-align: left;
+
+padding: 5px;
+
+}
+.list_startups .name_date  {
+display: none;
+
+}
+
+
+  .rating_home_startup {
+    width: 50px;
+}
+
+
+
+
+
+
+
   .about_home {
 
     padding: 30px 0;
