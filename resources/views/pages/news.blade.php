@@ -18,26 +18,44 @@
 		<div class="clearfix"></div>
 		<div class="row">
 			<div class="col-md-9">
-				<div class="list_news">
+				<div class="list_news row">
+
+					
+
+
 					@foreach($articles as $article)
-					<div class="single_new_block col-md-6 wow fadeInUp " data-wow-delay="0s">
+					<div class="single_new_block col-md-12  padding-0" data-wow-delay="0s">
 						<div class="single_new_block_inter">
-							<div class="img_new_block">
-								<img src="/storage/{{$article->image}}">
-								<div class="detail_new"><a href="{{route('getArticle',['post'=>$article->id])}}">DETAILS</a></div>
-							</div>
-							<div class="date_new">
-								<p class="moon_new">{{$article->created_at->format('M')}}</p>
-								<p class="number_new">{{$article->created_at->format('d')}}</p>
-							</div>
-							<h2><a href="{{route('getArticle',['post'=>$article->id])}}" title="{{$article->title}}">{{str_limit($article->title,40)}}</a></h2>
-							<p>{{str_limit(strip_tags($article->text),120)}}</p>
-							<div class="sub_new_block">
-								<div class="user_name_new">
-									<i class="fa fa-user"></i>
-									<p><a href="#">Posted By Admin</a></p>
+							<div class="col-md-6">	
+								<div class="img_new_block">
+									<img src="/storage/{{$article->image}}" onerror="this.src = 'img/noimage.png';">
+									@if($article->promoted)
+									<div class="badge_promote badge badge-pill badge-warning">
+										 <i class="fa fa-thumb-tack" ></i>
+										 <span>Promoted</span>
+									</div> @endif
+
+									<div class="date_new">
+										<p class="moon_new">{{$article->created_at->format('M')}}</p>
+										<p class="number_new">{{$article->created_at->format('d')}}</p>
+									</div>
 								</div>
 							</div>
+
+							<div class="col-md-6">	
+								<h2><a href="{{route('getArticle',['post'=>$article->id])}}">
+								
+								{{str_limit($article->title,40)}}</a></h2>
+								<p>{{str_limit(strip_tags($article->text),120)}}
+								</p>
+								<div class="sub_new_block">
+									<div class="user_name_new">
+										<i class="fa fa-user"></i>
+										<p><a href="#">Posted By Admin</a></p>
+									</div>
+								</div>
+							</div>
+							
 						</div>
 					</div>
 					@if($loop->iteration%2==0) <div class="clearfix"></div> @endif

@@ -171,33 +171,79 @@
 						<div class="no_results no_startup">No results Startups</div>
 					</div>
 				</div>
+
+
+		
+
+
+
+
 				<div class="video_list">
-					<div class=" table_scientists">
+					<div class=" ">
 						<h2>Video <span>({{$viCount}})</span></h2>
 						<div class="line_title_left"></div>
 						<div class="row">
-							<div class="col-md-3">
-								<iframe width="" height="180" src="https://www.youtube.com/embed/c_OmbkaM4qE?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								<p class="description_video_title">
-									Lorem AI ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-								</p>
-							</div><div class="col-md-3">
-								<iframe width="" height="180" src="https://www.youtube.com/embed/yROROK-AmBI?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-								<p class="description_video_title">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-								</p>
-							</div><div class="col-md-3">
-								<iframe width="" height="180" src="https://www.youtube.com/embed/c7PbBG1B_IE?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								<p class="description_video_title">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-								</p>
-							</div><div class="col-md-3">
-								<iframe width="" height="180" src="https://www.youtube.com/embed/j-Eb7k87gO0?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								<p class="description_video_title">
-									Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-								</p>
+
+							<div class="col-md-3" data-item="videos">
+								<div class="card">
+									<a data-fancybox href="https://www.youtube.com/embed/c_OmbkaM4qE" class="video_thumb_block">
+										<span class="mark_play_button">
+											<i class="fa fa-play"></i>
+										</span>
+										<img class="card-img-top img-fluid" src="http://img.youtube.com/vi/c_OmbkaM4qE/hqdefault.jpg"/>
+									</a>
+								</div>
+								<h4>Title</h4>
+								<h5><a href="">Category</a></h5>
+								<p class="description_video_title">Lorem AI ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!</p>
 							</div>
+
+							<div class="col-md-3" data-item="videos">
+								<div class="card">
+									<a data-fancybox href="https://www.youtube.com/embed/c_OmbkaM4qE" class="video_thumb_block">
+										<span class="mark_play_button">
+											<i class="fa fa-play"></i>
+										</span>
+										<img class="card-img-top img-fluid" src="http://img.youtube.com/vi/c_OmbkaM4qE/hqdefault.jpg"/>
+									</a>
+								</div>
+								<h4>Title</h4>
+								<h5><a href="">Category</a></h5>
+								<p class="description_video_title">Lorem AI ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!</p>
+							</div>
+
+							<div class="col-md-3" data-item="videos">
+								<div class="card">
+									<a data-fancybox href="https://www.youtube.com/embed/c_OmbkaM4qE" class="video_thumb_block">
+										<span class="mark_play_button">
+											<i class="fa fa-play"></i>
+										</span>
+										<img class="card-img-top img-fluid" src="http://img.youtube.com/vi/c_OmbkaM4qE/hqdefault.jpg"/>
+									</a>
+								</div>
+								<h4>Title</h4>
+								<h5><a href="">Category</a></h5>
+								<p class="description_video_title">Lorem AI ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!</p>
+							</div>
+
+							<div class="col-md-3" data-item="videos">
+								<div class="card">
+									<a data-fancybox href="https://www.youtube.com/embed/c_OmbkaM4qE" class="video_thumb_block">
+										<span class="mark_play_button">
+											<i class="fa fa-play"></i>
+										</span>
+										<img class="card-img-top img-fluid" src="http://img.youtube.com/vi/c_OmbkaM4qE/hqdefault.jpg"/>
+									</a>
+								</div>
+								<h4>Title</h4>
+								<h5><a href="">Category</a></h5>
+								<p class="description_video_title">Lorem AI ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!</p>
+							</div>
+
+
+							
+
 						</div>
 					</div>
 					<div class="no_results no_video">No results Video</div>

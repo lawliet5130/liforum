@@ -9,8 +9,6 @@
 </style>
 @endsection
 @section('content')
-
-
 <div class="page">
 	<section class="title_page_default">
 		<div class="container">
