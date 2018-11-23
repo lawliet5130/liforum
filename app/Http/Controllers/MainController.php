@@ -39,10 +39,31 @@ class MainController extends Controller
 		return view('pages.startup',compact('startup'));
 	}
 
-	public function getNews(){
-		$articles=Article::orderBy('promoted','desc')->orderBy('created_at','desc')->paginate(6);
+	public function getNews(Request $request){
+		if($request->tag){
+			$articles=Article::all()->filter(function($val,$key) use ($request){
+				return in_array($request->tag, explode(',',$val->tags));
+			});
+		}else{
+			$articles=Article::orderBy('promoted','desc')->orderBy('created_at','desc')->paginate(6);				
+		}
 
-		return view('pages.news',compact('articles'));
+		$tags=[];
+		foreach (Article::all() as $art) {
+			foreach(explode(',',$art->tags) as $tag){
+				if($tag){
+					if(array_key_exists($tag,$tags)){
+						$tags[$tag]=$tags[$tag]+1;	
+					}else{
+						$tags[$tag]=1;
+					}
+				}
+			}
+		}
+		arsort($tags);
+		$tags=array_slice($tags, -20);
+
+		return view('pages.news',compact('articles','tags'));
 	}
 
 	public function getArticle($article){
@@ -56,7 +77,7 @@ class MainController extends Controller
 		$works=Work::take(4)->orderBy('created_at','desc')->get();
 		$wrkCount=Work::count();
 
-		$startups=Startup::take(5)->withCount('scientists')->get();
+		$startups=Startup::withCount('scientists')->orderBy('scientists_count','desc')->take(5)->get();
 		$supCount=Startup::count();
 
 		$videos=Video::take(4)->orderBy('created_at','desc')->get();

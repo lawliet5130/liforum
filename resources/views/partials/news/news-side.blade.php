@@ -11,7 +11,7 @@
 				</div>
 			</div>
 			<div class="list-group">
-				<a href="news.php" class="list-group-item list-group-item-action active">News</a>
+				<a href="{{route('getNews')}}" class="list-group-item list-group-item-action active">News</a>
 				<a href="video.php" class="list-group-item list-group-item-action">Video (UNDER DEVELOPMENT)</a>
 				
 			</div>
@@ -34,7 +34,7 @@
 			
 			<div class="list-group">
 				
-				<a href="video.php" style="width:100%; margin-top:15px;" class="btn btn-primary"  role="button" data-toggle="modal" data-target="#subscribe-modal">Subscribe to news</a>
+				<a href="#" style="width:100%; margin-top:15px;" class="btn btn-primary"  role="button" data-toggle="modal" data-target="#subscribe-modal">Subscribe to news</a>
 				
 			</div>
 		</div>

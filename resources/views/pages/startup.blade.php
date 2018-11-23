@@ -37,7 +37,7 @@ border-bottom: 3px solid #2ecaf7;
 			</div>
 		</div>
 		<div class="col-md-4 startup_section_head_center">
-			<img src="img/startups_logo/egwjrxuvnkufhzwakwbe.png" alt="">
+			<img src="/storage/{{$startup->logo}}" alt="">
 			<h3>{{$startup->title}}</h3>
 			<h4><a href="#">{{$startup->branch->name}}</a></h4>
 		</div>
@@ -45,10 +45,17 @@ border-bottom: 3px solid #2ecaf7;
 			<div class="rating_home_startup rating_home_startup_page">
 				<i class="fa fa-star"></i>
 				<p class="name_date">Rating</p>
-				<p class="number_date">{{$startup->scientists->count()}}</p>
-				<a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="">
-					<i class="fa fa-thumbs-up"> </i> <span>VOTE</span>
-				</a>
+				<p class="number_date voteCounter" data-vcount="{{$startup->scientists->count()}}">{{$startup->scientists->count()}}</p>
+				@if(\Auth::guard('profiles')->check())
+					@if(\Auth::guard('profiles')->user()->startups->contains('id',$startup->id))
+						<span class="supVoted" style="color:brown;">voted</span>
+					@else
+						<span class="supVoted" style="color:brown; display: none;">voted</span>
+						<a href="#" class="btn btn-secondary voteBtn" role="button" data-toggle="modal" data-target="#checkVote">
+							<i class="fa fa-thumbs-up"> </i> <span>VOTE</span>
+						</a>
+					@endif
+				@endif
 				<div class="cl"></div>
 			</div>
 		</div>
@@ -183,6 +190,52 @@ border-bottom: 3px solid #2ecaf7;
 		<br>
 	</div>
 </div>
+
+<div class="modal fade" id="checkVote" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div id="formContent" class="formContent">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+
+		accept <a href="/documents/concepts_longevity_ranking_codex.pdf" target="_blank">methodology</a> <input type="checkbox" name="voteRulesCheck" required>
+		<button type="button" data-startup="{{$startup->id}}" class="btn add_form_field" data-dismiss="modal" aria-label="Close" disabled>
+			<span>I am sure!</span>
+		</button>
+
+	</div>
+	<div class="">
+
+	</div>
+	<div class="clearfix"></div>
+</div>
 @endsection
 @section("add_scripts")
+
+<script>
+	$('input[name=voteRulesCheck]').click(function(){
+		if($(this).is(':checked')){
+			$('button[data-startup]').prop('disabled',false);
+		}else{
+			$('button[data-startup]').prop('disabled',true);
+		}
+	});
+
+	$('button[data-startup]').click(function(){
+		$this=$(this);
+		$startup=$this.data('startup');
+		$.post("{{route('voteStartup')}}",{
+			_token:"{{csrf_token()}}",
+			startup:$startup
+		},function(data,status){
+			if(data=="success"){
+				$('.voteBtn').fadeOut();
+				$('.supVoted').delay(400).fadeIn();
+				$('.voteCounter').text($('.voteCounter').data('vcount')+1);
+			}else if(data[0]=="fraud"){
+				window.location.href=data[1];
+			}
+		});
+	});
+</script>
+
 @endsection

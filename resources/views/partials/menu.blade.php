@@ -31,7 +31,6 @@
 		<div class="col-md-5 login_head_container">
             <span><a href="{{route('getNews')}}">News</a></span>
 			<a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#doc-modal">Documents</a>
-			<a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#reg-modal">Apply now</a>
             @if(\Auth::guard('profiles')->check())
                 @php $profile_data=\Auth::guard('profiles')->user(); @endphp
                 <ul class="nav navbar-nav navbar-right">
@@ -86,6 +85,7 @@
                 </li>
             </ul>
             @else
+            <a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#reg-modal">Apply now</a>
             <a href="#" class="btn btn-primary" role="button" data-toggle="modal" data-target="#login-modal">Login</a>
             @endif
 		</div>

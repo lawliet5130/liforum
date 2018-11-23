@@ -79,3 +79,8 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Auth::routes();
+
+
+Route::get('/fraud',function(){
+	return view('pages.fraud');
+})->name('getFraud');
