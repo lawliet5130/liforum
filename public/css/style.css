@@ -258,17 +258,17 @@ img{
 
 /*buttons*/
 .btn-primary {
-    background: #2ecaf7;
+    background: #249fda;
     border-radius: 100px;
     text-transform: uppercase;
-    border:2px solid #2ecaf7;
+    border:2px solid #249fda;
     padding: 7px 20px;
 }
 .card .btn-primary {
-    background: #2ecaf7;
+    background: #249fda;
     border-radius: 100px;
     text-transform: uppercase;
-    border:2px solid #2ecaf7;
+    border:2px solid #249fda;
     padding: 10px 20px;
 }
 .btn-primary:hover {
@@ -279,11 +279,11 @@ img{
     background: #fff;
     border-radius: 100px;
     text-transform: uppercase;
-    border:2px solid #2ecaf7;
+    border:2px solid #00a0dd;
     padding: 7px 20px;
 }
 .btn-secondary:hover {
-    background: #2ecaf7;
+    background: #00a0dd;
     color:#fff;
 }
 .btn-group-lg > .btn, .btn-lg {
@@ -1536,7 +1536,7 @@ color:#50d7ff;
 font-size: 20px;
  } 
  .rating_home_startup i{
-color: #50d7ff;
+color: #00a0dd;
 font-size: 20px;
  }
 .name_date {
@@ -2847,7 +2847,8 @@ margin-bottom: 30px;
   width: 100%;
 }
 .video_personal .col-md-3 {
-
+display: inline-flex;
+float: none;
 }
 
 .ranting_individual {
@@ -4618,4 +4619,8 @@ font-size: 22px;
 font-weight: bold;
 vertical-align: top;
 margin-left: 3px;
+}
+
+.voteBtn:hover i {
+  color:#fff;
 }

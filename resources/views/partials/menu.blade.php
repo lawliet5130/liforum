@@ -53,7 +53,7 @@
                                         <p class="text-left small">{{$profile_data->login}}</p>
                                         <form method="POST" action="{{route('logout')}}">
                                             {{csrf_field()}}
-                                            <button class="btn btn-secondary" type="submit" class="">Log Out</button>
+                                            <button class="btn " type="submit" style="margin-left:0;">Log Out</button>
                                         </form>
                                     </div>
                                 </div>
