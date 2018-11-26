@@ -18,8 +18,8 @@
                         renamed or might never existed.</p>
                     <a href="{{route('getHome')}}" class="btn btn-primary">Home</a>
                     <a href="{{route('getScList')}}" class="btn btn-secondary">Check Scientists</a>
-                    <a href="knowledge.php" class="btn btn-secondary">look for Knowledge</a>
-                    <a href="startups.php" class="btn btn-secondary">Check Startups</a>
+                    <a href="{{route('getKnowledge')}}" class="btn btn-secondary">look for Knowledge</a>
+                    <a href="{{route('getStartups')}}" class="btn btn-secondary">Check Startups</a>
                 
                 </div>
                 <!-- end Info -->
