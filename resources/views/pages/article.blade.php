@@ -46,7 +46,7 @@
 														<h5>Tags</h5>
 														<br>
 														@foreach($thisTags as $tag=>$count)
-															<a href="{{route('getNews',['tag'=>$tag])}}" class="btn btn-sm btn-secondary">
+															<a href="{{route('getNews',['tag'=>$tag])}}" class="btn btn-sm btn-secondary-tags">
 																{{$tag}} <span class="badge badge-light">{{$count}}</span>
 															</a>
 														@endforeach
@@ -88,5 +88,6 @@
 				</div>
 				
 			</div>
+		</div>
 		</div>
 @endsection
