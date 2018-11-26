@@ -22,7 +22,7 @@ Route::bind('stup',function($value){
 });
 
 Route::get('/startups','MainController@getStartups')->name('getStartups');
-Route::get('/startup/{stup}','MainController@getStartup')->name('getStartup');
+Route::get('/startup/startup{stup}','MainController@getStartup')->name('getStartup');
 
 // --------------News routes--------------
 Route::bind('post',function($value){
@@ -30,7 +30,8 @@ Route::bind('post',function($value){
 });
 
 Route::get('/news','MainController@getNews')->name('getNews');
-Route::get('/news/{post}','MainController@getArticle')->name('getArticle');
+Route::get('/news/article{post}','MainController@getArticle')->name('getArticle');
+Route::post('/news-search','MainController@newsSearch')->name('newsSearch');
 
 
 // --------------Knowledge routes--------------
