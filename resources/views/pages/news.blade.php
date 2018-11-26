@@ -9,17 +9,18 @@
 	<div class="container">
 		@include('partials.breadcrumbs')
 		<div class="col-md-6  search_page_right">
-			<form class="example" id="live-search" method="post" action="" style="margin:auto;width:265px; display: inline-flex;">
-				<input type="text" placeholder="Search.." name="search2" id="filter">
+			<form class="example" id="search" method="POST" action="{{route('newsSearch')}}" style="margin:auto;width:265px; display: inline-flex;">
+				{{csrf_field()}}
+				<input type="text" placeholder="Search.." name="toSearch" id="filter" value="{{request()->toSearch}}">
 				<button type="submit"><i class="fa fa-search"></i></button>
 			</form>
-
 		</div>
 		<div class="clearfix"></div>
 		<div class="row">
 			<div class="col-md-9">
 				<div class="list_news row">
 					@if(request()->tag)<h3 class="center" style="padding: 40px;">Articles with tag: "{{request()->tag}}"</h3>@endif
+					@if(request()->toSearch)<h3 class="center" style="padding: 40px">Results for: "{{request()->toSearch}}"</h3>@endif
 
 					@foreach($articles as $article)
 					<div class="single_new_block col-md-12  padding-0" data-wow-delay="0s">

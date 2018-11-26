@@ -41,30 +41,18 @@
 												</div>
 												
 												<hr>
-												<div class="news-tags">
-													<h5>Tags</h5>
-													<p style="font-weight: bold; color: red">UNDER DEVELOPMENT</p>
-													<br>
-													<button type="button" class="btn btn-sm btn-secondary">
-													Education <span class="badge badge-light">4</span>
-													</button>
-													<button type="button" class="btn btn-sm btn-secondary">
-													Entertainment <span class="badge badge-light">4</span>
-													</button>
-													<button type="button" class="btn btn-sm btn-secondary">
-													Automobile <span class="badge badge-light">4</span>
-													</button>
-													<button type="button" class="btn btn-sm btn-secondary">
-													Insurance <span class="badge badge-light">4</span>
-													</button>
-													<button type="button" class="btn btn-sm btn-secondary">
-													Energy <span class="badge badge-light">4</span>
-													</button>
-													<button type="button" class="btn btn-sm btn-secondary">
-													Health <span class="badge badge-light">4</span>
-													</button>
-												</div>
-												<hr>
+												@if($thisTags)
+													<div class="news-tags">
+														<h5>Tags</h5>
+														<br>
+														@foreach($thisTags as $tag=>$count)
+															<a href="{{route('getNews',['tag'=>$tag])}}" class="btn btn-sm btn-secondary">
+																{{$tag}} <span class="badge badge-light">{{$count}}</span>
+															</a>
+														@endforeach
+													</div>
+													<hr>
+												@endif
 												<!--div class="news-author">
 												<div class="row">
 													<div class="col-md-auto">

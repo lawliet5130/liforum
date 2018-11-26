@@ -39,6 +39,10 @@ class MainController extends Controller
 		return view('pages.startup',compact('startup'));
 	}
 
+	public function newsSearch(Request $request){
+		return redirect()->route('getNews',['toSearch'=>$request->toSearch]);
+	}
+
 	public function getNews(Request $request){
 		if($request->tag){
 			$articles=Article::orderBy('created_at','desc')->get()->filter(function($val,$key) use ($request){
@@ -60,26 +64,23 @@ class MainController extends Controller
 			$articles=Article::orderBy('promoted','desc')->orderBy('created_at','desc')->paginate(6);				
 		}
 
-		$tags=[];
-		foreach (Article::all() as $art) {
-			foreach(explode(',',$art->tags) as $tag){
-				if($tag){
-					if(array_key_exists($tag,$tags)){
-						$tags[$tag]=$tags[$tag]+1;	
-					}else{
-						$tags[$tag]=1;
-					}
-				}
-			}
-		}
-		arsort($tags);
-		$tags=array_slice($tags, -20);
+		$tags=$this->getTopTags();
 
 		return view('pages.news',compact('articles','tags','elements','lastPage'));
 	}
 
 	public function getArticle($article){
-		return view('pages.article',compact('article'));
+
+		$tags=$this->getTopTags(false);
+
+		$thisTags=[];
+		foreach ($article->getTags() as $tag){
+			$thisTags[$tag]=$tags[$tag];
+		};
+
+		$tags=array_slice($tags,0,20);
+
+		return view('pages.article',compact('article','tags','thisTags'));
 	}
 
 	public function getKnowledge(){
@@ -140,5 +141,25 @@ class MainController extends Controller
             is_array($pages['last']) ? '...' : null,
             $pages['last'],
         ]);
+	}
+
+	protected function getTopTags($sliced=true){
+		$tags=[];
+		foreach (Article::all() as $art) {
+			foreach(explode(',',$art->tags) as $tag){
+				if($tag){
+					if(array_key_exists($tag,$tags)){
+						$tags[$tag]=$tags[$tag]+1;	
+					}else{
+						$tags[$tag]=1;
+					}
+				}
+			}
+		}
+		arsort($tags);
+		if($sliced)
+		$tags=array_slice($tags,0,20);
+
+		return $tags;
 	}
 }
