@@ -43,14 +43,14 @@ border-bottom: 3px solid #2ecaf7;
 		</div>
 		<div class="col-md-4 startup_section_head_right">
 			<div class="rating_home_startup rating_home_startup_page">
-				<i class="fa fa-star"></i>
+				<span>	<img src="/img/cupa.png" alt=""></span>
 				<p class="name_date">Rating</p>
 				<p class="number_date voteCounter" data-vcount="{{$startup->scientists->count()}}">{{$startup->scientists->count()}}</p>
 				@if(\Auth::guard('profiles')->check())
 					@if(\Auth::guard('profiles')->user()->startups->contains('id',$startup->id))
-						<span class="supVoted" style="color:brown;">voted</span>
+						<span class="supVoted voted_button_startap" >voted</span>
 					@else
-						<span class="supVoted" style="color:brown; display: none;">voted</span>
+						<span class="supVoted voted_button_startap" style="display: none;">voted</span>
 						<a href="#" class="btn btn-secondary voteBtn" role="button" data-toggle="modal" data-target="#checkVote">
 							<i class="fa fa-thumbs-up"> </i> <span>VOTE</span>
 						</a>
