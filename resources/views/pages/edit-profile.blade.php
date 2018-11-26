@@ -163,7 +163,7 @@
 					</div>
 				</div>
 				<div id="menu2" class="tab-pane fade">
-					<div class="video_personal">
+					<div class="video_personal video_setings">
 						<h2>My Video <span id="videosCount">({{$user->videos->count()}})</span></h2>
 						<div class="line_title_left"></div>
 						<div class="row itemParent videosParent">

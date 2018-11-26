@@ -2846,9 +2846,11 @@ margin-bottom: 30px;
 .video_personal iframe {
   width: 100%;
 }
-.video_personal .col-md-3 {
+.video_personal.video_setings .col-md-3 {
 display: inline-flex;
 float: none;
+width: 24.9%;
+margin-bottom: 30px;
 }
 
 .ranting_individual {
