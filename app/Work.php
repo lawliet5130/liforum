@@ -12,8 +12,10 @@ class Work extends Model
     }
 
     public function scientist(){
-    	return $this->belongsTo('App\ScientistAccount','scientist_id');
+    	return $this->belongsTo('App\ScientistAccount','scientist_id')->withTrashed();
     }
 
     protected $guarded=['scientist_id'];
+
+
 }

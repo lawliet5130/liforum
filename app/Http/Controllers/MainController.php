@@ -88,6 +88,7 @@ class MainController extends Controller
 		$scCount=ScientistAccount::count();
 
 		$works=Work::take(4)->orderBy('created_at','desc')->get();
+		// dd($works);
 		$wrkCount=Work::count();
 
 		$startups=Startup::withCount('scientists')->orderBy('scientists_count','desc')->take(5)->get();

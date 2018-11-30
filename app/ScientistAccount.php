@@ -3,16 +3,20 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Events\ScientistCreated;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
+
+use App\Events\ScientistCreated;
 use TCG\Voyager\Traits\Resizable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class ScientistAccount extends Authenticatable
 {
-	use Notifiable,Resizable;
+	use Notifiable,Resizable,SoftDeletes;
 
 	protected $guarded=['login','deleted_at'];
+
+	protected $dates=['deleted_at'];
 
 	protected $events=[
 		'created'=>ScientistCreated::class,

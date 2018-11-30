@@ -116,7 +116,11 @@
 						{{$work->title}}
 						<span class="name_autor_work">
 							<img src="{{Voyager::image($work->scientist->thumbnail('square','image'))}}" alt="" class="small_pic">
-							<a href="{{route('scientistProfile',['scientist'=>$work->scientist->id])}}">{{$work->scientist->getFullName()}}</a>
+							@if($work->scientist->trashed())
+								<span>{{$work->scientist->getFullName()}}</span>
+							@else
+								<a href="{{route('scientistProfile',['scientist'=>$work->scientist->id])}}">{{$work->scientist->getFullName()}}</a>
+							@endif
 						</span>
 					</th>
 
