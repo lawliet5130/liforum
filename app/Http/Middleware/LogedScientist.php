@@ -16,7 +16,7 @@ class LogedScientist
      */
     public function handle($request, Closure $next)
     {   
-        if(Auth::guard('profiles')->guest()){
+        if(Auth::guard('scientist')->guest()){
             return redirect()->route('getScList');
         }
 

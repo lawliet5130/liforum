@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title',$article->title)
 @section('content')
 		<div class="page">
 			<section class="title_page_default">
@@ -18,7 +19,7 @@
 										<div class="row">
 											<div class="col-md-12">
 												<div class="news-title">
-													<h2>Single article title</h2>
+													<h2>{{$article->title}}</h2>
 												</div>
 												<div class="single_article_share">
 												<div class="sharethis-inline-share-buttons "></div>

@@ -15,7 +15,7 @@ class RedirectIfAuthenticated
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = 'profiles')
+    public function handle($request, Closure $next, $guard = 'scientist')
     {
         if (Auth::guard($guard)->check()) {
             return redirect('/');

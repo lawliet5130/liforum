@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title','Liforum')
 @section('style')
 <!--style for menu active-->
 <style>

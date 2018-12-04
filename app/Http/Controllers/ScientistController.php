@@ -18,7 +18,7 @@ use App\Video;
 use TCG\Voyager\Http\Controllers\ContentTypes\Image as StoreImage;
 use TCG\Voyager\Facades\Voyager;
 
-class UserController extends Controller
+class ScientistController extends Controller
 {
     public function scientistApply(Request $request){
     	$data=$request->except('_token');
@@ -27,7 +27,7 @@ class UserController extends Controller
     }
 
     public function scientistProfile($scientist,Request $request){
-    	if(Auth::guard('profiles')->check() && Auth::guard('profiles')->user()->id==$scientist->id){
+    	if(Auth::guard('scientist')->check() && Auth::guard('scientist')->user()->id==$scientist->id){
     		return redirect()->route('logedProfile');
     	}
 
@@ -43,7 +43,7 @@ class UserController extends Controller
     }
 
     public function logedProfile(Request $request){
-    	$user=Auth::guard('profiles')->user();
+    	$user=Auth::guard('scientist')->user();
 
     	$user->gender=$user->getGender();
 
@@ -51,7 +51,7 @@ class UserController extends Controller
     }
 
     public function editProfile(){
-    	$user=Auth::guard('profiles')->user();
+    	$user=Auth::guard('scientist')->user();
     	$user->gender=$user->getGender();
     	// dd($user);
     	$branches=Branch::all();
@@ -86,7 +86,7 @@ class UserController extends Controller
             unset($data['image']);
         }
 
-        Auth::guard('profiles')->user()->update($data);
+        Auth::guard('scientist')->user()->update($data);
 
         return redirect()->back()->withErrors($validator);
     }
@@ -121,7 +121,7 @@ class UserController extends Controller
         $itemType=$data['item'];
         unset($data['item']);
 
-        $item->scientist_id=Auth::guard('profiles')->user()->id;
+        $item->scientist_id=Auth::guard('scientist')->user()->id;
         $item->fill($data);
         $item->save();
 
@@ -154,7 +154,7 @@ class UserController extends Controller
         if($validator->fails()){
             return response()->json(['errors'=>$validator->errors()->getMessages()]);
         }
-        $item=Auth::guard('profiles')->user()->{$data['item']}->find($data['id']);
+        $item=Auth::guard('scientist')->user()->{$data['item']}->find($data['id']);
         $itemType=$data['item'];
         unset($data['id'],$data['item']);
         $item->update($data);
@@ -163,7 +163,7 @@ class UserController extends Controller
     }
 
     public function deleteItem(Request $request){
-        $item=Auth::guard('profiles')->user()->{$request->item}->find($request->id)->delete();
+        $item=Auth::guard('scientist')->user()->{$request->item}->find($request->id)->delete();
         
         return response()->json(['iid'=>$request->id,'item'=>$request->item]);
     }
@@ -179,17 +179,17 @@ class UserController extends Controller
 	}
 
     public function voteStartup(Request $request){
-        if(Auth::guard('profiles')->user()->startups()->get()->contains('id',$request->startup)){
+        if(Auth::guard('scientist')->user()->startups()->get()->contains('id',$request->startup)){
             
             $myLog=fopen(public_path().'/vendor/application/fraud.txt','a');
-            fwrite($myLog, "\nDate=".\Carbon\Carbon::now().";\nScientist=".Auth::guard('profiles')->user()->id.";\nStartup=".$request->startup.";\n");
+            fwrite($myLog, "\nDate=".\Carbon\Carbon::now().";\nScientist=".Auth::guard('scientist')->user()->id.";\nStartup=".$request->startup.";\n");
             fclose($myLog);
 
             Mail::to('lawliet5130@gmail.com')->send(new FraudAttempt());
 
             return response()->json(['fraud',route('getFraud')]);
         }else{
-            Auth::guard('profiles')->user()->startups()->attach($request->startup);          
+            Auth::guard('scientist')->user()->startups()->attach($request->startup);          
         }
         return response()->json('success');
     }

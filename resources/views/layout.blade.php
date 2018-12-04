@@ -10,7 +10,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Top longevity experts">
 	<meta name="keywords" content="">
-	<title>LIForum</title>
+	<title>@yield('title')</title>
 	<meta property="og:title" content="LIForum" />
 	<meta property="og:description" content="Longevity Impact Forum" />
 	<meta property="og:image" content="http://liforum.org/lif/img/logo.png" />

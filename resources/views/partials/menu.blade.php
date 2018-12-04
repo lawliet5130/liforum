@@ -27,8 +27,8 @@
 		<div class="col-md-5 login_head_container">
             <span><a href="{{route('getNews')}}">News</a></span>
 			<a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#doc-modal">Documents</a>
-            @if(\Auth::guard('profiles')->check())
-                @php $profile_data=\Auth::guard('profiles')->user(); @endphp
+            @if(\Auth::guard('scientist')->check())
+                @php $profile_data=\Auth::guard('scientist')->user(); @endphp
                 <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle img_header_avatar_a" data-toggle="dropdown">

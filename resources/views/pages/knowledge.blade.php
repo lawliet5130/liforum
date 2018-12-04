@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title','Knowledge')
 @section('style')
 <style>
 .nav-xbootstrap li:nth-child(3) a {

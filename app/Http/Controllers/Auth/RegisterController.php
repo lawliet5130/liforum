@@ -29,10 +29,10 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/sc-profile';
+    protected $redirectTo = '/my-profile';
     protected function guard()
     {
-        return Auth::guard('profiles');
+        return Auth::guard('scientist');
     }
     /**
      * Create a new controller instance.

@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title',(Auth::guard('scientist')->check() && Auth::guard('scientist')->id()==$user->id)?'My profile':$user->getFullName())
 @section('style')
 <style>
 .nav-xbootstrap li:nth-child(2) a {

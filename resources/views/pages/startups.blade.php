@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title','Startups')
 @section('style')
 <style>
 .nav-xbootstrap li:nth-child(4) a {
@@ -63,8 +64,8 @@
 						</div>
 						<div class="rate_startuplist_bottom">	
 
-						@if(\Auth::guard('profiles')->check())
-								@if(\Auth::guard('profiles')->user()->startups->contains('id',$sup->id))
+						@if(\Auth::guard('scientist')->check())
+								@if(\Auth::guard('scientist')->user()->startups->contains('id',$sup->id))
 									<span class="supVoted voted_button_startap" >voted</span>
 								@else
 									<span class="supVoted voted_button_startap" style="display: none;">voted</span>

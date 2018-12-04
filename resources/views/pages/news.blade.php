@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title','News')
 @section('content')
 <div class="page">
 	<section class="title_page">

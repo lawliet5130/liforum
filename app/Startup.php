@@ -12,6 +12,6 @@ class Startup extends Model
 	}
 
 	public function scientists(){
-		return $this->belongsToMany('App\ScientistAccount','scientist_startup','startup_id','scientist_id')->withTimestamps();
+		return $this->belongsToMany('App\ScientistAccount','scientist_startup','startup_id','scientist_id')->withTrashed()->withTimestamps();
 	}
 }

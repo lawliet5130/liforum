@@ -1,4 +1,5 @@
 @extends('layout')
+@section('title','Edit')
 @section('style')
 <style>
 .nav-xbootstrap li:nth-child(2) a {
@@ -17,7 +18,6 @@
 	</section>
 	<div class="container">
 		@include('partials.breadcrumbs')
-		@php //dd($errors->getMessages());  @endphp
 		<div class="clearfix"></div>
 		<div class="page_personal">
 			<ul class="nav nav-tabs tabs_setting_profile">

@@ -1,4 +1,5 @@
 @extends("layout")
+@section('title',$startup->title)
 @section("style")
 <style>
 .nav-xbootstrap li:nth-child(2) a {
@@ -46,8 +47,8 @@ border-bottom: 3px solid #2ecaf7;
 				<span>	<img src="/img/cupa.png" alt=""></span>
 				<p class="name_date">Rating</p>
 				<p class="number_date voteCounter" data-vcount="{{$startup->scientists->count()}}">{{$startup->scientists->count()}}</p>
-				@if(\Auth::guard('profiles')->check())
-					@if(\Auth::guard('profiles')->user()->startups->contains('id',$startup->id))
+				@if(\Auth::guard('scientist')->check())
+					@if(\Auth::guard('scientist')->user()->startups->contains('id',$startup->id))
 						<span class="supVoted voted_button_startap" >voted</span>
 					@else
 						<span class="supVoted voted_button_startap" style="display: none;">voted</span>

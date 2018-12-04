@@ -22,7 +22,7 @@ Route::bind('stup',function($value){
 });
 
 Route::get('/startups','MainController@getStartups')->name('getStartups');
-Route::get('/startup/startup{stup}','MainController@getStartup')->name('getStartup');
+Route::get('/startups/startup{stup}','MainController@getStartup')->name('getStartup');
 
 // --------------News routes--------------
 Route::bind('post',function($value){
@@ -39,7 +39,7 @@ Route::get('/knowledge','MainController@getKnowledge')->name('getKnowledge');
 
 
 // --------------Get items routes--------------
-Route::get('/getscitem','UserController@getScItems')->name('getScItems');
+Route::get('/getscitem','ScientistController@getScItems')->name('getScItems');
 
 
 
@@ -49,28 +49,28 @@ Route::bind('scientist', function ($value) {
 });
 
 Route::get('/scientists','MainController@getScList')->name('getScList');
-Route::post('/scientist-apply','UserController@scientistApply')->name('scientistApply');
-Route::get('/scientist/{scientist}','UserController@scientistProfile')->name('scientistProfile');
+Route::post('/scientist-apply','ScientistController@scientistApply')->name('scientistApply');
+Route::get('/scientists/{scientist}','ScientistController@scientistProfile')->name('scientistProfile');
 
 
 
 // --------------Scientist profile routes--------------
-Route::prefix('sc-profile')->middleware(['scLoged'])->group(function(){
+Route::prefix('my-profile')->middleware(['scLoged'])->group(function(){
 
 
 
 	// --------------Basic profile routes--------------
-	Route::get('/','UserController@logedProfile')->name('logedProfile');
-	Route::get('/edit','UserController@editProfile')->name('editProfile');
-	Route::post('/vote-startup','UserController@voteStartup')->name('voteStartup');
+	Route::get('/','ScientistController@logedProfile')->name('logedProfile');
+	Route::get('/edit','ScientistController@editProfile')->name('editProfile');
+	Route::post('/vote-startup','ScientistController@voteStartup')->name('voteStartup');
 
 
 
 	// --------------Scientist edit routes--------------
-	Route::post('/gendata-edit','UserController@genDataEdit')->name('genDataEdit');
-	Route::post('/add-item','UserController@addItem')->name('addItem');
-	Route::post('/edit-item','UserController@editItem')->name('editItem');
-	Route::post('/delete-item','UserController@deleteItem')->name('deleteItem');
+	Route::post('/gendata-edit','ScientistController@genDataEdit')->name('genDataEdit');
+	Route::post('/add-item','ScientistController@addItem')->name('addItem');
+	Route::post('/edit-item','ScientistController@editItem')->name('editItem');
+	Route::post('/delete-item','ScientistController@deleteItem')->name('deleteItem');
 });
 
 
