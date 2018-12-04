@@ -4,11 +4,7 @@
 			<nav>
 				<div class="nav-xbootstrap">
 					<ul>
-						<li><a href="{{route('getHome')}}">Home</a></li>
-						<li><a href="{{route('getScList')}}">Scientists</a></li>
-						<li><a href="{{route('getKnowledge')}}">Knowledge </a></li>
-						<li><a href="{{route('getStartups')}}">Startups</a></li>
-						<li><a href="{{route('getAbout')}}">About</a></li>
+						<li><a href="{{route('getHome')}}">Home</a></li><li><a href="{{route('getScList')}}">Scientists</a></li><li><a href="{{route('getKnowledge')}}">Knowledge </a></li><li><a href="{{route('getStartups')}}">Startups</a></li><li><a href="{{route('getAbout')}}">About</a></li>
 					</ul>
 				</div>
 				<div class="nav-bg-xbootstrap">

@@ -27,7 +27,7 @@
 		</div>
 		<div class="col-md-4 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.4s">
 			<div class="date_head">
-				<p class="right1">22</p>
+				<p class="right1">25</p>
 				<p class="right2">January </p>
 				<p class="right3">2019</p>
 			</div>

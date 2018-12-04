@@ -3,8 +3,8 @@
 <style>
 .nav-xbootstrap li:nth-child(4) a {
 	background: #f8f8f8;
-	color: #2ecaf7;
-	border-bottom: 3px solid #2ecaf7;
+	color: #00a0dd;
+	border-bottom: 3px solid #00a0dd;
 }
 </style>
 @endsection
