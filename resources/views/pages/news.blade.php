@@ -97,7 +97,7 @@
 								</ul>
 							@endif
 						@else
-							{{$articles->links()}}
+							{{$articles->appends(['toSearch'=>request()->toSearch])->links()}}
 						@endif
 					</div>
 				</div>

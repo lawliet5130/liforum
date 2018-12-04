@@ -168,7 +168,7 @@ return [
          */
         Laravel\Tinker\TinkerServiceProvider::class,
         TCG\Voyager\VoyagerServiceProvider::class,
-
+        Laravel\Scout\ScoutServiceProvider::class,
         /*
          * Application Service Providers...
          */

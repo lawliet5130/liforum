@@ -59,7 +59,8 @@ class MainController extends Controller
 			}
 
 			$articles=$articles->forPage($currentPage,6);
-
+		}elseif($request->toSearch){
+			$articles=Article::search($request->toSearch)->paginate(6);
 		}else{
 			$articles=Article::orderBy('promoted','desc')->orderBy('created_at','desc')->paginate(6);				
 		}
