@@ -75,7 +75,7 @@
 							<img src="{{Voyager::image($sc->thumbnail('square','image'))}}" alt="">
 							<span>
 								<div class="name_specialy_blok">
-									<a href="scientist.php">{{$sc->getFullName()}}</a> <br>
+									<a href="{{route('scientistProfile',['scientist'=>$sc->id])}}">{{$sc->getFullName()}}</a> <br>
 									<span><a href="knowledge.php?Genomics">{{$sc->branch->name}}</a></span>
 								</div>
 							</span>
