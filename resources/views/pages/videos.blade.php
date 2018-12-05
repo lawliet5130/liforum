@@ -13,44 +13,59 @@
 				<div class="clearfix"></div>
 				<div class="row">
 					<div class="col-md-9 container_video">
-						<div class="list_news video_list">
-							<div class="single_new_block col-md-6 wow fadeInUp " data-wow-delay="0s">
-								<iframe width="" height="250" src="https://www.youtube.com/embed/4ez4xA3uq6Q?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen id="video"></iframe>
-								<p class="description_video_title">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-										</p>
+						<div class="list_news video_list row">
+							<div class="col-md-6" data-item="videos">
+								<div class="card">
+									<a data-fancybox href="https://www.youtube.com/embed/c_OmbkaM4qE" class="video_thumb_block">
+										<span class="mark_play_button">
+											<i class="fa fa-play"></i>
+										</span>
+										<img class="card-img-top img-fluid" src="http://img.youtube.com/vi/c_OmbkaM4qE/hqdefault.jpg"/>
+									</a>
+								</div>
+								<h4>Title</h4>
+								
+								<p class="description_video_title">Lorem AI ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!</p>
 							</div>
-							<div class="single_new_block col-md-6 wow fadeInUp " data-wow-delay="0s">
-								<iframe width="" height="250" src="https://www.youtube.com/embed/4ez4xA3uq6Q?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen id="video"></iframe>
-								<p class="description_video_title">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-										</p>
-							</div>	
-							<div class="single_new_block col-md-6 wow fadeInUp " data-wow-delay="0s">
-								<iframe width="" height="250" src="https://www.youtube.com/embed/4ez4xA3uq6Q?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								<p class="description_video_title">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-										</p>
-							</div>	
-							<div class="single_new_block col-md-6 wow fadeInUp " data-wow-delay="0s">
-								<iframe width="" height="250" src="https://www.youtube.com/embed/4ez4xA3uq6Q?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								<p class="description_video_title">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-										</p>
-							</div>	
-							<div class="single_new_block col-md-6 wow fadeInUp " data-wow-delay="0s">
-								<iframe width="" height="250" src="https://www.youtube.com/embed/4ez4xA3uq6Q?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								<p class="description_video_title">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-										</p>
-							</div>	
-							<div class="single_new_block col-md-6 wow fadeInUp " data-wow-delay="0s">
-								<iframe width="" height="250" src="https://www.youtube.com/embed/4ez4xA3uq6Q?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								<p class="description_video_title">
-											Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!
-										</p>
+							<div class="col-md-6" data-item="videos">
+								<div class="card">
+									<a data-fancybox href="https://www.youtube.com/embed/c_OmbkaM4qE" class="video_thumb_block">
+										<span class="mark_play_button">
+											<i class="fa fa-play"></i>
+										</span>
+										<img class="card-img-top img-fluid" src="http://img.youtube.com/vi/c_OmbkaM4qE/hqdefault.jpg"/>
+									</a>
+								</div>
+								<h4>Title</h4>
+								
+								<p class="description_video_title">Lorem AI ipsum dolor si</p>
 							</div>
-							
+							<div class="col-md-6" data-item="videos">
+								<div class="card">
+									<a data-fancybox href="https://www.youtube.com/embed/c_OmbkaM4qE" class="video_thumb_block">
+										<span class="mark_play_button">
+											<i class="fa fa-play"></i>
+										</span>
+										<img class="card-img-top img-fluid" src="http://img.youtube.com/vi/c_OmbkaM4qE/hqdefault.jpg"/>
+									</a>
+								</div>
+								<h4>Title</h4>
+								
+								<p class="description_video_title">Lorem AI ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!</p>
+							</div>
+							<div class="col-md-6" data-item="videos">
+								<div class="card">
+									<a data-fancybox href="https://www.youtube.com/embed/c_OmbkaM4qE" class="video_thumb_block">
+										<span class="mark_play_button">
+											<i class="fa fa-play"></i>
+										</span>
+										<img class="card-img-top img-fluid" src="http://img.youtube.com/vi/c_OmbkaM4qE/hqdefault.jpg"/>
+									</a>
+								</div>
+								<h4>Title</h4>
+								
+								<p class="description_video_title">Lorem AI ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!</p>
+							</div>
 							
 							
 							

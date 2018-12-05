@@ -4646,3 +4646,14 @@ body .no-padding {
 .voteBtn:hover i {
   color:#fff;
 }
+
+.video_list {
+ display: flex;
+flex-wrap: wrap;
+}
+.video_list .col-md-6 {
+  margin-bottom: 40px;
+}
+.video_list h4 {
+  margin: 15px 0 5px 0;
+}
