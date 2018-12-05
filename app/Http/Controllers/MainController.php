@@ -8,6 +8,7 @@ use App\Startup;
 use App\Article;
 use App\Work;
 use App\Video;
+use App\NewsVideo;
 
 class MainController extends Controller
 {
@@ -85,7 +86,9 @@ class MainController extends Controller
 	}
 
 	public function getVideos(){
-		return view('pages.videos');
+		$videos=NewsVideo::orderBy('created_at','desc')->paginate(6);
+
+		return view('pages.videos',compact('videos'));
 	}
 
 	public function getKnowledge(){

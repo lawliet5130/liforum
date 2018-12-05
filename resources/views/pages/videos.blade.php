@@ -14,79 +14,25 @@
 				<div class="row">
 					<div class="col-md-9 container_video">
 						<div class="list_news video_list row">
+							@foreach($videos as $video)
 							<div class="col-md-6" data-item="videos">
 								<div class="card">
-									<a data-fancybox href="https://www.youtube.com/embed/c_OmbkaM4qE" class="video_thumb_block">
+									<a data-fancybox href="{{$video->link}}" class="video_thumb_block">
 										<span class="mark_play_button">
 											<i class="fa fa-play"></i>
 										</span>
-										<img class="card-img-top img-fluid" src="http://img.youtube.com/vi/c_OmbkaM4qE/hqdefault.jpg"/>
+										<img class="card-img-top img-fluid" src="https://img.youtube.com/vi/{{str_limit(str_after($video->link,'watch?v='),11,'')}}/hqdefault.jpg"/>
 									</a>
 								</div>
-								<h4>Title</h4>
+								<h4 title="{{$video->title}}">{{str_limit($video->title,60)}}</h4>
 								
-								<p class="description_video_title">Lorem AI ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!</p>
+								<p class="description_video_title">{{str_limit($video->text,310)}}</p>
 							</div>
-							<div class="col-md-6" data-item="videos">
-								<div class="card">
-									<a data-fancybox href="https://www.youtube.com/embed/c_OmbkaM4qE" class="video_thumb_block">
-										<span class="mark_play_button">
-											<i class="fa fa-play"></i>
-										</span>
-										<img class="card-img-top img-fluid" src="http://img.youtube.com/vi/c_OmbkaM4qE/hqdefault.jpg"/>
-									</a>
-								</div>
-								<h4>Title</h4>
-								
-								<p class="description_video_title">Lorem AI ipsum dolor si</p>
-							</div>
-							<div class="col-md-6" data-item="videos">
-								<div class="card">
-									<a data-fancybox href="https://www.youtube.com/embed/c_OmbkaM4qE" class="video_thumb_block">
-										<span class="mark_play_button">
-											<i class="fa fa-play"></i>
-										</span>
-										<img class="card-img-top img-fluid" src="http://img.youtube.com/vi/c_OmbkaM4qE/hqdefault.jpg"/>
-									</a>
-								</div>
-								<h4>Title</h4>
-								
-								<p class="description_video_title">Lorem AI ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!</p>
-							</div>
-							<div class="col-md-6" data-item="videos">
-								<div class="card">
-									<a data-fancybox href="https://www.youtube.com/embed/c_OmbkaM4qE" class="video_thumb_block">
-										<span class="mark_play_button">
-											<i class="fa fa-play"></i>
-										</span>
-										<img class="card-img-top img-fluid" src="http://img.youtube.com/vi/c_OmbkaM4qE/hqdefault.jpg"/>
-									</a>
-								</div>
-								<h4>Title</h4>
-								
-								<p class="description_video_title">Lorem AI ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!</p>
-							</div>
-							
-							
-							
-						
-							
-						
+							@endforeach
+
 							<div class="clearfix"></div>
 							<div aria-label="Page navigation example">
-								<ul class="pagination justify-content-center center">
-									<li class="page-item disabled">
-										<a class="page-link" href="#" tabindex="-1">Previous</a>
-									</li>
-									<li class="page-item"><a class="page-link" href="#">1</a></li>
-									<li class="page-item"><a class="page-link" href="#">2</a></li>
-									<li class="page-item"><a class="page-link" href="#">3</a></li>
-									<li class="page-item"><a class="page-link" href="#">4</a></li>
-									<li class="page-item"><a class="page-link" href="#">5</a></li>
-									<li class="page-item">
-										<a class="page-link" href="#">Next</a>
-									</li>
-								</ul>
+								{{$videos->links()}}
 							</div>
 						</div>
 						
