@@ -13,7 +13,7 @@
 				<div class="clearfix"></div>
 				<div class="row">
 					<div class="col-md-9 container_video">
-						<div class="list_news video_list row">
+						<div class="list_news video_list">
 							@foreach($videos as $video)
 							<div class="col-md-6" data-item="videos">
 								<div class="card">

@@ -4573,6 +4573,7 @@ body .no-padding {
   font-size: 24px;
   transition: all 0.3s;
   opacity: 0;
+  z-index: 9;
 }
 
 .video_thumb_block:hover > span{
@@ -4650,10 +4651,24 @@ body .no-padding {
 .video_list {
  display: flex;
 flex-wrap: wrap;
+margin-top: 0;
 }
 .video_list .col-md-6 {
   margin-bottom: 40px;
 }
 .video_list h4 {
   margin: 15px 0 5px 0;
+}
+
+.video_list .video_thumb_block{
+  height: 225px;
+  position: relative;
+  overflow: hidden;
+}
+.video_list .video_thumb_block img{
+  width: 100%;
+  transform: translate(-50% , -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }

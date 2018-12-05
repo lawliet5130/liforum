@@ -100,6 +100,9 @@ header .center1 {
   font-size: 15px;
 }
 
+  .video_list .video_thumb_block{
+  height: 185px;
+}
     
 
 }
@@ -107,6 +110,8 @@ header .center1 {
 /*Laptopuri care deja nu mai sunt (optional)*/
 
 @media (max-width:1024px) {
+
+
 
   .mob_off {
     display: none; 
@@ -558,7 +563,9 @@ float: left;
 
 }
 
-
+  .video_list {
+    margin-top: 20px;
+}
 
 
 
@@ -575,6 +582,8 @@ float: left;
 /*Mobile orizontal*/
 
 @media (max-width: 768px) {
+
+
 
   .rating_home_startup {
     width: 20%;
@@ -645,6 +654,18 @@ right: -158px;
     padding: 15px;
     font-size: 12px;
 
+}
+
+.video_list .video_thumb_block {
+    height: auto;
+}
+
+.video_list .video_thumb_block img {
+    width: 100%;
+    transform: translate(-00% , -00%);
+    position: relative;
+    top: 0;
+    left: 0;
 }
 
 
