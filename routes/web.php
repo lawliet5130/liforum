@@ -32,6 +32,7 @@ Route::bind('post',function($value){
 Route::get('/news','MainController@getNews')->name('getNews');
 Route::get('/news/article{post}','MainController@getArticle')->name('getArticle');
 Route::post('/news-search','MainController@newsSearch')->name('newsSearch');
+Route::get('/videos','MainController@getVideos')->name('getVideos');
 
 
 // --------------Knowledge routes--------------
@@ -72,7 +73,6 @@ Route::prefix('my-profile')->middleware(['scLoged'])->group(function(){
 	Route::post('/edit-item','ScientistController@editItem')->name('editItem');
 	Route::post('/delete-item','ScientistController@deleteItem')->name('deleteItem');
 });
-
 
 
 Route::group(['prefix' => 'admin'], function () {

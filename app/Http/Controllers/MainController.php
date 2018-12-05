@@ -84,6 +84,10 @@ class MainController extends Controller
 		return view('pages.article',compact('article','tags','thisTags'));
 	}
 
+	public function getVideos(){
+		return view('pages.videos');
+	}
+
 	public function getKnowledge(){
 		$scientists=ScientistAccount::take(5)->select(['name','surname','id','image','branch_id','country_code'])->withCount('startups','works')->get();
 		$scCount=ScientistAccount::count();

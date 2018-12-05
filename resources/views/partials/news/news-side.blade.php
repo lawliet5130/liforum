@@ -11,8 +11,8 @@
 				</div>
 			</div>
 			<div class="list-group">
-				<a href="{{route('getNews')}}" class="list-group-item list-group-item-action active">News</a>
-				<a href="video.php" class="list-group-item list-group-item-action">Video (UNDER DEVELOPMENT)</a>
+				<a href="{{route('getNews')}}" class="list-group-item list-group-item-action @if(Route::currentRouteName()!='getVideos') active @endif">News</a>
+				<a href="{{route('getVideos')}}" class="list-group-item list-group-item-action @if(Route::currentRouteName()=='getVideos') active @endif">Videos</a>
 				
 			</div>
 		</div>
