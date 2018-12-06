@@ -12,6 +12,7 @@
         "algolia/algoliasearch-client-php": "1.*",
         "laravel/framework": "5.4.*",
         "laravel/scout": "^3.0",
+        "laravel/socialite": "^3.2",
         "laravel/tinker": "~1.0",
         "tcg/voyager": "^1.1"
     },

@@ -75,6 +75,12 @@ Route::prefix('my-profile')->middleware(['scLoged'])->group(function(){
 });
 
 
+
+// --------------Socialite routes--------------
+Route::get('login/facebook','FBUserController@redirectToProvider')->name('redirectToProvider');
+Route::geT('login/facebook/callback','FBUserController@handleProviderCallback')->name('handleProviderCallback');
+
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
