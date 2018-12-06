@@ -23,28 +23,6 @@
 <!--<![endif]-->
 <!--Start TEMPLATE-->
 <body>
-	<script>
-		window.fbAsyncInit = function() {
-			FB.init({
-				appId      : '1515006928551622',
-				cookie     : true,
-				xfbml      : true,
-				version    : 'v3.2'
-			});
-
-			FB.AppEvents.logPageView();   
-
-		};
-
-		(function(d, s, id){
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) {return;}
-			js = d.createElement(s); js.id = id;
-			js.src = "https://connect.facebook.net/en_US/sdk.js";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
-
 	<div style="display: none; position: fixed; top: 100px; right: 70px; z-index: 99999999" class="mainAlert alert @if(session('status')==1) alert-success @elseif(session('status')==2) alert-danger @endif ">
   		<strong>@if(session('status')==1) Success! @elseif(session('status')==2) Error! @endif</strong> {{session('statusText')}}
 	</div>
