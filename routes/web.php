@@ -75,10 +75,14 @@ Route::prefix('my-profile')->middleware(['scLoged'])->group(function(){
 });
 
 
+// --------------User routes--------------
+Route::get('/login/facebook','FBUserController@redirectToProvider')->name('redirectToProvider');
+Route::get('/login/facebook/callback','FBUserController@handleProviderCallback')->name('handleProviderCallback');
 
-// --------------Socialite routes--------------
-Route::get('login/facebook','FBUserController@redirectToProvider')->name('redirectToProvider');
-Route::geT('login/facebook/callback','FBUserController@handleProviderCallback')->name('handleProviderCallback');
+Route::prefix('profile')->middleware('userLoged')->group(function(){
+	Route::get('/','FBUserController@profile')->name('userProfile');
+});
+
 
 
 Route::group(['prefix' => 'admin'], function () {

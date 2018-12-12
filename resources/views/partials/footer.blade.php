@@ -135,9 +135,10 @@
 						<div id="user_login" class="user_login tab-pane fade ">
 							<!-- Login Form -->
 							<form>
-								<p class="youare">In order to vote 
-			login in your account</p>
-								<a href="#" data-dismiss="modal" class="btn btn-default facebook" data-toggle="modal" data-target="#register_user_step_2"> <i class="fa fa-facebook modal-icons"></i> Sign In with Facebook </a>
+								<p class="youare">In order to vote login in your account</p>
+								<a href="{{route('redirectToProvider')}}" class="btn btn-default facebook"> 
+									<i class="fa fa-facebook modal-icons"></i> Sign In with Facebook
+								</a>
 							</form>
 							
 						</div>

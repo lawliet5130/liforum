@@ -69,7 +69,7 @@ class ScientistController extends Controller
             'facebook'=>'nullable|url',
             'linkedin'=>'nullable|url',
             'about'=>'min:50',
-            'image'=>'max:100'
+            'image'=>'max:250'
         ]);
 
         if($validator->fails()){
@@ -79,8 +79,9 @@ class ScientistController extends Controller
         }
 
         if($request->image && !$validator->errors()->get('image')){
+            $options=json_decode('{"resize":{"width":"500","height":null},"upsize":false,"thumbnails":[{"name":"square","crop":{"width":"300","height":"300"}}]}');
             $imageRow=Voyager::model('DataType')->where('slug', '=', 'scientist-accounts')->first()->editRows->where('id',37)->first();
-            $image=(new StoreImage($request,'scientist-accounts',$imageRow,null))->handle();
+            $image=(new StoreImage($request,'scientist-accounts',$imageRow,$options))->handle();
             $data['image']=$image;
         }else{
             unset($data['image']);

@@ -335,3 +335,10 @@
 			
 		</section>
 		@endsection
+		@section('add_scripts')
+			@if(session('mustLogin'))
+				<script>
+					$('#login-modal').modal('show');
+				</script>
+			@endif
+		@endsection
