@@ -45,6 +45,11 @@ return [
             'driver' => 'session',
             'provider' => 'scientists',
         ],
+
+        'fb' => [
+            'driver' => 'session',
+            'provider' => 'fbuser',
+        ],
     ],
 
     /*
@@ -73,6 +78,11 @@ return [
         'scientists' => [
             'driver' => 'eloquent',
             'model' => App\ScientistAccount::class,
+        ],
+
+        'fbuser' => [
+            'driver' => 'eloquent',
+            'model' => App\FBUser::class,
         ],
     ],
 

@@ -10,6 +10,8 @@ use App\Work;
 use App\Video;
 use App\NewsVideo;
 
+use Socialite;
+
 class MainController extends Controller
 {
 	public function getHome(){
