@@ -28,10 +28,10 @@
 					<div class="col-md-4 links_soc_prof">
 						<div class="clearfix"></div>
 						<div class="ranting_individual_user">
-							My Rating
+							Rating
 							<div class="rating_container">	
 								@for($i=1;$i<=5;$i++)
-								<span class="fa fa-star @if($i<=$user->stars) checked @endif "></span>
+								<span class="fa fa-star @if($i<=$user->getStars()) checked @endif "></span>
 								@endfor
 							</div>
 						</div>

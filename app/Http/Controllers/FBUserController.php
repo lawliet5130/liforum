@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Mail\FraudAttempt;
 use App\FBUser;
 
 use Socialite;
@@ -11,6 +11,8 @@ use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\Request;
 
 class FBUserController extends Controller
 {
@@ -43,11 +45,33 @@ class FBUserController extends Controller
     	return redirect('/profile#');
     }
     
-    public function profile(){
+    public function myProfile(){
     	$user=Auth::guard('fb')->user();
-    	$user->stars=(int)str_after($user->stars,'s');
 
     	return view('pages.user-profile',compact('user'));
+    }
+
+    public function userProfile($user){
+    	if(Auth::guard('fb')->check() && Auth::guard('fb')->user()->id==$user->id){
+    		return redirect()->route('myProfile');
+    	}
+
+    	return view('pages.user-profile',compact('user'));
+    }
+
+    public function voteScientist(Request $request){
+    	if(Auth::guard('fb')->user()->scientists()->get()->contains('id',$request->scientist)){
+    		$myLog=fopen(public_path().'/vendor/application/fraud.txt','a');
+            fwrite($myLog, "\nDate=".\Carbon\Carbon::now().";\nUser=".Auth::guard('fb')->user()->id.";\nScientist=".$request->scientist.";\n");
+            fclose($myLog);
+
+            Mail::to('lawliet5130@gmail.com')->send(new FraudAttempt());
+
+            return response()->json(['fraud',route('getFraud')]);
+        }else{
+    		Auth::guard('fb')->user()->scientists()->attach($request->scientist);        
+        }
+    	return response()->json('success');
     }
 
     protected function resizeAvatar($imageLink){

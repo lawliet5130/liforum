@@ -47,6 +47,10 @@ class ScientistAccount extends Authenticatable
 		return $this->hasMany('App\Article','scientist_id');
 	}
 
+	public function users(){
+		return $this->belongsToMany('App\FBUser','user_scientist','scientist_id','user_id')->withTimestamps();
+	}
+
 	public function getGender(){
 		switch ($this->gender) {
 			case '0':

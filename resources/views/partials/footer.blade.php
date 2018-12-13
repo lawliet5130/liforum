@@ -254,7 +254,7 @@
 			<div class="modal-social-icons">
 				<div class="col-md-12">
 					<div class="col-md-12">
-						<a href="#" class="btn btn-default facebook"> <i class="fa fa-facebook modal-icons"></i> Sign In with Facebook </a>
+						<a href="{{route('redirectToProvider')}}" class="btn btn-default facebook"> <i class="fa fa-facebook modal-icons"></i> Sign In with Facebook </a>
 					</div>
 					<!--div class="col-md-6">
 						<a href="#" class="btn btn-default twitter"> <i class="fa fa-twitter modal-icons"></i> Sign In with Twitter </a>

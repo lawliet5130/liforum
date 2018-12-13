@@ -65,13 +65,13 @@
 						<div class="rate_startuplist_bottom">	
 
 						@if(\Auth::guard('scientist')->check())
-								@if(\Auth::guard('scientist')->user()->startups->contains('id',$sup->id))
-									<span class="supVoted voted_button_startap" >voted</span>
-								@else
-									<span class="supVoted voted_button_startap" style="display: none;">voted</span>
-									<button class="vote_button_startap" data-tovote="{{$sup->id}}" data-toggle="modal" data-target="#checkVote">vote!</button>
-								@endif
+							@if(\Auth::guard('scientist')->user()->startups->contains('id',$sup->id))
+								<span class="supVoted voted_button_startap" >voted</span>
+							@else
+								<span class="supVoted voted_button_startap" style="display: none;">voted</span>
+								<button class="vote_button_startap" data-tovote="{{$sup->id}}" data-toggle="modal" data-target="#checkVote">vote!</button>
 							@endif
+						@endif
 						</div>
 					</div>
 					<div class="clearfix"></div>

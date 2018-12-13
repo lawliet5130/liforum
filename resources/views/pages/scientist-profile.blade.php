@@ -57,18 +57,29 @@
 					<div class="ranting_individual_left">
 						<i class="fa fa-star"></i>
 						<p class="name_date">Ranking</p>
-						<p class="number_date">Under development</p>
-						<!-- <a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#log-u-modal">
-							<i class="fa fa-thumbs-up"> </i> <span>VOTE</span>
-						</a> -->
+						<p class="number_date voteCounter" data-vcount="{{$user->users_count}}">{{$user->users_count}}</p>
+						@if(\Auth::guard('fb')->check())
+							@if(\Auth::guard('fb')->user()->scientists->contains('id',$user->id))
+								<span>Voted</span>
+							@else
+								<span class="scientistVoted" style="display: none;">Voted</span>
+								<a data-scientist="{{$user->id}}" class="btn btn-secondary">
+									<i class="fa fa-thumbs-up"></i><span>VOTE</span>
+								</a>
+							@endif
+						@else
+							<a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#log-u-modal">
+								<i class="fa fa-thumbs-up"></i><span>VOTE</span>
+							</a>
+						@endif
 					</div>
 					<div class="ranting_individual_right">
 						<i class="fa fa-bar-chart"></i>
 						<p class="name_date">Voted startups</p>
-						<p class="number_date">{{$user->startups->count()}}</p>
-						<!-- <a  class="btn btn-secondary scrollto" href="#voted_personal">
+						<p class="number_date">{{$user->startups_count}}</p>
+						<a  class="btn btn-secondary scrollto" href="#voted_personal">
 							<span>View projects</span>
-						</a> -->
+						</a>
 
 
 					</div>
@@ -87,7 +98,7 @@
 				<h2>Voted <span>({{$user->startups->count()}})</span></h2>
 				<div class="line_title_left"></div>
 				<ul class="list_startups_individual dParent">
-					@foreach($user->startups->sortByDesc('scientists_count')->take(5) as $sup)
+					@foreach($user->startups->sortByDesc('created_at')->take(5) as $sup)
 					<li class="wow fadeInRight" data-item="startups" data-wow-duration="1s">
 						<div class="ratingposition_home_startup">
 							<p class="pe_cine_votat"><img src="{{Voyager::image($user->thumbnail('square','image'))}}" alt="" class="avatar_big"></p>
@@ -310,6 +321,27 @@
 						$this.hide();
 					}
 					$(data).appendTo(parent);
+				});
+			});
+		</script>
+
+		<script>
+			$('[data-scientist]').click(function(e){
+				e.preventDefault();
+				$this=$(this);
+				$scientist=$this.data('scientist');
+				$.post("{{route('voteScientist')}}",
+				{
+					_token:'{{csrf_token()}}',
+					scientist:$scientist,
+				},function(data,status){
+					if(data=='success'){
+						$('.voteCounter').text($('.voteCounter').data('vcount')+1);
+						$this.fadeOut();
+						$('.scientistVoted').delay(400).fadeIn();
+					}else if(data[0]=="fraud"){
+						window.location.href=data[1];
+					}
 				});
 			});
 		</script>

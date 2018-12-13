@@ -174,7 +174,7 @@
 								<div class="table_date_sc rating_h">
 									<i class="fa fa-star"></i>
 									<p class="name_date">Ranking</p>
-									<p class="number_date">0</p>
+									<p class="number_date">{{$sc->users_count}}</p>
 								</div>
 								<div class="table_date_sc rating_h">
 									<i class="fa fa-bar-chart"></i>

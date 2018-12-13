@@ -115,7 +115,7 @@
                                         <div class="col-md-12">
                                             <p>
                                                 <span class="col-md-5">
-                                                    <a href="{{route('logedProfile')}}" class=" btn btn-primary ">My Profile</a>
+                                                    <a href="{{route('myProfile')}}" class=" btn btn-primary ">My Profile</a>
                                                 </span>
                                                 <span class="col-md-2 but_mes_card hidden">
                                                     <a href="list_msg.php" class="envelope_card">

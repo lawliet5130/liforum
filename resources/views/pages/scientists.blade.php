@@ -1,6 +1,6 @@
 @extends('layout')
 @section('title','Scientists')
-@section('stype')
+@section('style')
 	<style>
 	.nav-xbootstrap li:nth-child(2) a {
 	background: #f8f8f8;
@@ -60,14 +60,26 @@
 											</div>
 										</span>
 									</th>
-									
-									<td>0</td>
+									<td class="voteCounter" data-vcount='{{$sc->users_count}}'>{{$sc->users_count}}</td>
 									<td class="mob_off">{{$sc->startups_count}}</td>
 									<td class="mob_off">{{$sc->country->code}}</td>
 									<td class="mob_off">{{$sc->works->count()}}</td>
-									<td class="vote_list"><a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#log-u-modal">
-										<i class="fa fa-thumbs-up"> </i> <span>VOTE</span>
-									</a></td>
+									<td class="vote_list">
+										@if(\Auth::guard('fb')->check())
+											@if(\Auth::guard('fb')->user()->scientists->contains('id',$sc->id))
+												<span>Voted</span>
+											@else
+												<span class="scientistVoted" style="display: none;">Voted</span>
+												<a data-scientist="{{$sc->id}}" class="btn btn-secondary">
+													<i class="fa fa-thumbs-up"></i><span>VOTE</span>
+												</a>
+											@endif
+										@else
+											<a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#log-u-modal">
+												<i class="fa fa-thumbs-up"></i><span>VOTE</span>
+											</a>
+										@endif
+									</td>
 								</tr>
 								@endforeach
 							</tbody>
@@ -76,4 +88,27 @@
 				</div>
 			</div>
 		</div>
+@endsection
+@section('add_scripts')
+	<script>
+		$('[data-scientist]').click(function(e){
+			e.preventDefault();
+			$this=$(this);
+			parent=$this.parents('tr');
+			$scientist=$this.data('scientist');
+			$.post("{{route('voteScientist')}}",
+			{
+				_token:'{{csrf_token()}}',
+				scientist:$scientist,
+			},function(data,status){
+				if(data=='success'){
+					parent.find('.voteCounter').text(parent.find('.voteCounter').data('vcount')+1);
+					$this.fadeOut();
+					parent.find('.scientistVoted').delay(400).fadeIn();
+				}else if(data[0]=="fraud"){
+					window.location.href=data[1];
+				}
+			});
+		});
+	</script>
 @endsection

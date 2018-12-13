@@ -12,4 +12,12 @@ class FBUser extends Authenticatable
     protected $table="f_b_user";
 
     protected $fillable=['email','name','avatar','provider_id'];
+
+    public function getStars(){
+    	return (int)str_after($this->stars,'s');
+    }
+
+    public function scientists(){
+    	return $this->belongsToMany('App\ScientistAccount','user_scientist','user_id','scientist_id')->withTimestamps();
+    }
 }

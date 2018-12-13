@@ -46,7 +46,7 @@ Route::get('/getscitem','ScientistController@getScItems')->name('getScItems');
 
 // --------------Scientists routes--------------
 Route::bind('scientist', function ($value) {
-    return App\ScientistAccount::find($value);
+    return App\ScientistAccount::withCount('users','startups')->find($value);
 });
 
 Route::get('/scientists','MainController@getScList')->name('getScList');
@@ -76,11 +76,17 @@ Route::prefix('my-profile')->middleware(['scLoged'])->group(function(){
 
 
 // --------------User routes--------------
+Route::bind('user',function($value){
+	return App\FBUser::find($value);
+});
+
 Route::get('/login/facebook','FBUserController@redirectToProvider')->name('redirectToProvider');
 Route::get('/login/facebook/callback','FBUserController@handleProviderCallback')->name('handleProviderCallback');
+Route::get('/user/{user}','FBUserController@userProfile')->name('userProfile');
 
 Route::prefix('profile')->middleware('userLoged')->group(function(){
-	Route::get('/','FBUserController@profile')->name('userProfile');
+	Route::get('/','FBUserController@myProfile')->name('myProfile');
+	Route::post('/vote-scientist','FBUserController@voteScientist')->name('voteScientist');
 });
 
 
