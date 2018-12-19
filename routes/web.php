@@ -36,7 +36,7 @@ Route::get('/videos','MainController@getVideos')->name('getVideos');
 
 
 // --------------Knowledge routes--------------
-Route::get('/knowledge','MainController@getKnowledge')->name('getKnowledge');
+Route::get('/knowledge','SearchController@getKnowledge')->name('getKnowledge');
 
 
 // --------------Get items routes--------------
@@ -85,6 +85,7 @@ Route::get('/login/facebook/callback','FBUserController@handleProviderCallback')
 Route::get('/user/{user}','FBUserController@userProfile')->name('userProfile');
 
 Route::prefix('profile')->middleware('userLoged')->group(function(){
+	Route::post('/logout','FBUserController@logout')->name('fbLogout');
 	Route::get('/','FBUserController@myProfile')->name('myProfile');
 	Route::post('/vote-scientist','FBUserController@voteScientist')->name('voteScientist');
 });

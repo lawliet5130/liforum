@@ -40,9 +40,15 @@ class FBUserController extends Controller
 				'provider_id'=>$user->id
         	]
     	);
-    	Auth::guard('fb')->login($currentUser);
+    	Auth::guard('fb')->login($currentUser,true);
 
     	return redirect('/profile#');
+    }
+
+    public function logout(Request $request)
+    {
+        \Auth::guard('fb')->logout();
+        return redirect()->route('getHome');
     }
     
     public function myProfile(){

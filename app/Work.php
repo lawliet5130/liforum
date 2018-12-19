@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Laravel\Scout\Searchable;
 
 class Work extends Model
 {
+	use Searchable;
+
     public function branch(){
     	return $this->belongsTo('App\Branch');
     }
@@ -17,5 +19,13 @@ class Work extends Model
 
     protected $guarded=['scientist_id'];
 
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        $array=array_only($array,['title','text']);
+
+        return $array;
+    }
 
 }
