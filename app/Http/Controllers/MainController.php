@@ -93,23 +93,6 @@ class MainController extends Controller
 		return view('pages.videos',compact('videos'));
 	}
 
-	public function getKnowledge(){
-		$scientists=ScientistAccount::take(5)->select(['name','surname','id','image','branch_id','country_code'])->withCount('startups','works')->get();
-		$scCount=ScientistAccount::count();
-
-		$works=Work::take(4)->orderBy('created_at','desc')->get();
-		// dd($works);
-		$wrkCount=Work::count();
-
-		$startups=Startup::withCount('scientists')->orderBy('scientists_count','desc')->take(5)->get();
-		$supCount=Startup::count();
-
-		$videos=Video::take(4)->orderBy('created_at','desc')->get();
-		$viCount=Video::count();
-
-		return view('pages.knowledge',compact('scientists','scCount','works','wrkCount','startups','supCount','videos','viCount'));
-	}
-
 	protected function getElements($articles,$lastPage,$currentPage){
 		if(floor($lastPage < 12)){
 			$pages=[

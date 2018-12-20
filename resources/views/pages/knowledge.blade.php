@@ -17,30 +17,23 @@
 				<!-- <img src="img/part1.png" alt="" class=" " > -->
 			</div>
 			<div class="col-md-6">
-				<h1><span>Search by tiping name or technology<br>
-					<div class="wrap-select">
-						<div id="dd" class="wrapper-dropdown-3">
-							<span>Select Category</span>
-							<ul class="dropdown">
-								<li><a href="#">Scientists</a></li>
-								<li><a href="#">Startups</a></li>
-								<li><a href="#">Video</a></li>
-							</ul>
-						</div>
-					</div>
-					<form class="example head_search" id="live-search" method="post" action="" style="margin:auto; display: inline-flex;">
-						<input type="text" placeholder="Search.." value="" name="search2" id="filter">
-						<button type="submit"><i class="fa fa-search"></i></button>
-					</form>
-					
-				</span>
-			</h1>
+				<h1><span>Search by tiping name or technology</span></h1>
+				<form method="GET" action="{{route('getKnowledge')}}" style="margin:auto; display: inline-flex;">
+					<select name="branch">
+						<option value="0" @if(!request()->branch) selected @endif >All branches</option>
+						@foreach($branches as $branch)
+							<option @if(request()->branch==$branch->id) selected @endif value="{{$branch->id}}">{{$branch->name}}</option>
+						@endforeach
+					</select>
+					<input type="text" placeholder="Search.." name="search" @if(request()->search) value="{{request()->search}}" @endif >
+					<button type="submit"><i class="fa fa-search"></i></button>
+				</form>
+			</div>
 		</div>
 		<div class="col-md-3 partener_logo_head wow fadeInUp">
 			<img src="img/part2.png" alt="" class="" >
 		</div>
-	</div>
-</section>
+	</section>
 <div class="container">
 	@include('partials.breadcrumbs')
 	<div class="col-md-6  search_page_right">
@@ -81,13 +74,26 @@
 							</span>
 						</th>
 
-						<td>0</td>
-						<td class="mob_off">{{$sc->startups_count}}</td>
+						<td class="voteCounter" data-vcount="{{$sc->users_count}}">@if($searched){{$sc->users->count()}}@else{{$sc->users_count}}@endif</td>
+						<td class="mob_off">@if($searched){{$sc->startups->count()}}@else{{$sc->startups_count}}@endif</td>
 						<td class="mob_off">{{$sc->country->code}}</td>
-						<td class="mob_off">{{$sc->works_count}}</td>
-						<td class="vote_list"><a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#log-u-modal">
-							<i class="fa fa-thumbs-up"> </i> <span>VOTE</span>
-						</a></td>
+						<td class="mob_off">@if($searched){{$sc->works->count()}}@else{{$sc->works_count}}@endif</td>
+						<td class="vote_list">
+							@if(\Auth::guard('fb')->check())
+								@if(\Auth::guard('fb')->user()->scientists->contains('id',$sc->id))
+									<span>Voted</span>
+								@else
+									<span class="scientistVoted" style="display: none;">Voted</span>
+									<a class="btn btn-secondary" data-scientist="{{$sc->id}}">
+										<i class="fa fa-thumbs-up"> </i> <span>VOTE</span>
+									</a>
+								@endif
+							@else
+								<a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#log-u-modal">
+									<i class="fa fa-thumbs-up"> </i> <span>VOTE</span>
+								</a>
+							@endif
+						</td>
 					</tr>
 					@endforeach
 				</tbody>
@@ -167,7 +173,7 @@
 								<div class="rating_home_startup">
 									<i class="fa fa-star"></i>
 									<p class="name_date">Rating</p>
-									<p class="number_date">{{$sup->scientists_count}}</p>
+									<p class="number_date">@if($searched){{$sup->scientists->count()}}@else{{$sup->scientists_count}}@endif</p>
 								</div>
 								<div class="clearfix"></div>
 							</li>
@@ -188,67 +194,21 @@
 						<h2>Video <span>({{$viCount}})</span></h2>
 						<div class="line_title_left"></div>
 						<div class="row">
-
-
+							@foreach($videos as $video)
 							<div class="col-md-3" data-item="videos">
 								<div class="card">
-									<a data-fancybox href="https://www.youtube.com/embed/c_OmbkaM4qE" class="video_thumb_block">
+									<a data-fancybox href="{{$video->link}}" class="video_thumb_block">
 										<span class="mark_play_button">
 											<i class="fa fa-play"></i>
 										</span>
-										<img class="card-img-top img-fluid" src="http://img.youtube.com/vi/c_OmbkaM4qE/hqdefault.jpg"/>
+										<img class="card-img-top img-fluid" src="https://img.youtube.com/vi/{{str_limit(str_after($video->link,'watch?v='),11,'')}}/hqdefault.jpg"/>
 									</a>
 								</div>
-								<h4>Title</h4>
-								<h5><a href="">Category</a></h5>
-								<p class="description_video_title">Lorem AI ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!</p>
+								<h4>{{$video->title}}</h4>
+								<h5><a href="#">{{$video->branch->name}}</a></h5>
+								<p class="description_video_title">{{$video->text}}</p>
 							</div>
-
-							<div class="col-md-3" data-item="videos">
-								<div class="card">
-									<a data-fancybox href="https://www.youtube.com/embed/c_OmbkaM4qE" class="video_thumb_block">
-										<span class="mark_play_button">
-											<i class="fa fa-play"></i>
-										</span>
-										<img class="card-img-top img-fluid" src="http://img.youtube.com/vi/c_OmbkaM4qE/hqdefault.jpg"/>
-									</a>
-								</div>
-								<h4>Title</h4>
-								<h5><a href="">Category</a></h5>
-								<p class="description_video_title">Lorem AI ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!</p>
-							</div>
-
-							<div class="col-md-3" data-item="videos">
-								<div class="card">
-									<a data-fancybox href="https://www.youtube.com/embed/c_OmbkaM4qE" class="video_thumb_block">
-										<span class="mark_play_button">
-											<i class="fa fa-play"></i>
-										</span>
-										<img class="card-img-top img-fluid" src="http://img.youtube.com/vi/c_OmbkaM4qE/hqdefault.jpg"/>
-									</a>
-								</div>
-								<h4>Title</h4>
-								<h5><a href="">Category</a></h5>
-								<p class="description_video_title">Lorem AI ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!</p>
-							</div>
-
-							<div class="col-md-3" data-item="videos">
-								<div class="card">
-									<a data-fancybox href="https://www.youtube.com/embed/c_OmbkaM4qE" class="video_thumb_block">
-										<span class="mark_play_button">
-											<i class="fa fa-play"></i>
-										</span>
-										<img class="card-img-top img-fluid" src="http://img.youtube.com/vi/c_OmbkaM4qE/hqdefault.jpg"/>
-									</a>
-								</div>
-								<h4>Title</h4>
-								<h5><a href="">Category</a></h5>
-								<p class="description_video_title">Lorem AI ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, deleniti quam pariatur officia iure sit impedit quos, debitis numquam consectetur neque recusandae eveniet dolorum vel!</p>
-							</div>
-
-
-							
-
+							@endforeach
 						</div>
 					</div>
 					<div class="no_results no_video">No results Video</div>
@@ -257,6 +217,26 @@
 		</div>
 		@endsection
 		@section('add_scripts')
-
+			<script>
+				$('[data-scientist]').click(function(e){
+					e.preventDefault();
+					$this=$(this);
+					parent=$this.parents('tr');
+					$scientist=$this.data('scientist');
+					$.post("{{route('voteScientist')}}",
+					{
+						_token:'{{csrf_token()}}',
+						scientist:$scientist,
+					},function(data,status){
+						if(data=='success'){
+							parent.find('.voteCounter').text(parent.find('.voteCounter').data('vcount')+1);
+							$this.fadeOut();
+							parent.find('.scientistVoted').delay(400).fadeIn();
+						}else if(data[0]=="fraud"){
+							window.location.href=data[1];
+						}
+					});
+				});
+			</script>
 		@endsection
 

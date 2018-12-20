@@ -101,7 +101,7 @@
                                         <div class="col-lg-8">
                                             <p class="text-left"><strong>{{$profile_data->name}}</strong></p>
                                             <p class="text-left small">{{$profile_data->login}}</p>
-                                            <form method="POST" action="{{route('logout')}}">
+                                            <form method="POST" action="{{route('fbLogout')}}">
                                                 {{csrf_field()}}
                                                 <button class="btn " type="submit" style="margin-left:0;">Log Out</button>
                                             </form>

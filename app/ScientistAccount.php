@@ -9,9 +9,12 @@ use Illuminate\Notifications\Notifiable;
 use App\Events\ScientistCreated;
 use TCG\Voyager\Traits\Resizable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Scout\Searchable;
 
 class ScientistAccount extends Authenticatable
 {
+	use Searchable;
+
 	use Notifiable,Resizable,SoftDeletes;
 
 	protected $guarded=['login','deleted_at'];
@@ -75,5 +78,14 @@ class ScientistAccount extends Authenticatable
 	public function routeNotificationForMail()
     {
         return $this->login;
+    }
+
+    public function toSearchableArray()
+    {
+        $array = $this->toArray();
+
+        $array=array_only($array,['name','surname','about','knownas']);
+
+        return $array;
     }
 }
