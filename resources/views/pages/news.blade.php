@@ -2,7 +2,7 @@
 @section('title','News')
 @section('content')
 <div class="page">
-	<section class="title_page">
+	<section class="title_page title_page_news">
 		<div class="container">
 			<h1><span>Breaking science news and articles on longevity, the medicine of the future, anti-aging and biotech researches, breakthrough technologies from DAYS Rating of longevity and P4 medicine technologies</span></h1>
 		</div>

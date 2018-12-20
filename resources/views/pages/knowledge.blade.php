@@ -3,7 +3,7 @@
 @section('style')
 <style>
 .nav-xbootstrap li:nth-child(3) a {
-	background: #f8f8f8;
+	background: #02243a;
 	color: #2ecaf7;
 	border-bottom: 3px solid #2ecaf7;
 }
@@ -17,22 +17,33 @@
 				<!-- <img src="img/part1.png" alt="" class=" " > -->
 			</div>
 			<div class="col-md-6">
-				<h1><span>Search by tiping name or technology</span></h1>
-				<form method="GET" action="{{route('getKnowledge')}}" style="margin:auto; display: inline-flex;">
-					<select name="branch">
-						<option value="0" @if(!request()->branch) selected @endif >All branches</option>
-						@foreach($branches as $branch)
-							<option @if(request()->branch==$branch->id) selected @endif value="{{$branch->id}}">{{$branch->name}}</option>
-						@endforeach
-					</select>
-					<input type="text" placeholder="Search.." name="search" @if(request()->search) value="{{request()->search}}" @endif >
-					<button type="submit"><i class="fa fa-search"></i></button>
-				</form>
+				<div class="container_search_know">	
+					<h1><span>Search by tiping name or technology</span></h1>
+
+					
+
+					
+
+
+					<form method="GET" action="{{route('getKnowledge')}}"  style="margin:auto; display: inline-flex;">
+						<div class="selectWrapper">	
+						<select name="branch">
+							<option value="0" @if(!request()->branch) selected @endif >All branches</option>
+							@foreach($branches as $branch)
+								<option @if(request()->branch==$branch->id) selected @endif value="{{$branch->id}}">{{$branch->name}}</option>
+							@endforeach
+						</select>
+						</div>
+						<input type="text" placeholder="Search.." name="search" @if(request()->search) value="{{request()->search}}" @endif >
+						<button type="submit"><i class="fa fa-search"></i></button>
+					</form> 
+				</div>
+			</div>
+			<div class="col-md-3 partener_logo_head wow fadeInUp">
+				<img src="img/part2.png" alt="" class="" >
 			</div>
 		</div>
-		<div class="col-md-3 partener_logo_head wow fadeInUp">
-			<img src="img/part2.png" alt="" class="" >
-		</div>
+
 	</section>
 <div class="container">
 	@include('partials.breadcrumbs')
@@ -193,7 +204,7 @@
 				</div>
 
 				<div class="video_list">
-					<div class="">
+					<div class="video_list_100">
 						<h2>Video <span>({{$viCount}})</span></h2>
 						<div class="line_title_left"></div>
 						<div class="row">

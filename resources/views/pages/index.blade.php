@@ -4,9 +4,13 @@
 <!--style for menu active-->
 <style>
 .nav-xbootstrap li:nth-child(1) a {
-	background: #f8f8f8;
+	background: #02243a;
 	color: #2ecaf7;
 	border-bottom: 3px solid #2ecaf7;
+}
+.logo_container .img_logo{
+  box-shadow: 0 4px 10px -9px;
+  width: 178px;
 }
 </style>
 @endsection
@@ -44,7 +48,7 @@
 		<!-- <img src="img/part1.png" alt="" class="part_left wow fadeInRight" data-wow-duration="1s" data-wow-delay="1.5s"> -->
 		<img src="img/part2.png" alt="" class="part_right wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1.5s">
 	</div>
-	<img src="img/home_bg.png" alt="">
+	<img class="home_bg_top"  src="img/home_bg.png" alt="">
 </header>
 <div class="arrow_head">
 	<i class="fa fa-chevron-down bounce"></i>

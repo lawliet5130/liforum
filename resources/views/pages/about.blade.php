@@ -3,7 +3,7 @@
 @section('style')
 	<style>
 	.nav-xbootstrap li:nth-child(5) a {
-	background: #f8f8f8;
+	background: #02243a;
 	color: #2ecaf7;
 	border-bottom: 3px solid #2ecaf7;
 	}
@@ -11,7 +11,7 @@
 @endsection
 @section('content')
 		<div class="page">
-			<section class="title_page">
+			<section class="title_page title_page_aboutt">
 				
 					<div class="container">
 						<h1><span>About LIFORUM</span></h1>

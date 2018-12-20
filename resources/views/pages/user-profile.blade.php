@@ -28,7 +28,7 @@
 					<div class="col-md-4 links_soc_prof">
 						<div class="clearfix"></div>
 						<div class="ranting_individual_user">
-							Rating
+							<p>Rating</p>
 							<div class="rating_container">	
 								@for($i=1;$i<=5;$i++)
 								<span class="fa fa-star @if($i<=$user->getStars()) checked @endif "></span>

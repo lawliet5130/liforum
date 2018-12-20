@@ -3,7 +3,7 @@
 @section('style')
 <style>
 .nav-xbootstrap li:nth-child(2) a {
-	background: #f8f8f8;
+	background: #02243a;
 	color: #2ecaf7;
 	border-bottom: 3px solid #2ecaf7;
 }

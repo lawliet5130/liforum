@@ -1,3 +1,4 @@
+<div class="container_home">
 <div class="menu_home">
 	<div class="container">
 		<div class="col-md-5 menu_desc_left">
@@ -25,7 +26,7 @@
 			</div>
 		</div>
 		<div class="col-md-5 login_head_container">
-            <span><a href="{{route('getNews')}}">News</a></span>
+            <span><a href="{{route('getNews')}}" class="link_news">News</a></span>
 			<a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#doc-modal">Documents</a>
             @if(\Auth::guard('scientist')->check())
                 @php $profile_data=\Auth::guard('scientist')->user(); @endphp
@@ -136,6 +137,7 @@
             @endif
 		</div>
 	</div>
+</div>
 </div>
 
 
