@@ -3567,19 +3567,6 @@ span span a {
   margin-top: 5px;
 }
 
-.no_scientist {
-  display: none;
-}
-.no_work {
-  display: none;
-}
-.no_startup {  
-  display: none;
-}
-.no_video {
-  display: none;
-}
-
 .small_pic {
   width: 25px;
   height: 25px;
@@ -3595,7 +3582,7 @@ span span a {
 }
 
 .more {
-  display: none;
+
 }
 
 

@@ -60,4 +60,20 @@ class SearchController extends Controller
 
 		return view('pages.knowledge',compact('scientists','scCount','works','wrkCount','startups','supCount','videos','viCount','branches','searched'));
 	}
+
+	public function getPartKnowledge(Request $request,$type){
+		switch ($type) {
+			case 'scientists':
+				$items=$scientists=ScientistAccount::search($request->search)->get()->when($request->branch,function($query) use ($request){
+					return $query->where('branch_id',$request->branch);
+				});
+				break;
+
+			case '':
+				
+				break;
+		}
+
+		return view('pages.partitioned-knowledge',compact('items','type'));
+	}
 }

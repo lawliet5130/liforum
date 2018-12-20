@@ -25,7 +25,11 @@ In experts we trust!
 			<section class="about_img">
 				<div class="container">
 				<div class="col-md-6">
-					<p class="text_about_1">The Longevity Impact Forum will take place, in a new, blockchain format. The forum will be held in January 2019, right before Davos Forum.  <br> <br>
+					<p class="text_about_1">The LIF Initiative Group started Plan of digital AI driven transformation of several core healthcare related domains: the industry of healthy lifestyle, medicine, nutrition, medical insurance, life insurance.<br><br>
+
+					We believe that in addition to efforts to combat lethal diseases, it is necessary to study the deeper causes behind the rapid deterioration of health with age.<br><br> 
+
+					Among members of the Longevity Impact Forum Initiative Group are The Academie of Sciences Chairman (Gheorghe Duca), top-experts in longevity collaborating with UN, WHO and governments (Astrid Stuckelberger) and managers of DAYS Capital.<br> <br>
 					Rating of longevity technologies to be produced by top-scientists will be presented at Davos
 					</p>
 					<p class="text_about_3">With Mission to verify the emerging technologies, and offering innovative tools for funding, LIF is to create risk hedging investment instrument for institutional investors. 
