@@ -3,7 +3,7 @@
 @section('style')
 <style>
 .nav-xbootstrap li:nth-child(4) a {
-	background: #f8f8f8;
+	background: #02243a;
 	color: #00a0dd;
 	border-bottom: 3px solid #00a0dd;
 }
@@ -11,7 +11,7 @@
 @endsection
 @section('content')
 <div class="page">
-	<section class="title_page">
+	<section class="title_page title_page_startups">
 		<div class="container">
 			<h1><span>DAYS Investment council have preselected the most promising longevity and digital health companies to be rated by Scientists.</span></h1>
 		</div>

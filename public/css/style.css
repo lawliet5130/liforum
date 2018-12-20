@@ -1331,17 +1331,17 @@ input[type=password]:placeholder {
   color: #cccccc;
 }
 input[type=email] {
-  background-color: #f6f6f6;
+  background-color: #fff;
   border: none;
   color: #0d0d0d;
-  padding: 15px 32px;
+  padding: 10px 19px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
-  margin: 5px;
+  margin: 10px;
   width: 85%;
-  border: 2px solid #f6f6f6;
+  border: 1px solid #d8d8d8;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
@@ -2166,11 +2166,10 @@ form.example::after {
 
 
 .title_page h1{
-  height: 250px;
+  height: auto;
   font-size: 21px;
   text-align: center;
   color: #fff;
-  line-height: 250px;
   text-transform: uppercase;
   text-shadow: 1px 1px 1px rgba(63,107,169, 0.7);
 }
@@ -2395,11 +2394,11 @@ form.example::after {
 }
 
 .title_page form {
-  margin-top: 15px !important;
+ 
 }
 
 .search_title h1{
-  line-height: 288px;
+ /* line-height: 288px;*/
 }
 .search_title .example{
   width: 300px;
@@ -4732,3 +4731,78 @@ position: absolute;
 .home_bg_top {
   min-width: 100%;
 }
+
+.video_list_100 {
+  min-width: 100%;
+}
+
+
+/*selects*/
+.selectWrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    border:1px solid #ced4da;
+    border-radius: 2px;
+    background:#FFFFFF url('../img/Arrow-down.svg') right 13px center no-repeat;
+    background-size: 16px;
+    height: 50px;
+}
+.container_search_know .selectWrapper {
+    border:0px solid #ced4da;
+}
+
+.selectWrapper select {
+        padding: 0px 40px 0px 10px;
+       
+       
+        width: 100%;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+        background-image: none;
+        -webkit-appearance: none;
+        outline: none;
+        cursor: pointer;
+        -moz-appearance: none;
+        text-indent: 0.01px;
+        text-overflow: ellipsis;
+        height: 50px;
+    }
+
+  .container_search_know input {
+    margin:0 0 0 15px;
+    text-align:left;
+    height: 50px;
+    border: none;
+    border-radius: 2px 0 0 2px;}
+
+     .container_search_know button {
+    border: none;
+    border-radius: 0 2px 2px 0;
+    background: #fff;
+  }
+
+  .container_search_know input:focus {
+    border: none;
+  
+  }
+
+  .container_search_know {
+    margin-top: 70px;
+  }
+
+ .title_page_news h1 {
+    margin-top: 80px;
+  }
+
+  .title_page_scientist h1 {
+    margin-top: 90px;
+  }   
+
+  .title_page_aboutt h1 {
+    margin-top: 90px;
+  }  
+  .title_page_startups h1 {
+    margin-top: 100px;
+  }
