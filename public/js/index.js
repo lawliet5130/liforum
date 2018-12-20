@@ -315,5 +315,10 @@ $(document).ready(function(){
     $("[data-toggle=tooltip]").tooltip();
 });
 
+$(window).scroll(function(e) {
+  var height = $(this).scrollTop();
+  $('.img_logo')[height >= 20 ? 'addClass' : 'removeClass']('logo_scroll')
+});
+
 
     
