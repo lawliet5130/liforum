@@ -37,6 +37,7 @@ Route::get('/videos','MainController@getVideos')->name('getVideos');
 
 // --------------Knowledge routes--------------
 Route::get('/knowledge','SearchController@getKnowledge')->name('getKnowledge');
+Route::get('/knowledge/{type}','SearchController@getPartKnowledge')->name('getPartKnowledge');
 
 
 // --------------Get items routes--------------
