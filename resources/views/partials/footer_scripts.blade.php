@@ -20,6 +20,11 @@ live: true // default
 });
 wow.init();
 </script>
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
 
 
 <!--Social Sharing Button-->

@@ -398,3 +398,55 @@
 	</div>
 </div>
 
+<!-- BEGIN # MODAL quest-rating-user-modal -->
+<div class="modal fade" id="quest-rating-user-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div id="formContent " class="formContent stars_modal">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+		</button>
+		<div class="fadeIn first">
+			<img src="/img/award-icon.png" alt="">
+		</div>
+		
+		<div class="paragraph_reg fadeIn first">
+			<p class="youare_stars">The star rating system is designed to identify geniuses worthy of entering the Scientific Blockchain Panel. That's what the stars are for, and what benefits you get:</p>
+
+			<div class="list_stars">
+				<ul>
+					<li>
+						<img src="/img/1s.png" alt=""><br>
+						1 - For the reasoned comments of the work of candidates for the Scientific blockchain panel
+					</li>
+					<li>
+						<img src="/img/2s.png" alt=""><br>
+						2 - For sharing our news. You will have the opportunity to correspond with top scientists.
+					</li>
+					<li>
+						<img src="/img/3s.png" alt=""><br>
+						3 - For comments that will be appreciated by the community. You get the right to add your work to the site
+					</li>
+					<li>
+						<img src="/img/4s.png" alt=""><br>
+						4 - For the work that will receive high praise from the community. You get a ticket to the Longevity Impact Forum.
+					</li>
+					<li>
+						<img src="/img/5s.png" alt=""><br>
+						5 - For exceptional work and comments. You become a candidate for the Scientific Blockchain Panel
+					</li>
+
+				</ul>
+</div>
+			
+			
+			<button type="button" class="btn add_form_field"" data-dismiss="modal" aria-label="Close">
+			<span>Understand</span>
+			</button>
+			
+		</div>
+		<div class="">
+			
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
