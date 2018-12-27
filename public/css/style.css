@@ -4692,6 +4692,7 @@ margin-top: 0;
   height:150px;
   border-radius: 5px;
   padding-top: 80px;
+  position: relative;
 
 }
 
@@ -4793,3 +4794,49 @@ position: absolute;
   .title_page_startups h1 {
     margin-top: 100px;
   }
+
+  .stars_modal {
+    padding: 20px 50px 10px;
+  }  
+  .stars_modal img {
+width: 120px;
+margin-bottom: 10px;
+  }
+
+  .youare_stars {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .list_stars {
+    text-align: left;
+    font-size: 13px;
+  }
+
+  .list_stars li {
+    margin-bottom: 10px;
+  }
+
+  .quest_rating_blok {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  } 
+  .circle_btn_icon {
+    background: #fff;
+    border-radius: 100%;
+    border:1px solid #ddd;
+    height: 30px;
+width: 30px;
+font-weight: bold;
+  }
+  .circle_btn_icon:hover {
+    background: #05304b;
+    color:#fff;
+     border:1px solid #05304b;
+  }
+
+.list_stars img {
+  width: auto;
+  margin: auto;
+}

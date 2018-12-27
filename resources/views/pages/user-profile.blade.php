@@ -28,7 +28,11 @@
 					<div class="col-md-4 links_soc_prof">
 						<div class="clearfix"></div>
 						<div class="ranting_individual_user">
+							<div class="quest_rating_blok">
+								<button class="circle_btn_icon" role="button" data-toggle="modal" data-target="#quest-rating-user-modal">?</button>
+							</div>
 							<p>Rating</p>
+							
 							<div class="rating_container">	
 								@for($i=1;$i<=5;$i++)
 								<span class="fa fa-star @if($i<=$user->getStars()) checked @endif "></span>
