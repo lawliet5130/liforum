@@ -341,7 +341,7 @@
 		</button-->
 		<div class="fadeIn first">
 			<div class="popap_user_img_hi">
-				<img src="img/scientists/1.png" alt="">
+				<img src="/img/scientists/1.png" alt="">
 			</div>
 		</div>
 		

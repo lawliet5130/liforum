@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title','Knowledge')
+@section('title',ucwords($type))
 @section('style')
 <style>
 .nav-xbootstrap li:nth-child(3) a {
@@ -17,19 +17,26 @@
 				<!-- <img src="img/part1.png" alt="" class=" " > -->
 			</div>
 			<div class="col-md-6">
-				<h1><span>Search by tiping name or technology</span></h1>
+				<div class="container_search_know">	
+					<h1><span>
+						@if($searched)
+							{{$itemsCount}} results found for your request
+						@else
+							{{$itemsCount}} {{ucwords($type)}} within our knowledge base
+						@endif
+						
+					</span></h1>
+					<a href="{{route('getKnowledge',['branch'=>request()->branch,'search'=>request()->search])}}" style="background: #fff; color: #00a0dd; border:2px solid #00a0dd; border-radius:20px; padding: 10px 15px">Back</a>
+				</div>
+			</div>
+			<div class="col-md-3 partener_logo_head wow fadeInUp">
+				<img src="img/part2.png" alt="" class="" >
 			</div>
 		</div>
-		<div class="col-md-3 partener_logo_head wow fadeInUp">
-			<img src="img/part2.png" alt="" class="" >
-		</div>
+
 	</section>
 <div class="container">
 	@include('partials.breadcrumbs')
-	<div class="col-md-6  search_page_right">
-
-
-	</div>
 	<div class="clearfix"></div>
 
 
@@ -37,24 +44,21 @@
 	@if($type=='scientists')
 	<div class="list_page_scientists">
 		<div class=" table_scientists">
-			<h2>Scientists <span>({{$scCount}})</span></h2>
+			<h2>Scientists <span>({{$itemsCount}})</span></h2>
 			<div class="line_title_left"></div>
-			@if($scCount)
-				<table class="table">
-					<thead>
-						<tr class="top_list_display top_list_display_scientist">
-							<th scope="col">Name</th>
-
-							<th scope="col">Rating</th>
-							<th scope="col" class="mob_off">Voted startups</th>
-							<th scope="col" class="mob_off">Country</th>
-							<th scope="col" class="mob_off">Works</th>
-							<th scope="col">Vote</th>
-						</tr>
-					</thead>
-					<tbody class="results_search_scientist">
-						@foreach($scientists as $sc)
-						<tr>
+			<table class="table itemParent">
+				<thead>
+					<tr class="top_list_display top_list_display_scientist">
+						<th scope="col">Name</th>
+						<th scope="col">Rating</th>
+						<th scope="col" class="mob_off">Voted startups</th>
+						<th scope="col" class="mob_off">Country</th>
+						<th scope="col" class="mob_off">Works</th>
+					</tr>
+				</thead>
+				<tbody class="results_search_scientist">
+					@foreach($items as $sc)
+						<tr class="item">
 							<th scope="row">
 								<span>{{$loop->iteration}}</span>
 								<img src="{{Voyager::image($sc->thumbnail('square','image'))}}" alt="">
@@ -65,47 +69,23 @@
 									</div>
 								</span>
 							</th>
-
-							<td class="voteCounter" data-vcount="{{$sc->users_count}}">@if($searched){{$sc->users->count()}}@else{{$sc->users_count}}@endif</td>
-							<td class="mob_off">@if($searched){{$sc->startups->count()}}@else{{$sc->startups_count}}@endif</td>
+							<td>{{$sc->users->count()}}</td>
+							<td class="mob_off">{{$sc->startups->count()}}</td>
 							<td class="mob_off">{{$sc->country->code}}</td>
-							<td class="mob_off">@if($searched){{$sc->works->count()}}@else{{$sc->works_count}}@endif</td>
-							<td class="vote_list">
-								@if(\Auth::guard('fb')->check())
-									@if(\Auth::guard('fb')->user()->scientists->contains('id',$sc->id))
-										<span>Voted</span>
-									@else
-										<span class="scientistVoted" style="display: none;">Voted</span>
-										<a class="btn btn-secondary" data-scientist="{{$sc->id}}">
-											<i class="fa fa-thumbs-up"> </i> <span>VOTE</span>
-										</a>
-									@endif
-								@else
-									<a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#log-u-modal">
-										<i class="fa fa-thumbs-up"> </i> <span>VOTE</span>
-									</a>
-								@endif
-							</td>
+							<td class="mob_off">{{$sc->works->count()}}</td>
 						</tr>
-						@endforeach
-					</tbody>
-				</table>
-				@if($scCount>5)
-					<div class="button_center_more_def"><a href="@if($searched){{route('getPartKnowledge',['item'=>'scientists','branch'=>request()->branch,'search'=>request()->search])}}@else {{route('getScList')}} @endif" class="btn btn-secondary">More Scientists</a></div>
-				@endif
-			@else
-				<div class="no_results">No Scietists found.</div>
-			@endif
+					@endforeach
+				</tbody>
+			</table>
 		</div>
 	</div>
 	@endif
 
 	@if($type=='works')
 	<div class="works_personal">
-		<h2>Works <span>({{$wrkCount}})</span></h2>
+		<h2>Works <span>({{$itemsCount}})</span></h2>
 		<div class="line_title_left"></div>
-		@if($wrkCount)
-		<table class="table table_work">
+		<table class="table table_work itemParent">
 			<thead>
 				<tr class="top_list_display top_list_display_work">
 					<th scope="col">Name Work</th>
@@ -115,8 +95,8 @@
 				</tr>
 			</thead>
 			<tbody class="results_search_work">
-				@foreach($works as $work)
-				<tr>
+				@foreach($items as $work)
+				<tr class="item">
 					<th scope="row">
 						{{$work->title}}
 						<span class="name_autor_work">
@@ -143,50 +123,42 @@
 				@endforeach
 			</tbody>
 		</table>
-		@if($wrkCount>5)<div class="button_center_more_def"><a href="" class="btn btn-secondary">More Works</a></div>@endif
-		@else
-			<div class="no_results">No Works found.</div>
-		@endif
 	</div>
 	@endif
 
 	@if($type=='startups')
 	<div class="list_page_startups">
 		<div class=" table_scientists">
-			<h2>Startups <span>({{$supCount}})</span></h2>
+			<h2>Startups <span>({{$itemsCount}})</span></h2>
 			<div class="line_title_left"></div>
-			@if($supCount)
-				<ul class="list_startups">
-					@foreach($startups as $sup)
-						<li class="" data-wow-duration="1s">
-							<div class="ratingposition_home_startup">
-								<p>{{$loop->iteration}}</p>
-								<a href="{{$sup->cb_link}}" target="blank">
-									<svg viewBox="0 0 24 24"><path d="M21.6,0H2.4A2.41,2.41,0,0,0,0,2.4V21.6A2.41,2.41,0,0,0,2.4,24H21.6A2.41,2.41,0,0,0,24,21.6V2.4A2.41,2.41,0,0,0,21.6,0Z"></path><path fill="white" d="M9.84,13.42a2.11,2.11,0,1,1,0-1.75H11.5a3.69,3.69,0,1,0,0,1.75Z"></path><path fill="white" d="M16,8.85h-.27a3.74,3.74,0,0,0-1.8.63V5.37h-1.5V15.94h1.51v-.38a3.68,3.68,0,0,0,3.39.38,3.55,3.55,0,0,0,1.06-.63A3.67,3.67,0,0,0,16,8.85Zm2.1,4a.17.17,0,0,1,0,.07,1.22,1.22,0,0,1-.06.26h0a2,2,0,0,1-.1.26l0,0a2.07,2.07,0,0,1-1,1,2,2,0,0,1-.41.15h0l-.2,0H16l-.28,0h-.07a2,2,0,0,1-.54-.17l0,0a1.86,1.86,0,0,1-.47-.32h0a2,2,0,0,1-.37-.45h0c0-.09-.1-.17-.14-.26h0a2.19,2.19,0,0,1-.17-.85,2.08,2.08,0,0,1,.2-.9h0a2.13,2.13,0,0,1,1.7-1.2l.21,0h0a2.12,2.12,0,0,1,2.12,2.12h0A2.46,2.46,0,0,1,18.1,12.8Z"></path>
-									</svg>
+			<ul class="list_startups itemParent">
+				@foreach($items as $sup)
+					<li class="item" data-wow-duration="1s">
+						<div class="ratingposition_home_startup">
+							<p>{{$loop->iteration}}</p>
+							<a href="{{$sup->cb_link}}" target="blank">
+								<svg viewBox="0 0 24 24">
+									<path d="M21.6,0H2.4A2.41,2.41,0,0,0,0,2.4V21.6A2.41,2.41,0,0,0,2.4,24H21.6A2.41,2.41,0,0,0,24,21.6V2.4A2.41,2.41,0,0,0,21.6,0Z"></path><path fill="white" d="M9.84,13.42a2.11,2.11,0,1,1,0-1.75H11.5a3.69,3.69,0,1,0,0,1.75Z"></path><path fill="white" d="M16,8.85h-.27a3.74,3.74,0,0,0-1.8.63V5.37h-1.5V15.94h1.51v-.38a3.68,3.68,0,0,0,3.39.38,3.55,3.55,0,0,0,1.06-.63A3.67,3.67,0,0,0,16,8.85Zm2.1,4a.17.17,0,0,1,0,.07,1.22,1.22,0,0,1-.06.26h0a2,2,0,0,1-.1.26l0,0a2.07,2.07,0,0,1-1,1,2,2,0,0,1-.41.15h0l-.2,0H16l-.28,0h-.07a2,2,0,0,1-.54-.17l0,0a1.86,1.86,0,0,1-.47-.32h0a2,2,0,0,1-.37-.45h0c0-.09-.1-.17-.14-.26h0a2.19,2.19,0,0,1-.17-.85,2.08,2.08,0,0,1,.2-.9h0a2.13,2.13,0,0,1,1.7-1.2l.21,0h0a2.12,2.12,0,0,1,2.12,2.12h0A2.46,2.46,0,0,1,18.1,12.8Z"></path>
+								</svg>
+							</a>
+						</div>
+						<div class="name_home_startup_center">
+							<p class="name_home_startup">{{$sup->title}}
+								<a href="{{route('getStartup',['stup'=>$sup->id])}}" class="view_startup_button" target="blank">
+									View startup<i class="fa fa-external-link"></i>
 								</a>
-							</div>
-							<div class="name_home_startup_center">
-								<p class="name_home_startup">{{$sup->title}}
-									<a href="{{route('getStartup',['stup'=>$sup->id])}}" class="view_startup_button" target="blank">
-										View startup<i class="fa fa-external-link"></i>
-									</a>
-								</p>
-								<p class="domeniu_home_startup"><a href="knowledge.php?AI">{{$sup->branch->name}}</a></p>
-							</div>
-							<div class="rating_home_startup">
-								<i class="fa fa-star"></i>
-								<p class="name_date">Rating</p>
-								<p class="number_date">@if($searched){{$sup->scientists->count()}}@else{{$sup->scientists_count}}@endif</p>
-							</div>
-							<div class="clearfix"></div>
-						</li>
-					@endforeach
-				</ul>
-				@if($supCount>5)<div class="button_center_more_def"><a href="" class="btn btn-secondary">More Startups</a></div>@endif
-			@else
-				<div class="no_results">No Startups found.</div>
-			@endif
+							</p>
+							<p class="domeniu_home_startup"><a href="knowledge.php?AI">{{$sup->branch->name}}</a></p>
+						</div>
+						<div class="rating_home_startup">
+							<i class="fa fa-star"></i>
+							<p class="name_date">Rating</p>
+							<p class="number_date">{{$sup->scientists->count()}}</p>
+						</div>
+						<div class="clearfix"></div>
+					</li>
+				@endforeach
+			</ul>
 		</div>
 	</div>
 	@endif
@@ -194,11 +166,11 @@
 	@if($type=='videos')
 		<div class="video_list">
 			<div class="">
-				<h2>Video <span>({{$viCount}})</span></h2>
+				<h2>Video <span>({{$itemsCount}})</span></h2>
 				<div class="line_title_left"></div>
-				<div class="row">
-					@foreach($videos as $video)
-						<div class="col-md-3" data-item="videos">
+				<div class="row itemParent">
+					@foreach($items as $video)
+						<div class="col-md-3 item">
 							<div class="card">
 								<a data-fancybox href="{{$video->link}}" class="video_thumb_block">
 									<span class="mark_play_button">
@@ -213,35 +185,37 @@
 						</div>
 					@endforeach
 				</div>
-				@if($viCount>4)<div class="button_center_more_def"><a href="" class="btn btn-secondary">More Videos</a></div>@endif
-				@if(!$viCount)<div class="no_results">No Videos found.</div>@endif
 			</div>
 		</div>
 	@endif
 	</div>
 </div>
-		@endsection
-		@section('add_scripts')
-			<script>
-				$('[data-scientist]').click(function(e){
-					e.preventDefault();
-					$this=$(this);
-					parent=$this.parents('tr');
-					$scientist=$this.data('scientist');
-					$.post("{{route('voteScientist')}}",
-					{
+@endsection
+@section('add_scripts')
+	<script>
+		var $mustRequest=1;
+		$(window).scroll(function(){
+			$parent=$('.itemParent');
+			if($(this).scrollTop()+$(this).height()>$parent.position().top+$parent.height()){
+				if($mustRequest){
+					$mustRequest=0;
+					$('<img src="/img/loading.gif" style="display:block;margin:auto;" class="loading" />').appendTo($parent);
+					$.post("{{route('getKnowledgeItem')}}",{
 						_token:'{{csrf_token()}}',
-						scientist:$scientist,
+						type:'{{$type}}',
+						current:$('.item').length,
 					},function(data,status){
-						if(data=='success'){
-							parent.find('.voteCounter').text(parent.find('.voteCounter').data('vcount')+1);
-							$this.fadeOut();
-							parent.find('.scientistVoted').delay(400).fadeIn();
-						}else if(data[0]=="fraud"){
-							window.location.href=data[1];
+						if(data=="done"){
+
+						}else{
+							$(data).appendTo($parent);
+							$mustRequest=1;
 						}
+						$('.loading').remove();
 					});
-				});
-			</script>
-		@endsection
+				}
+			}
+		});
+	</script>
+@endsection
 

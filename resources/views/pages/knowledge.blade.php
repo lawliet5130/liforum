@@ -53,71 +53,6 @@
 	</div>
 	<div class="clearfix"></div>
 
-
-
-	<div class="list_page_scientists">
-		<div class=" table_scientists">
-			<h2>Scientists <span>({{$scCount}})</span></h2>
-			<div class="line_title_left"></div>
-			@if($scCount)
-				<table class="table">
-					<thead>
-						<tr class="top_list_display top_list_display_scientist">
-							<th scope="col">Name</th>
-
-							<th scope="col">Rating</th>
-							<th scope="col" class="mob_off">Voted startups</th>
-							<th scope="col" class="mob_off">Country</th>
-							<th scope="col" class="mob_off">Works</th>
-							<th scope="col">Vote</th>
-						</tr>
-					</thead>
-					<tbody class="results_search_scientist">
-						@foreach($scientists as $sc)
-						<tr>
-							<th scope="row">
-								<span>{{$loop->iteration}}</span>
-								<img src="{{Voyager::image($sc->thumbnail('square','image'))}}" alt="">
-								<span>
-									<div class="name_specialy_blok">
-										<a href="{{route('scientistProfile',['scientist'=>$sc->id])}}">{{$sc->getFullName()}}</a> <br>
-										<span><a href="knowledge.php?Genomics">{{$sc->branch->name}}</a></span>
-									</div>
-								</span>
-							</th>
-
-							<td class="voteCounter" data-vcount="{{$sc->users_count}}">@if($searched){{$sc->users->count()}}@else{{$sc->users_count}}@endif</td>
-							<td class="mob_off">@if($searched){{$sc->startups->count()}}@else{{$sc->startups_count}}@endif</td>
-							<td class="mob_off">{{$sc->country->code}}</td>
-							<td class="mob_off">@if($searched){{$sc->works->count()}}@else{{$sc->works_count}}@endif</td>
-							<td class="vote_list">
-								@if(\Auth::guard('fb')->check())
-									@if(\Auth::guard('fb')->user()->scientists->contains('id',$sc->id))
-										<span>Voted</span>
-									@else
-										<span class="scientistVoted" style="display: none;">Voted</span>
-										<a class="btn btn-secondary" data-scientist="{{$sc->id}}">
-											<i class="fa fa-thumbs-up"> </i> <span>VOTE</span>
-										</a>
-									@endif
-								@else
-									<a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#log-u-modal">
-										<i class="fa fa-thumbs-up"> </i> <span>VOTE</span>
-									</a>
-								@endif
-							</td>
-						</tr>
-						@endforeach
-					</tbody>
-				</table>
-				@if($scCount>5)
-					<div class="button_center_more_def"><a href="@if($searched){{route('getPartKnowledge',['type'=>'scientists','branch'=>request()->branch,'search'=>request()->search])}}@else {{route('getScList')}} @endif" class="btn btn-secondary">More Scientists</a></div>
-				@endif
-			@else
-				<div class="no_results">No Scietists found.</div>
-			@endif
-		</div>
-	</div>
 	<div class="works_personal">
 		<h2>Works <span>({{$wrkCount}})</span></h2>
 		<div class="line_title_left"></div>
@@ -160,10 +95,83 @@
 				@endforeach
 			</tbody>
 		</table>
-		@if($wrkCount>5)<div class="button_center_more_def"><a href="" class="btn btn-secondary">More Works</a></div>@endif
+		@if($wrkCount>5)<div class="button_center_more_def"><a href="{{route('getPartKnowledge',['type'=>'works','branch'=>request()->branch,'search'=>request()->search])}}" class="btn btn-secondary">More Works</a></div>@endif
 		@else
 			<div class="no_results">No Works found.</div>
 		@endif
+	</div>
+
+					<div class="video_list">
+					<div class="video_list_100">
+						<h2>Video <span>({{$viCount}})</span></h2>
+						<div class="line_title_left"></div>
+						<div class="row">
+							@foreach($videos as $video)
+							<div class="col-md-3">
+								<div class="card">
+									<a data-fancybox href="{{$video->link}}" class="video_thumb_block">
+										<span class="mark_play_button">
+											<i class="fa fa-play"></i>
+										</span>
+										<img class="card-img-top img-fluid" src="https://img.youtube.com/vi/{{str_limit(str_after($video->link,'watch?v='),11,'')}}/hqdefault.jpg"/>
+									</a>
+								</div>
+								<h4>{{$video->title}}</h4>
+								<h5><a href="#">{{$video->branch->name}}</a></h5>
+								<p class="description_video_title">{{$video->text}}</p>
+							</div>
+							@endforeach
+						</div>
+						@if($viCount>4)<div class="button_center_more_def"><a href="{{route('getPartKnowledge',['type'=>'videos','branch'=>request()->branch,'search'=>request()->search])}}" class="btn btn-secondary">More Videos</a></div>@endif
+						@if(!$viCount)<div class="no_results">No Videos found.</div>@endif
+					</div>
+				</div>
+
+	<div class="list_page_scientists">
+		<div class=" table_scientists">
+			<h2>Scientists <span>({{$scCount}})</span></h2>
+			<div class="line_title_left"></div>
+			@if($scCount)
+				<table class="table">
+					<thead>
+						<tr class="top_list_display top_list_display_scientist">
+							<th scope="col">Name</th>
+
+							<th scope="col">Rating</th>
+							<th scope="col" class="mob_off">Voted startups</th>
+							<th scope="col" class="mob_off">Country</th>
+							<th scope="col" class="mob_off">Works</th>
+						</tr>
+					</thead>
+					<tbody class="results_search_scientist">
+						@foreach($scientists as $sc)
+						<tr>
+							<th scope="row">
+								<span>{{$loop->iteration}}</span>
+								<img src="{{Voyager::image($sc->thumbnail('square','image'))}}" alt="">
+								<span>
+									<div class="name_specialy_blok">
+										<a href="{{route('scientistProfile',['scientist'=>$sc->id])}}">{{$sc->getFullName()}}</a> <br>
+										<span><a href="knowledge.php?Genomics">{{$sc->branch->name}}</a></span>
+									</div>
+								</span>
+							</th>
+
+							<td>@if($searched){{$sc->users->count()}}@else{{$sc->users_count}}@endif</td>
+							<td class="mob_off">@if($searched){{$sc->startups->count()}}@else{{$sc->startups_count}}@endif</td>
+							<td class="mob_off">{{$sc->country->code}}</td>
+							<td class="mob_off">@if($searched){{$sc->works->count()}}@else{{$sc->works_count}}@endif</td>
+						</tr>
+						@endforeach
+					</tbody>
+				</table>
+				@if($scCount>5)
+					<div class="button_center_more_def"><a href="{{route('getPartKnowledge',['type'=>'scientists','branch'=>request()->branch,'search'=>request()->search])}}" class="btn btn-secondary">More Scientists</a></div>
+				@endif
+			@else
+				<div class="no_results">No Scietists found.</div>
+			@endif
+		</div>
 	</div>
 				<div class="list_page_startups">
 					<div class=" table_scientists">
@@ -196,62 +204,12 @@
 							</li>
 							@endforeach
 						</ul>
-						@if($supCount>5)<div class="button_center_more_def"><a href="" class="btn btn-secondary">More Startups</a></div>@endif
+						@if($supCount>5)<div class="button_center_more_def"><a href="{{route('getPartKnowledge',['type'=>'startups','branch'=>request()->branch,'search'=>request()->search])}}" class="btn btn-secondary">More Startups</a></div>@endif
 						@else
 							<div class="no_results">No Startups found.</div>
 						@endif
 					</div>
 				</div>
-
-				<div class="video_list">
-					<div class="video_list_100">
-						<h2>Video <span>({{$viCount}})</span></h2>
-						<div class="line_title_left"></div>
-						<div class="row">
-							@foreach($videos as $video)
-							<div class="col-md-3" data-item="videos">
-								<div class="card">
-									<a data-fancybox href="{{$video->link}}" class="video_thumb_block">
-										<span class="mark_play_button">
-											<i class="fa fa-play"></i>
-										</span>
-										<img class="card-img-top img-fluid" src="https://img.youtube.com/vi/{{str_limit(str_after($video->link,'watch?v='),11,'')}}/hqdefault.jpg"/>
-									</a>
-								</div>
-								<h4>{{$video->title}}</h4>
-								<h5><a href="#">{{$video->branch->name}}</a></h5>
-								<p class="description_video_title">{{$video->text}}</p>
-							</div>
-							@endforeach
-						</div>
-						@if($viCount>4)<div class="button_center_more_def"><a href="" class="btn btn-secondary">More Videos</a></div>@endif
-						@if(!$viCount)<div class="no_results">No Videos found.</div>@endif
-					</div>
-				</div>
 			</div>
 		</div>
 		@endsection
-		@section('add_scripts')
-			<script>
-				$('[data-scientist]').click(function(e){
-					e.preventDefault();
-					$this=$(this);
-					parent=$this.parents('tr');
-					$scientist=$this.data('scientist');
-					$.post("{{route('voteScientist')}}",
-					{
-						_token:'{{csrf_token()}}',
-						scientist:$scientist,
-					},function(data,status){
-						if(data=='success'){
-							parent.find('.voteCounter').text(parent.find('.voteCounter').data('vcount')+1);
-							$this.fadeOut();
-							parent.find('.scientistVoted').delay(400).fadeIn();
-						}else if(data[0]=="fraud"){
-							window.location.href=data[1];
-						}
-					});
-				});
-			</script>
-		@endsection
-

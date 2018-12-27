@@ -13,14 +13,14 @@
 <div class="page">
 	<section class="title_page title_page_startups">
 		<div class="container">
-			<h1><span>DAYS Investment council have preselected the most promising longevity and digital health companies to be rated by Scientists.</span></h1>
+			<h1><span>DAYS Investment council has preselected the most promising longevity and digital health companies to be rated by Scientists.</span></h1>
 		</div>
 	</section>
 	<div class="container">
 		@include('partials.breadcrumbs')
 		<div class="clearfix"></div>
 
-		<div class="description_page">Longevity Impact Forum gathering top life science experts in disruptive biotech, longevity and digital health technologies. <br>Final goals of Longevity Impact Forum are to create the Rating of longevity technologies and to select the Scientific panel (top-100 life science experts).
+		<div class="description_page">Longevity Impact Forum initiative group, in order to create scientific blockchain panel, is gathering top life science experts in disruptive biotech, longevity and digital health technologies. <br>Final goals of Longevity Impact Forum are to create the Rating of longevity technologies and to select the Scientific panel (top-100 life science experts).
 		</div>
 
 		<div class="col-md-12 list_page">
