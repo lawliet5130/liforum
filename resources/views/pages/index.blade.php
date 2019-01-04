@@ -9,8 +9,8 @@
 	border-bottom: 3px solid #2ecaf7;
 }
 .logo_container .img_logo{
-  box-shadow: 0 4px 10px -9px;
-  width: 178px;
+	box-shadow: 0 4px 10px -9px;
+	width: 178px;
 }
 </style>
 @endsection
@@ -231,118 +231,177 @@
 			</div>
 		</div>
 	</section>
-		<section class="parteners" id="advr">
-			<div class="container">
-				<h1>SLOTS FOR ADVERTISING</h1>
-				<div class="line_title"></div>
-				<br>
-				<div class="col-md-6">
-					<div class="banner-default">
-						<p class="bann1">LIF Platinum Partner</p>
-						<p class="bann2">580 x 322</p>
-					</div>
+	<section class="parteners" id="advr">
+		<div class="container">
+			<h1>SLOTS FOR ADVERTISING</h1>
+			<div class="line_title"></div>
+			<br>
+			<div class="col-md-6">
+				<div class="banner-default">
+					<p class="bann1">LIF Platinum Partner</p>
+					<p class="bann2">580 x 322</p>
 				</div>
-				<div class="col-md-6">
-					<div class="banner-default">
-						<p class="bann1">LIF Platinum Partner</p>
-						<p class="bann2">580 x 322</p>
-					</div>
-				</div>
-				<br>
-				<div class="col-md-4">
-					<div class="banner-default">
-						<p class="bann1">Speaker sponsor</p>
-						<p class="bann2">370 x 170</p>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="banner-default">
-						<p class="bann1">Area sponsor</p>
-						<p class="bann2">370 x 170</p>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="banner-default">
-						<p class="bann1">Speaker sponsor</p>
-						<p class="bann2">370 x 170</p>
-					</div>
-				</div>
-				<br>
-				<div class="col-md-2-5">
-					<div class="banner-default">
-						<p class="bann1">Presenting sponsor</p>
-						<p class="bann2">200 x 170</p>
-					</div>
-				</div>
-				<div class="col-md-2-5">
-					<div class="banner-default">
-						<p class="bann1">Presenting sponsor</p>
-						<p class="bann2">200 x 170</p>
-					</div>
-				</div>
-				<div class="col-md-2-5">
-					<div class="banner-default">
-						<p class="bann1">Presenting sponsor</p>
-						<p class="bann2">200 x 170</p>
-					</div>
-				</div>
-				<div class="col-md-2-5">
-					<div class="banner-default">
-						<p class="bann1">Presenting sponsor</p>
-						<p class="bann2">200 x 170</p>
-					</div>
-				</div>
-				<div class="col-md-2-5">
-					<div class="banner-default">
-						<p class="bann1">Presenting sponsor</p>
-						<p class="bann2">200 x 170</p>
-					</div>
-				</div>
-				
 			</div>
-		</section>
-		
-		<section class="news">
-			<div class="container">
-				<h1>OUR NEWS</h1>
-				<div class="line_title"></div>
-				@foreach($articles as $article)
-				<div class="single_new_block col-md-4 wow fadeInUp " data-wow-delay="0s">
-					<div class="single_new_block_inter">
-						<div class="img_new_block">
-							<img src="/storage/{{$article->image}}">
-							<div class="detail_new"><a href="{{route('getArticle',['post'=>$article->id])}}">DETAILS	</a></div>
+			<div class="col-md-6">
+				<div class="banner-default">
+					<p class="bann1">LIF Platinum Partner</p>
+					<p class="bann2">580 x 322</p>
+				</div>
+			</div>
+			<br>
+			<div class="col-md-4">
+				<div class="banner-default">
+					<p class="bann1">Speaker sponsor</p>
+					<p class="bann2">370 x 170</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="banner-default">
+					<p class="bann1">Area sponsor</p>
+					<p class="bann2">370 x 170</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="banner-default">
+					<p class="bann1">Speaker sponsor</p>
+					<p class="bann2">370 x 170</p>
+				</div>
+			</div>
+			<br>
+			<div class="col-md-2-5">
+				<div class="banner-default">
+					<p class="bann1">Presenting sponsor</p>
+					<p class="bann2">200 x 170</p>
+				</div>
+			</div>
+			<div class="col-md-2-5">
+				<div class="banner-default">
+					<p class="bann1">Presenting sponsor</p>
+					<p class="bann2">200 x 170</p>
+				</div>
+			</div>
+			<div class="col-md-2-5">
+				<div class="banner-default">
+					<p class="bann1">Presenting sponsor</p>
+					<p class="bann2">200 x 170</p>
+				</div>
+			</div>
+			<div class="col-md-2-5">
+				<div class="banner-default">
+					<p class="bann1">Presenting sponsor</p>
+					<p class="bann2">200 x 170</p>
+				</div>
+			</div>
+			<div class="col-md-2-5">
+				<div class="banner-default">
+					<p class="bann1">Presenting sponsor</p>
+					<p class="bann2">200 x 170</p>
+				</div>
+			</div>
+
+		</div>
+	</section>
+
+	<section class="news">
+		<div class="container">
+			<h1>OUR NEWS</h1>
+			<div class="line_title"></div>
+			@foreach($articles as $article)
+			<div class="single_new_block col-md-4 wow fadeInUp " data-wow-delay="0s">
+				<div class="single_new_block_inter">
+					<div class="img_new_block">
+						<img src="/storage/{{$article->image}}">
+						<div class="detail_new"><a href="{{route('getArticle',['post'=>$article->id])}}">DETAILS	</a></div>
+					</div>
+					<div class="date_new">
+						<p class="moon_new">{{$article->created_at->format('M')}}</p>
+						<p class="number_new">{{$article->created_at->format('d')}}</p>
+					</div>
+					<h2><a href="{{route('getArticle',['post'=>$article->id])}}" title="{{$article->title}}">{{str_limit($article->title,40)}}</a></h2>
+					<p>{{str_limit(strip_tags($article->text),120)}}</p>
+					<div class="sub_new_block">
+						<div class="user_name_new">
+							<i class="fa fa-user"></i>
+							<p><a href="#">Posted By Admin</a></p>
 						</div>
-						<div class="date_new">
-							<p class="moon_new">{{$article->created_at->format('M')}}</p>
-							<p class="number_new">{{$article->created_at->format('d')}}</p>
-						</div>
-						<h2><a href="{{route('getArticle',['post'=>$article->id])}}" title="{{$article->title}}">{{str_limit($article->title,40)}}</a></h2>
-						<p>{{str_limit(strip_tags($article->text),120)}}</p>
-						<div class="sub_new_block">
-							<div class="user_name_new">
-								<i class="fa fa-user"></i>
-								<p><a href="#">Posted By Admin</a></p>
-							</div>
-							
-						</div>
+
 					</div>
 				</div>
-				@endforeach
+			</div>
+			@endforeach
+			<div class="clearfix"></div>
+			<div class="more_mews_butt">
+
+				<br>
+				<a href="{{route('getNews')}}" class="btn btn-secondary center"  >All NEWS</a>
+			</div>
+		</div>
+
+	</section>
+	<section class="video_home">
+		<div class="container">
+			<h1>OUR VIDEO</h1>
+			<div class="line_title"></div>
+			<div class="video_list">
+				<div class="col-md-4" data-item="videos">
+					<div class="card">
+						<a data-fancybox href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="video_thumb_block">
+							<span class="mark_play_button">
+								<i class="fa fa-play"></i>
+							</span>
+							<img class="card-img-top img-fluid" src="https://img.youtube.com/vi/_sI_Ps7JSEk/hqdefault.jpg"/>
+						</a>
+					</div>
+					<h4 title="title">Title</h4>
+
+					<p class="description_video_title">Description</p>
+				</div>	
+				<div class="col-md-4" data-item="videos">
+					<div class="card">
+						<a data-fancybox href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="video_thumb_block">
+							<span class="mark_play_button">
+								<i class="fa fa-play"></i>
+							</span>
+							<img class="card-img-top img-fluid" src="https://img.youtube.com/vi/_sI_Ps7JSEk/hqdefault.jpg"/>
+						</a>
+					</div>
+					<h4 title="title">Title</h4>
+
+					<p class="description_video_title">Description</p>
+				</div>	
+				<div class="col-md-4" data-item="videos">
+					<div class="card">
+						<a data-fancybox href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="video_thumb_block">
+							<span class="mark_play_button">
+								<i class="fa fa-play"></i>
+							</span>
+							<img class="card-img-top img-fluid" src="https://img.youtube.com/vi/_sI_Ps7JSEk/hqdefault.jpg"/>
+						</a>
+					</div>
+					<h4 title="title">Title</h4>
+
+					<p class="description_video_title">Description</p>
+				</div>
+
+
 				<div class="clearfix"></div>
-				<div class="more_mews_butt">
-					
-					<br>
-					<a href="{{route('getNews')}}" class="btn btn-secondary center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" >All NEWS</a>
-				</div>
+
+			<div class="more_mews_butt">
+
+				<br>
+				<a href="#" class="btn btn-secondary center" >All Video</a>
 			</div>
-			
-		</section>
-		@endsection
-		@section('add_scripts')
-			@if(session('mustLogin'))
-				<script>
-					$('#login-modal').modal('show');
-				</script>
-			@endif
-		@endsection
+
+			</div>
+
+
+		</div>
+	</section>
+	@endsection
+	@section('add_scripts')
+	@if(session('mustLogin'))
+	<script>
+		$('#login-modal').modal('show');
+	</script>
+	@endif
+	@endsection
