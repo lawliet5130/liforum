@@ -18,8 +18,9 @@ class MainController extends Controller
 		$articles=Article::where('onhome','1')->take(3)->get();
 		$scientists=ScientistAccount::take(5)->select(['name','surname','id','image','branch_id','country_code'])->withCount('startups','users')->orderBy('users_count','desc')->get();
 		$startups=Startup::withCount('scientists')->orderBy('scientists_count','desc')->take(10)->get();
+		$videos=NewsVideo::where('promoted',1)->take(3)->get();
 
-		return view('pages.index',compact('articles','scientists','startups'));
+		return view('pages.index',compact('articles','scientists','startups','videos'));
 	}
 
 	public function getScList(){

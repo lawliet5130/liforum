@@ -333,63 +333,37 @@
 			<div class="more_mews_butt">
 
 				<br>
-				<a href="{{route('getNews')}}" class="btn btn-secondary center"  >All NEWS</a>
+				<a href="{{route('getNews')}}" class="btn btn-secondary center">All NEWS</a>
 			</div>
 		</div>
 
 	</section>
+	@if($videos->count())
 	<section class="video_home">
 		<div class="container">
 			<h1>OUR VIDEO</h1>
 			<div class="line_title"></div>
 			<div class="video_list">
+				@foreach($videos as $video)
 				<div class="col-md-4" data-item="videos">
 					<div class="card">
-						<a data-fancybox href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="video_thumb_block">
+						<a data-fancybox href="{{$video->link}}" class="video_thumb_block">
 							<span class="mark_play_button">
 								<i class="fa fa-play"></i>
 							</span>
-							<img class="card-img-top img-fluid" src="https://img.youtube.com/vi/_sI_Ps7JSEk/hqdefault.jpg"/>
+							<img class="card-img-top img-fluid" src="https://img.youtube.com/vi/{{str_limit(str_after($video->link,'watch?v='),11,'')}}/hqdefault.jpg"/>
 						</a>
 					</div>
-					<h4 title="title">Title</h4>
+					<h4 title="{{$video->title}}">{{str_limit($video->title,50)}}</h4>
 
-					<p class="description_video_title">Description</p>
-				</div>	
-				<div class="col-md-4" data-item="videos">
-					<div class="card">
-						<a data-fancybox href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="video_thumb_block">
-							<span class="mark_play_button">
-								<i class="fa fa-play"></i>
-							</span>
-							<img class="card-img-top img-fluid" src="https://img.youtube.com/vi/_sI_Ps7JSEk/hqdefault.jpg"/>
-						</a>
-					</div>
-					<h4 title="title">Title</h4>
-
-					<p class="description_video_title">Description</p>
-				</div>	
-				<div class="col-md-4" data-item="videos">
-					<div class="card">
-						<a data-fancybox href="https://www.youtube.com/watch?v=_sI_Ps7JSEk" class="video_thumb_block">
-							<span class="mark_play_button">
-								<i class="fa fa-play"></i>
-							</span>
-							<img class="card-img-top img-fluid" src="https://img.youtube.com/vi/_sI_Ps7JSEk/hqdefault.jpg"/>
-						</a>
-					</div>
-					<h4 title="title">Title</h4>
-
-					<p class="description_video_title">Description</p>
+					<p class="description_video_title">{{str_limit($video->text,310)}}</p>
 				</div>
-
-
+				@endforeach
 				<div class="clearfix"></div>
 
 			<div class="more_mews_butt">
-
 				<br>
-				<a href="#" class="btn btn-secondary center" >All Video</a>
+				<a href="{{route('getVideos')}}" class="btn btn-secondary center" >All Video</a>
 			</div>
 
 			</div>
@@ -397,6 +371,7 @@
 
 		</div>
 	</section>
+	@endif
 	@endsection
 	@section('add_scripts')
 	@if(session('mustLogin'))
