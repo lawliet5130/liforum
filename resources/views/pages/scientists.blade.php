@@ -14,7 +14,7 @@
 
 			<section class="title_page title_page_scientist">
 				<div class="container">
-					<h1><span>Rating of scientists top 100 <br> Top longevity experts</span></h1>
+					<h1><span>Rating of scientists<br> longevity impact forum initiative group creates scientific blockchain panel to vote on the rating of longevity & p4 medicine companies<!-- Top longevity experts --></span></h1>
 				</div>
 			</section>
 

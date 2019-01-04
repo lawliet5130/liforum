@@ -60,4 +60,79 @@ class SearchController extends Controller
 
 		return view('pages.knowledge',compact('scientists','scCount','works','wrkCount','startups','supCount','videos','viCount','branches','searched'));
 	}
+
+	public function getPartKnowledge(Request $request,$type){
+		switch ($type) {
+			case 'scientists':
+				$items=ScientistAccount::search($request->search)->get()->when($request->branch,function($query) use ($request){
+					return $query->where('branch_id',$request->branch);
+				});
+				$itemsCount=$items->count();
+				$items=$items->take(20);
+				break;
+
+			case 'works':
+				$items=Work::search($request->search)->get()->when($request->branch,function($query) use ($request){
+					return $query->where('branch_id',$request->branch);
+				});
+				$itemsCount=$items->count();
+				$items=$items->take(20);
+				break;
+
+			case 'startups':
+				$items=Startup::search($request->search)->get()->when($request->branch,function($query) use ($request){
+					return $query->where('branch_id',$request->branch);
+				});
+				$itemsCount=$items->count();
+				$items=$items->take(2);
+				break;
+
+			case 'videos':
+				$items=Video::search($request->search)->get()->when($request->branch,function($query) use ($request){
+					return $query->where('branch_id',$request->branch);
+				});
+				$itemsCount=$items->count();
+				$items=$items->take(20);
+				break;
+		}
+
+		($request->branch || $request->search)?$searched=true:$searched=false;
+
+		return view('pages.partitioned-knowledge',compact('items','itemsCount','type','searched'));
+	}
+
+	public function getKnowledgeItem(Request $request){
+		$current=$request->current;
+		switch ($request->type) {
+			case 'scientists':
+				$items=ScientistAccount::search($request->search)->get()->when($request->branch,function($query) use ($request){
+					return $query->where('branch_id',$request->branch);
+				})->slice($current)->take(10);
+				break;
+			
+			case 'works':
+				$items=Work::search($request->search)->get()->when($request->branch,function($query) use ($request){
+					return $query->where('branch_id',$request->branch);
+				})->slice($current)->take(10);
+				break;
+
+			case 'videos':
+				$items=Video::search($request->search)->get()->when($request->branch,function($query) use ($request){
+					return $query->where('branch_id',$request->branch);
+				})->slice($current)->take(8);
+				break;
+
+			case 'startups':
+				$items=Startup::search($request->search)->get()->when($request->branch,function($query) use ($request){
+					return $query->where('branch_id',$request->branch);
+				})->slice($current)->take(10);
+				break;
+		}
+
+		if($items->count()){
+			return response()->view('partials.knowledge.'.$request->type,compact('items','current'));
+		}else{
+			return response()->json('done');
+		}
+	}
 }
