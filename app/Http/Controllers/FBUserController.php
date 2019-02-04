@@ -23,6 +23,7 @@ class FBUserController extends Controller
     public function handleProviderCallback()
     {
         $user = Socialite::driver('facebook')->user();
+        dd($user);
 
 		if(!FBUser::where('provider_id',$user->id)->exists()){
         	$imageLocation=$this->resizeAvatar($user->avatar_original);
