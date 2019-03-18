@@ -323,7 +323,7 @@ box-shadow: 0 0 20px -15px #000;
     width: 40px;
     height: 40px;
     line-height: 33px;
-    border: 1px solid #2ecaf7;
+    border: 1px solid #249fda;
     text-align: center;
     margin-right: 10px;
 
@@ -344,6 +344,16 @@ box-shadow: 0 0 20px -15px #000;
 /*Tablete*/
 
 @media (max-width:992px) {
+
+  .location_head {
+
+    line-height: 6px;
+}
+
+  #doc-modal .col-md-6 {
+
+    width: 50%;
+}
 
   .twitt_container{
     display: none;
@@ -434,7 +444,7 @@ margin-right: 0;
 
 }
 .date_head p {
-font-size: 27px !important;
+font-size: 20px !important;
 float: none;
 display: inline-block;
 line-height: 27px !important;
@@ -442,7 +452,7 @@ margin-right: 10px;
 height: auto !important;
 }
 .location_head span {
-font-size: 27px !important;
+font-size: 20px !important;
 float: none;
 line-height: 27px !important;
 margin-right: 10px;
@@ -567,6 +577,15 @@ float: left;
     margin-top: 20px;
 }
 
+  .container_home{
+    height: 50px;
+  }
+
+  .arrow_head i {
+    display: none;
+  }
+
+
 
 
 }
@@ -582,6 +601,7 @@ float: left;
 /*Mobile orizontal*/
 
 @media (max-width: 768px) {
+
 
 
 
@@ -605,7 +625,7 @@ float: left;
 
 
 header {
-    background-size: 230%;
+    background-size: 300%;
 }
 .part_left {
   position: relative;

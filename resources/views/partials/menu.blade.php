@@ -14,7 +14,8 @@
 						<img src="/img/logo.png" alt="">
 					</a>
 					<div class="mob_right_menu">
-						<a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#reg-modal"><i class="fa fa-graduation-cap"></i></a>
+						<a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#doc-modal"><i class="fa fa-file"></i></a>
+                        <a href="#" class="btn btn-secondary" role="button" data-toggle="modal" data-target="#reg-modal"><i class="fa fa-graduation-cap"></i></a>
 						<a href="#" class="btn btn-primary" role="button" data-toggle="modal" data-target="#login-modal"><i class="fa fa-sign-in"></i></a>
 					</div>
 				</div>
