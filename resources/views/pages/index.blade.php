@@ -63,8 +63,8 @@
 				<p class="">DAYS Foundation presents a methodology for creating a rating of scientists in the field of anti-aging, longevity and digital health.
 				</p>
 				<p>The purpose of this rating is to select the most promising companies / groups of scientists in the field of anti-aging, whose technologies are worth investing in.
-					The companies supported by scientists for the Rating purposes will be discussed at Longevity Impact Forum and the results will be presented at World Economic
-				Forum in January 2019.</p>
+					The companies supported by scientists for the Rating purposes will be discussed at Longevity Impact Forum and the announce was presented at World Economic
+				Forum in January 2019 and at DAYS Oxford Conference in 2018. <a href="https://www.youtube.com/watch?v=pPXgg8eHA48" target="_blank"></a></p>
 				<p>
 				This way DAYS will consolidate global scientific and investment potential for longevity and digital health</p>
 				<a href="img/documents/methotology.pdf" target="blank" class="btn btn-secondary center" >SEE MORE</a>
