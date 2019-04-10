@@ -20,4 +20,8 @@ class FBUser extends Authenticatable
     public function scientists(){
     	return $this->belongsToMany('App\ScientistAccount','user_scientist','user_id','scientist_id')->withCount('users')->withTimestamps();
     }
+
+    public function works(){
+    	return $this->morphMany('App\Work','workable');
+    }
 }

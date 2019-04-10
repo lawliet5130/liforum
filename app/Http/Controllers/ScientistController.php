@@ -122,7 +122,8 @@ class ScientistController extends Controller
         $itemType=$data['item'];
         unset($data['item']);
 
-        $item->scientist_id=Auth::guard('scientist')->user()->id;
+        $item->workable_id=Auth::guard('scientist')->user()->id;
+        $item->workable_type="App\ScientistAccount";
         $item->fill($data);
         $item->save();
 

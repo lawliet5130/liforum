@@ -3,12 +3,13 @@
 		<th scope="row">
 			{{$work->title}}
 			<span class="name_autor_work">
-				<img src="{{Voyager::image($work->scientist->thumbnail('square','image'))}}" alt="" class="small_pic">
-				@if($work->scientist->trashed())
-					<span>{{$work->scientist->getFullName()}}</span>
+				<img src="/storage/{{$work->getWorkableImage()}}" alt="" class="small_pic">
+				{{--@if($work->workable->trashed())
+					<span>{{$work->workable->getFullName()}}</span>
 				@else
-					<a href="{{route('scientistProfile',['scientist'=>$work->scientist->id])}}">{{$work->scientist->getFullName()}}</a>
-				@endif
+					<a href="{{route('scientistProfile',['scientist'=>$work->workable->id])}}">{{$work->workable->getFullName()}}</a>
+				@endif--}}
+				<a href="{{$work->getWorkableLink()}}">{{$work->getWorkableName()}}</a>
 			</span>
 		</th>
 

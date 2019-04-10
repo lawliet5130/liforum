@@ -21,9 +21,12 @@
 						<p class="name_personal">{{$user->name}}</p>
 						<p class="special_personal"><span>User</span></p>
 						<div class="clearfix"></div>
-
+						@if(Route::currentRouteName()=="myProfile" && $user->getStars()>2)
+							<a href="{{route('userWorks')}}" class="btn btn-secondary"><i class="fa fa-edit"></i> Edit Works</a>
+							<br>
+							<br>
+						@endif	
 						<div class="sharethis-inline-share-buttons "></div>
-
 					</div>
 					<div class="col-md-4 links_soc_prof">
 						<div class="clearfix"></div>
@@ -42,14 +45,6 @@
 					</div>
 					<div class="clearfix"></div>
 				</div>
-				<!--div class="text_personal">
-					<div class="text-container">
-						
-						<div class="truncate">
-							<p>David A. Sinclair, Ph.D. is a Professor in the Department of Genetics at Harvard Medical School and co-Director of the Paul F. Glenn Center for the Biological Mechanisms of Aging. He is best known for his work on understanding why we age and how to slow its effects. He contributed to the understanding of how sirtuins are modulated by endogenous molecules and pharmacological agents such as resveratrol. Dr. Sinclair is co-founder of several biotechnology companies (Sirtris, Ovascience, Genocea, Cohbar, MetroBiotech, ArcBio, Liberty Biosecurity) and is on the boards of several others. He is also co-founder and co-chief editor of the journal Aging. His work is featured in five books, two documentary movies, 60 Minutes, Morgan Freeman’s “Through the Wormhole” and other media. He is an inventor on 35 patents and has received more than 25 awards and honors including the CSL Prize, The Australian Commonwealth Prize, Thompson Prize, Helen Hay Whitney Postdoctoral Award, Charles Hood Fellowship, Leukemia Society Fellowship, Ludwig Scholarship, Harvard-Armenise Fellowship, American Association for Aging Research Fellowship, Nathan Shock Award from the National Institutes of Health, Ellison Medical Foundation Junior and Senior Scholar Awards, Merck Prize, Genzyme Outstanding Achievement in Biomedical Science Award, Bio-Innovator Award, David Murdock-Dole Lectureship, Fisher Honorary Lectureship, Les Lazarus Lectureship, Australian Medical Research Medal, The Frontiers in Aging and Regeneration Award, Top 100 Australian Innovators, and TIME magazine’s list of the “100 most influential people in the world”.
-						</div>
-					</div>
-				</div-->
 				<div class="voted_personal" id="voted_personal">
 					<h2>Voted <span>({{$user->scientists->count()}})</span></h2>
 					<div class="line_title_left"></div>

@@ -89,7 +89,12 @@ Route::get('/user/{user}','FBUserController@userProfile')->name('userProfile');
 Route::prefix('profile')->middleware('userLoged')->group(function(){
 	Route::post('/logout','FBUserController@logout')->name('fbLogout');
 	Route::get('/','FBUserController@myProfile')->name('myProfile');
+	Route::get('/works','FBUserController@userWorks')->name('userWorks');
 	Route::post('/vote-scientist','FBUserController@voteScientist')->name('voteScientist');
+
+	Route::post('/add-work','FBUserController@userAddWork')->name('userAddWork');
+	Route::post('/edit-work','FBUserController@userEditWork')->name('userEditWork');
+	Route::post('/delete-work','FBUserController@userDeleteWork')->name('userDeleteWork');
 });
 
 

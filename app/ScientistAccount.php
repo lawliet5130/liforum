@@ -35,7 +35,7 @@ class ScientistAccount extends Authenticatable
 	}
 
 	public function works(){
-		return $this->hasMany('App\Work','scientist_id');
+		return $this->morphMany('App\Work','workable');
 	}
 	
 	public function videos(){

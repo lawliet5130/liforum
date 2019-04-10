@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Mail\FraudAttempt;
 use App\FBUser;
+use App\Branch;
+use App\Work;
 
 use Socialite;
 use Illuminate\Http\File;
@@ -13,6 +15,7 @@ use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+use Validator;
 
 class FBUserController extends Controller
 {
@@ -23,7 +26,6 @@ class FBUserController extends Controller
     public function handleProviderCallback()
     {
         $user = Socialite::driver('facebook')->user();
-        dd($user);
 
 		if(!FBUser::where('provider_id',$user->id)->exists()){
         	$imageLocation=$this->resizeAvatar($user->avatar_original);
@@ -80,6 +82,72 @@ class FBUserController extends Controller
         }
     	return response()->json('success');
     }
+
+    public function userWorks(){
+        $user=Auth::guard('fb')->user();
+        $branches=Branch::all();
+
+        return view('pages.user-works',compact('user','branches'));
+    }
+
+    public function userAddWork(Request $request){
+        foreach ($request->data as $key => $value) {
+            $data[$value['name']]=$value['value'];
+        }
+
+        $validator=Validator::make($data,[
+            'title'=>'required',
+            'text'=>'min:150',
+            'link'=>'url',
+        ]);
+
+        $blade='prof-add-work';
+
+        if($validator->fails()){
+            return response()->json(['errors'=>$validator->errors()->getMessages()]);
+        }
+        
+        $item=new Work;
+
+        $item->workable_id=Auth::guard('fb')->user()->id;
+        $item->workable_type="App\FBUser";
+        $item->fill($data);
+        $item->save();
+
+        return response()->view('partials.'.$blade,compact('item'))->withHeaders(['iid'=>$item->id,'item'=>'work']);
+    }
+
+    public function userEditWork(Request $request){
+        foreach ($request->data as $key => $value) {
+            $data[$value['name']]=$value['value'];
+        }
+        
+        $textRule='min:150';
+
+        $blade='prof-add-work';
+
+        $validator=Validator::make($data,[
+            'title'=>'required',
+            'text'=>$textRule,
+            'link'=>'url',
+        ]);
+
+        if($validator->fails()){
+            return response()->json(['errors'=>$validator->errors()->getMessages()]);
+        }
+        $item=Auth::guard('fb')->user()->works->find($data['id']);
+        unset($data['id']);
+        $item->update($data);
+
+        return response()->view('partials.'.$blade,compact('item'))->withHeaders(['iid'=>$item->id]);
+    }
+
+    public function userDeleteWork(Request $request){
+        $item=Auth::guard('fb')->user()->works->find($request->id)->delete();
+        
+        return response()->json(['iid'=>$request->id]);
+    }
+
 
     protected function resizeAvatar($imageLink){
     	$image=file_get_contents($imageLink);
