@@ -22,7 +22,7 @@
 						<p class="special_personal"><span>User</span></p>
 						<div class="clearfix"></div>
 						@if(Route::currentRouteName()=="myProfile" && $user->getStars()>2)
-							<a href="{{route('userWorks')}}" class="btn btn-secondary"><i class="fa fa-edit"></i> Edit Works</a>
+							<a href="{{route('userWorks')}}" class="btn btn-secondary userEditWorks"><i class="fa fa-edit"></i> Edit Works</a>
 							<br>
 							<br>
 						@endif	

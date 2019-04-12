@@ -4821,14 +4821,20 @@ margin-bottom: 10px;
     position: absolute;
     right: 5px;
     top: 5px;
-  } 
+  }
+  
+  .userEditWorks{
+    margin: 20px 0 10px;
+  }
+
   .circle_btn_icon {
     background: #fff;
     border-radius: 100%;
     border:1px solid #ddd;
-    height: 30px;
-width: 30px;
-font-weight: bold;
+    height: 35px;
+    width: 35px;
+    font-weight: bold;
+    font-size: 16px;
   }
   .circle_btn_icon:hover {
     background: #05304b;

@@ -187,11 +187,13 @@
 		<!-- Login Form -->
 		<div class="paragraph_reg fadeIn first">
 			<p class="youare">Are you life science expert?</p>
-			<p class="youare2">Create your account to participate in the LIF Program.</p>
+			<p class="youare2">Send us a link to your scientific account and email.<br>Sincerely, Longevity Impact Forum Committee</p>
 		</div>
 		<form>
-			
-			<input type="submit" class="fadeIn fourth " value="Participate">
+			{{csrf_field()}}
+			<input type="text" class="fadeIn second" name="email" placeholder="E-mail" required>
+			<input type="text" class="fadeIn second" name="link" placeholder="Scientific account link" required>
+			<input type="submit" class="fadeIn fourth">
 			<p class="pre_reg fadeIn second">DAYS Methodology takes into account not only scientific articles but also your social impact.</p>
 		</form>
 	</div>

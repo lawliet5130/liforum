@@ -24,7 +24,8 @@ class Work extends Model
         if(get_class($item)=="App\FBUser"){
             $image=$item->avatar;
         }else{
-            $image=$item->image;
+            $voyager=new Voyager;
+            $image=$voyager->image($item->thumbnail('square', 'image'));
         }
 
         return $image;
