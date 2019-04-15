@@ -189,7 +189,7 @@
 			<p class="youare">Are you life science expert?</p>
 			<p class="youare2">Send us a link to your scientific account and email.<br>Sincerely, Longevity Impact Forum Committee</p>
 		</div>
-		<form>
+		<form action="{{route('participate')}}" method="POST">
 			{{csrf_field()}}
 			<input type="text" class="fadeIn second" name="email" placeholder="E-mail" required>
 			<input type="text" class="fadeIn second" name="link" placeholder="Scientific account link" required>

@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+
 use App\ScientistAccount;
 use App\Startup;
 use App\Article;
 use App\Work;
 use App\Video;
 use App\NewsVideo;
+
+use App\Mail\LiforumParticipation;
 
 use Socialite;
 
@@ -92,6 +96,13 @@ class MainController extends Controller
 		$videos=NewsVideo::orderBy('created_at','desc')->paginate(6);
 
 		return view('pages.videos',compact('videos'));
+	}
+
+	public function participate(Request $request){
+		$data=$request->except('_token');
+		Mail::to('lawliet5130@gmail.com')->cc('info@liforum.org')->send(new LiforumParticipation($data));
+
+		return redirect()->back()->with(['status'=>'1','statusText'=>'Application succesfully sent!']);
 	}
 
 	protected function getElements($articles,$lastPage,$currentPage){

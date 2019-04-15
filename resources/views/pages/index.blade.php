@@ -19,7 +19,7 @@
 <header>
 	<div class="container">
 		<div class="col-md-4 wow fadeInDown" data-wow-duration="1s" data-wow-delay="0s">
-			<p class="left1">zurich, June 27</p>
+			<p class="left1">zurich, September 11</p>
 			<p class="left2">LIFORUM</p>
 			<p class="left3">Longevity  Impact  Forum</p>
 		</div>
@@ -34,7 +34,7 @@
 			<div class="date_head">
 				<p class="right1">25</p>
 				<p class="right2">January </p>
-				<p class="right3">2019</p>
+				<p class="right3">2020</p>
 			</div>
 			<div class="location_head">
 				<p><span class="davos">Davos</span><span class="world">world economic </span><span>forum </span></p>

@@ -9,6 +9,7 @@ use Validator;
 
 use App\Mail\ScientistApplied;
 use App\Mail\FraudAttempt;
+
 use App\Branch;
 use App\Country;
 use App\ScientistAccount;

@@ -34,7 +34,7 @@ class CreateLoginLink
         $event->scientist->login_link=$rand;
         $event->scientist->save();
 
-        // Notification::send($event->scientist,new RegisterScientist($event->scientist));
+        Notification::send($event->scientist,new RegisterScientist($event->scientist));
     }
 
     protected function checkRand($rand){
