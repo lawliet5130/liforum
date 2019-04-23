@@ -145,7 +145,7 @@
 			<div class="container">
 				<div class="col-md-6 left_vote">
 					You vote for scientists
-					<a href="scientist_list.php" class="btn btn-secondary btn-lg">VOTE NOW</a>
+					<a href="{{route('getScList')}}" class="btn btn-secondary btn-lg">VOTE NOW</a>
 					<span>Rating of top-experts is based on liquid democracy principles: your vote matters</span>
 				</div>
 				<div class="col-md-6 right_vote">
@@ -299,6 +299,9 @@
 				</div>
 			</div>
 
+			<div class="clearfix"></div>
+			<br>
+			<a href="#" class="btn btn-secondary center" role="button" data-toggle="modal" data-target="#apply_for_advertising">Order advertising</a>
 		</div>
 	</section>
 

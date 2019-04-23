@@ -8,17 +8,14 @@
 						<img class="logo" src="/img/logo_footer.png" alt="">
 						<h5>Stay Connected</h5>
 						<ul class="cb-margin-medium-right">
-							<li>
-								<a rel="noopener" aria-label=" News" href="news.php">  News </a>
-							</li>
-							<li>
+							<!-- <li>
 								<a  aria-label="Subscribe" href="" role="button" data-toggle="modal" data-target="#subscribe-modal"> Subscribe to the  Daily </a>
-							</li>
+							</li> -->
 							<li class="cb-margin-medium-top">
-								<a href=""><i class="fa fa-facebook-official"></i></a>
-								<a href=""><i class="fa fa-twitter"></i></a>
-								<a href=""><i class="fa fa-instagram"></i></a>
-								<a href=""><i class="fa fa-linkedin"></i></a>
+								<a target="_blank" href="{{setting('site.fb_link')}}"><i class="fa fa-facebook-official"></i></a>
+								<a target="_blank" href="{{setting('site.tw_link')}}"><i class="fa fa-twitter"></i></a>
+								<a target="_blank" href="{{setting('site.in_link')}}"><i class="fa fa-instagram"></i></a>
+								<a target="_blank" href="{{setting('site.li_link')}}"><i class="fa fa-linkedin"></i></a>
 								
 								
 							</li>
@@ -29,22 +26,13 @@
 							<h5>Who We Are</h5>
 							<ul class="cb-margin-medium-right">
 								<li>
-									<a rel="noopener" target="" aria-label="Company" href="404.php"> 404 Page </a>
+									<a rel="noopener" aria-label="Partners" href="{{route('getHome',['#advr'])}}"> Partners </a>
 								</li>
 								<li>
-									<a rel="noopener" target="" aria-label="Careers" href="map_site.php"> Map site </a>
+									<a rel="noopener" aria-label="Advertise" href="{{route('getHome',['#advr'])}}"> Advertise </a>
 								</li>
 								<li>
-									<a rel="noopener" target="_blank" aria-label="Partners" href=""> Partners </a>
-								</li>
-								<li>
-									<a rel="noopener" target="_blank" aria-label="Advertise" href="{{route('getHome',['#advr'])}}"> Advertise </a>
-								</li>
-								<li>
-									<a rel="noopener" target="_blank" aria-label="Blog" href=""> Blog </a>
-								</li>
-								<li>
-									<a rel="noopener" target="_blank" aria-label="Contact Us" href=""> Contact Us </a>
+									<a href="#" data-toggle="modal" data-target="#feedback">Contact Us</a>
 								</li>
 							</ul>
 						</div>
@@ -54,6 +42,7 @@
 							<ul class="cb-margin-medium-right">
 								<li><a aria-label="Top Scientists" href="{{route('getScList')}}">Top Scientists</a></li>
 								<li><a aria-label="Best longevity companies" href="{{route('getStartups')}}">Best longevity companies</a></li>
+								<li><a aria-label="News" href="{{route('getNews')}}">News</a></li>
 							</ul>
 						</div>
 						<div class="col-md-4">
@@ -452,3 +441,51 @@
 	</div>
 </div>
 
+<!-- BEGIN # MODAL advertising-->
+<div class="modal fade" id="apply_for_advertising" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div id="formContent" class="formContent">
+		<!-- Tabs Titles -->
+		<!-- Icon -->
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+		</button>
+		<!-- Login Form -->
+		<div class="paragraph_reg fadeIn first">
+			<p class="youneed">My company is looking for collaboration!</p>
+			<!-- <p class="youare2">Send us a link to your scientific account and email.<br>Sincerely, Longevity Impact Forum Committee</p> -->
+		</div>
+		<form action="{{route('advertising')}}" method="POST">
+			{{csrf_field()}}
+			<input type="text" class="fadeIn second" name="company" placeholder="Company name" required="">
+			<input type="text" class="fadeIn second" name="email" placeholder="E-mail" required>
+			<input type="text" class="fadeIn second" name="link" placeholder="Link">
+			<input type="submit" class="fadeIn fourth">
+<!-- 			<p class="pre_reg fadeIn second">DAYS Methodology takes into account not only scientific articles but also your social impact.</p> -->
+		</form>
+	</div>
+</div>
+
+<!-- BEGIN # MODAL feedback-->
+<div class="modal fade" id="feedback" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div id="formContent" class="formContent">
+		<!-- Tabs Titles -->
+		<!-- Icon -->
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+		</button>
+		<!-- Login Form -->
+		<div class="paragraph_reg fadeIn first">
+			<p class="youneed">Send us your question and email.</p>
+			<!-- <p class="youare2">Send us a link to your scientific account and email.<br>Sincerely, Longevity Impact Forum Committee</p> -->
+		</div>
+		<form action="{{route('feedback')}}" method="POST">
+			{{csrf_field()}}
+			<input type="text" class="fadeIn second" name="email" placeholder="E-mail" required>
+			<div class="text_area_modal fadeIn second">
+				<textarea name="message" class="textarea_settings" placeholder="Message" required></textarea>
+			</div>
+			<input type="submit" class="fadeIn fourth">
+<!-- 			<p class="pre_reg fadeIn second">DAYS Methodology takes into account not only scientific articles but also your social impact.</p> -->
+		</form>
+	</div>
+</div>

@@ -16,6 +16,8 @@ use Illuminate\Http\Request;
 Route::get('/','MainController@getHome')->name('getHome');
 Route::get('/about','MainController@getAbout')->name('getAbout');
 Route::post('/participate','MainController@participate')->name('participate');
+Route::post('/advertising','MainController@advertising')->name('advertising');
+Route::post('/feedback','MainController@feedback')->name('feedback');
 
 // --------------Startups routes--------------
 Route::bind('stup',function($value){

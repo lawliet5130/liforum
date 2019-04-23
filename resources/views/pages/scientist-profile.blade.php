@@ -212,7 +212,7 @@
 					<div class="clearfix"></div> 
 					<div class="more_mews_butt">
 						<br>
-						<a href="news.php" class="btn btn-secondary center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" >All NEWS</a>
+						<a href="{{route('getNews')}}" class="btn btn-secondary center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s" >All NEWS</a>
 					</div>
 					<div class="clearfix"></div>
 

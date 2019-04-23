@@ -13,6 +13,8 @@ use App\Video;
 use App\NewsVideo;
 
 use App\Mail\LiforumParticipation;
+use App\Mail\AdvertisingApplication;
+use App\Mail\Feedback;
 
 use Socialite;
 
@@ -103,6 +105,20 @@ class MainController extends Controller
 		Mail::to('lawliet5130@gmail.com')->cc('info@liforum.org')->send(new LiforumParticipation($data));
 
 		return redirect()->back()->with(['status'=>'1','statusText'=>'Application succesfully sent!']);
+	}
+
+	public function advertising(Request $request){
+		$data=$request->except('_token');
+		Mail::to('lawliet5130@gmail.com')->cc('info@liforum.org')->send(new AdvertisingApplication($data));
+
+		return redirect()->back()->with(['status'=>'1','statusText'=>'Application succesfully sent!']);
+	}
+
+	public function feedback(Request $request){
+		$data=$request->except('_token');
+		Mail::to('lawliet5130@gmail.com')->cc('info@liforum.org')->send(new Feedback($data));
+
+		return redirect()->back()->with(['status'=>'1','statusText'=>'Feedback succesfully sent!']);
 	}
 
 	protected function getElements($articles,$lastPage,$currentPage){
