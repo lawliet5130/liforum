@@ -122,9 +122,8 @@
 					<div class="line_title_left"></div>
 					
 					<p>
-						1. Gather your collection of longevity technologies from our Knowledge base, <br>
-						2. click on the button "place on the DAYS Facebook page," <br>
-						3. and invite your friends to like. <br>
+						1. See our Documents on the top of page, <br>
+						2. Send your request by click on the button below. <br>
 					</p>
 					
 					<a href="#particip-modal" class="btn btn-secondary"  role="button" data-toggle="modal" data-target="#particip-modal">Participate</a>
